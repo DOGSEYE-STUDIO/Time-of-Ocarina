@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,9 +7,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 64f;
     [SerializeField] private int pixelsPerUnit = 16;
 
+    [SerializeField] private Sprite spriteUp;
+    [SerializeField] private Sprite spriteLeft;
+    [SerializeField] private Sprite spriteDown;
+    [SerializeField] private Sprite spriteRight;
+
     private Rigidbody2D rb;
     private Vector2 input;
+    private Vector2 oldinput;
     private Vector2 startPosition;
+    
 
     private float PixelSize => 1f / pixelsPerUnit;
 
@@ -26,7 +34,36 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!canMove) return;
 
+        oldinput = input;
+
         input = moveAction.action.ReadValue<Vector2>().normalized;
+
+        if (input != oldinput) 
+        {
+
+            if (input.y < 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteDown;
+            }
+
+            if (input.y > 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteUp;
+            }
+
+            if (input.x < 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteLeft;
+            }
+
+            if (input.x > 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteRight;
+            }
+
+            //gameObject.GetComponent<SpriteRenderer>().sprite = spriteLeft;
+        }
+
     }
 
     private void FixedUpdate()
