@@ -3,6 +3,11 @@ using UnityEngine.InputSystem;
 
 public class FullscreenToggle : MonoBehaviour
 {
+    private void Start()
+    {
+        //Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+    }
+
     private void Update()
     {
         if (Keyboard.current != null && Keyboard.current.f11Key.wasPressedThisFrame)
@@ -15,11 +20,11 @@ public class FullscreenToggle : MonoBehaviour
     {
         if (Screen.fullScreen)
         {
-            Screen.fullScreenMode = FullScreenMode.Windowed;
+            Screen.SetResolution(1200, 800, FullScreenMode.Windowed);
         }
         else
         {
-            Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+            Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
         }
     }
 }
