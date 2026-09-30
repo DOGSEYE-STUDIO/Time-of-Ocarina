@@ -5,7 +5,7 @@ public class FullscreenToggle : MonoBehaviour
 {
     private void Start()
     {
-        //Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        Screen.SetResolution(1920, 1080, FullScreenMode.FullScreenWindow);
     }
 
     private void Update()

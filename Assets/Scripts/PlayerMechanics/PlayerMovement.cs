@@ -12,63 +12,48 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Sprite spriteDown;
     [SerializeField] private Sprite spriteRight;
 
+    public bool IsMoving { get; private set; }
+
+    public Vector2 FacingDirection { get; private set; } = Vector2.down;
+
     private Rigidbody2D rb;
-    private Vector2 input;
-    private Vector2 oldinput;
+    private SpriteRenderer spriteRenderer;
+
+    private Vector2 moveInput;
     private Vector2 startPosition;
-    
+
 
     private float PixelSize => 1f / pixelsPerUnit;
-
-    public bool canMove = true;
-
-    public InputActionReference moveAction;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         startPosition = rb.position;
-    }
-
-    private void Update()
-    {
-        if (!canMove) return;
-
-        oldinput = input;
-
-        input = moveAction.action.ReadValue<Vector2>().normalized;
-
-        if (input != oldinput) 
-        {
-
-            if (input.y < 0)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = spriteDown;
-            }
-
-            if (input.y > 0)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = spriteUp;
-            }
-
-            if (input.x < 0)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = spriteLeft;
-            }
-
-            if (input.x > 0)
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = spriteRight;
-            }
-
-            //gameObject.GetComponent<SpriteRenderer>().sprite = spriteLeft;
-        }
-
     }
 
     private void FixedUpdate()
     {
-        Vector2 movement = input * (speed / pixelsPerUnit) * Time.fixedDeltaTime;
+        Move();
+    }
+
+    public void SetMoveInput(Vector2 input)
+    {
+        moveInput = input;
+
+        IsMoving = input != Vector2.zero;
+
+        if (IsMoving)
+        {
+            UpdateFacingDirection(input);
+            UpdateSprite();
+        }
+    }
+
+    public void Move()
+    {
+        Vector2 movement = moveInput * (speed / pixelsPerUnit) * Time.fixedDeltaTime;
         Vector2 target = rb.position + movement;
 
         target.x = startPosition.x + Mathf.Round((target.x - startPosition.x) / PixelSize) * PixelSize;
@@ -76,5 +61,31 @@ public class PlayerMovement : MonoBehaviour
 
         rb.MovePosition(target);
 
+    }
+
+    private void UpdateFacingDirection(Vector2 input)
+    {
+        if (Mathf.Abs(input.x) > Mathf.Abs(input.y)) { FacingDirection = input.x > 0 ? Vector2.right : Vector2.left; }
+        else { FacingDirection = input.y > 0 ? Vector2.up : Vector2.down; }
+    }
+
+    private void UpdateSprite()
+    {
+        if (FacingDirection == Vector2.up)
+        {
+            spriteRenderer.sprite = spriteUp;
+        }
+        else if (FacingDirection == Vector2.down)
+        {
+            spriteRenderer.sprite = spriteDown;
+        }
+        else if (FacingDirection == Vector2.left)
+        {
+            spriteRenderer.sprite = spriteLeft;
+        }
+        else if (FacingDirection == Vector2.right)
+        {
+            spriteRenderer.sprite = spriteRight;
+        }
     }
 }
