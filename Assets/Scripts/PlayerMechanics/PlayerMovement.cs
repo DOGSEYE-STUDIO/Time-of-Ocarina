@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 64f;
+    [SerializeField] private float speed = 5f;
     [SerializeField] private int pixelsPerUnit = 16;
 
     [SerializeField] private Sprite spriteUp;
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 FacingDirection { get; private set; } = Vector2.down;
 
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private Vector2 moveInput;
     private Vector2 startPosition;
@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
         startPosition = rb.position;
     }
@@ -47,13 +46,12 @@ public class PlayerMovement : MonoBehaviour
         if (IsMoving)
         {
             UpdateFacingDirection(input);
-            UpdateSprite();
         }
     }
 
     public void Move()
     {
-        Vector2 movement = moveInput * (speed / pixelsPerUnit) * Time.fixedDeltaTime;
+        Vector2 movement = moveInput * speed * Time.fixedDeltaTime;
         Vector2 target = rb.position + movement;
 
         target.x = startPosition.x + Mathf.Round((target.x - startPosition.x) / PixelSize) * PixelSize;
@@ -63,10 +61,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void UpdateFacingDirection(Vector2 input)
+    public void UpdateFacingDirection(Vector2 input)
     {
+        if (input == Vector2.zero) return;
+
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y)) { FacingDirection = input.x > 0 ? Vector2.right : Vector2.left; }
         else { FacingDirection = input.y > 0 ? Vector2.up : Vector2.down; }
+
+        UpdateSprite();
     }
 
     private void UpdateSprite()
