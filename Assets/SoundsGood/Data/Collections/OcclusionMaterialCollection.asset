@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2011b2c3a6d0716b589f81618da67295, type: 3}
+  m_Name: OcclusionMaterialCollection
+  m_EditorClassIdentifier: SoundsGood.Domain::MelenitasDev.SoundsGood.Domain.OcclusionMaterialDataCollection
+  materials:
+  - tag: Concrete
+    material: {fileID: 11400000, guid: 88f9e1db45e822346a1449cc496e056e, type: 2}
+  - tag: Metal
+    material: {fileID: 11400000, guid: b0d9d08b68caad846a7b86f9cc64e8c6, type: 2}
+  - tag: Wood
+    material: {fileID: 11400000, guid: 3d5880ead5cc9ae4c9bf8a040475921b, type: 2}
+  - tag: Glass
+    material: {fileID: 11400000, guid: 542996ae85772c845a52f6a69c747bd7, type: 2}
