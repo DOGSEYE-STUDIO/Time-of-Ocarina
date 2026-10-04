@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         Vector2 value = context.ReadValue<Vector2>().normalized;
 
         movement.SetMoveInput(value);
-        interaction.UpdateFacingDirection(value);
+        interaction.UpdateFacingDirection(movement.FacingDirection);
     }
 
     public void StopPlayerMovement()
