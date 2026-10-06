@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("InputActions")]
     public InputActionReference moveAction;
     public InputActionReference attackAction;
+    public InputActionReference interactAction;
 
     public static PlayerController Instance { get; private set; }
 
@@ -39,6 +40,9 @@ public class PlayerController : MonoBehaviour
 
         attackAction.action.performed += OnAttack;
         attackAction.action.Enable();
+
+        interactAction.action.performed += OnInteract;
+        interactAction.action.Enable();
     }
 
     private void OnDisable()
@@ -49,6 +53,9 @@ public class PlayerController : MonoBehaviour
 
         attackAction.action.performed -= OnAttack;
         attackAction.action.Disable();
+
+        interactAction.action.performed -= OnInteract;
+        interactAction.action.Disable();
     }
 
     // MOVEMENT
@@ -74,6 +81,7 @@ public class PlayerController : MonoBehaviour
         moveAction.action.canceled += OnMove;
 
         movement.SetMoveInput(moveAction.action.ReadValue<Vector2>());
+        interaction.UpdateFacingDirection(movement.FacingDirection);
     }
 
     public bool isPlayerMoving() { return movement.IsMoving; }
@@ -95,5 +103,21 @@ public class PlayerController : MonoBehaviour
     public void ResumePlayerAttack()
     {
         attackAction.action.performed += OnAttack;
+    }
+
+    // INTERACT
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        interaction.Interact();
+    }
+
+    public void StopPlayerInteraction()
+    {
+        interactAction.action.performed -= OnInteract;
+    }
+
+    public void ResumePlayerInteraction()
+    {
+        interactAction.action.performed += OnInteract;
     }
 }

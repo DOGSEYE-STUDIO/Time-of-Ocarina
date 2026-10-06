@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject hitbox;
+    public InteractHitbox hitbox;
 
     public void UpdateFacingDirection(Vector2 input)
     {
@@ -10,5 +10,13 @@ public class PlayerInteraction : MonoBehaviour
 
         float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
         hitbox.transform.localRotation = Quaternion.Euler(0, 0, angle + 90f);
+    }
+
+    public void Interact()
+    {
+        if (hitbox.interactable != null)
+        {
+            hitbox.interactable.OnPlayerInteract();
+        }
     }
 }

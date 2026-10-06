@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class InteractHitbox : MonoBehaviour
 {
+    public APlayerInteractable interactable;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        APlayerInteractable interactable = other.GetComponent<APlayerInteractable>();
+        interactable = other.GetComponent<APlayerInteractable>();
+    }
 
-        if (interactable != null)
-        {
-            interactable.OnPlayerInteract();
-        }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        interactable = null;
     }
 }

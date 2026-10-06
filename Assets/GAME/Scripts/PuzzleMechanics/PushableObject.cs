@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class PushableObject : MonoBehaviour
+public class PushableObject : APlayerInteractable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void OnPlayerInteract()
     {
-        
+        MoveObject();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MoveObject()
     {
-        
+
     }
 }
