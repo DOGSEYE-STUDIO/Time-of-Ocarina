@@ -120,4 +120,19 @@ public class PlayerController : MonoBehaviour
     {
         interactAction.action.performed += OnInteract;
     }
+
+    // GENERAL
+    public void StopPlayer()
+    {
+        StopPlayerMovement();
+        StopPlayerAttack();
+        StopPlayerInteraction();
+    }
+
+    public void ResumePlayer()
+    {
+        ResumePlayerMovement();
+        ResumePlayerAttack();
+        ResumePlayerInteraction();
+    }
 }
