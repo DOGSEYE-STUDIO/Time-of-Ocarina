@@ -1,6 +1,5 @@
-using Unity.VisualScripting;
+using DG.Tweening;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -59,6 +58,28 @@ public class PlayerMovement : MonoBehaviour
 
         rb.MovePosition(target);
 
+    }
+
+    public void MovePlayer(int tiles, float duration, Vector2 direction)
+    {
+        IsMoving = true;
+
+        PlayerController.Instance.StopPlayer();
+
+        Vector2 tileMovement = direction * tiles;
+
+        Vector2 target = rb.position + tileMovement;
+
+        Sequence pushSequence = DOTween.Sequence();
+        
+        pushSequence.Join(rb.DOMove(target, duration).SetEase(Ease.Linear));
+
+        pushSequence.OnComplete(() =>
+        {
+            IsMoving = false;
+
+            PlayerController.Instance.ResumePlayer();
+        });
     }
 
     public void UpdateFacingDirection(Vector2 input)

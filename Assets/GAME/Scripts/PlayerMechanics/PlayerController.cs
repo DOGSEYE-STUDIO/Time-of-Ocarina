@@ -67,6 +67,13 @@ public class PlayerController : MonoBehaviour
         interaction.UpdateFacingDirection(movement.FacingDirection);
     }
 
+    public void MovePlayer(int tiles, float duration, Vector2 direction = new Vector2())
+    {
+        if (direction == Vector2.zero) direction = movement.FacingDirection;
+
+        movement.MovePlayer(tiles, duration, direction);
+    }
+
     public void StopPlayerMovement()
     {
         movement.SetMoveInput(Vector2.zero);
@@ -85,6 +92,8 @@ public class PlayerController : MonoBehaviour
     }
 
     public bool isPlayerMoving() { return movement.IsMoving; }
+
+    public Vector2 GetFacingDirection() { return movement.FacingDirection; }
 
     // ATTACK
     private void OnAttack(InputAction.CallbackContext context)

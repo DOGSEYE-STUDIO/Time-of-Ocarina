@@ -29,26 +29,13 @@ public class PushableObject : APlayerInteractable
 
         PlayerController.Instance.StopPlayer();
 
-        PlayerMovement playerMovement =
-            PlayerController.Instance.GetComponent<PlayerMovement>();
+        Vector2 tileMovement = PlayerController.Instance.GetFacingDirection() * (pixelsPerTile / 16f);
 
-        Rigidbody2D playerRb =
-            PlayerController.Instance.GetComponent<Rigidbody2D>();
-
-        Vector2 direction = playerMovement.FacingDirection;
-
-        Vector2 tileMovement = direction * (pixelsPerTile / 16f);
-
-        Vector2 playerTarget = playerRb.position + tileMovement;
         Vector2 objectTarget = rb.position + tileMovement;
 
-        Sequence pushSequence = DOTween.Sequence();
+        PlayerController.Instance.MovePlayer(1, pushDuration);
 
-        pushSequence.Join(
-            playerRb
-                .DOMove(playerTarget, pushDuration)
-                .SetEase(Ease.Linear)
-        );
+        Sequence pushSequence = DOTween.Sequence();
 
         pushSequence.Join(
             rb
