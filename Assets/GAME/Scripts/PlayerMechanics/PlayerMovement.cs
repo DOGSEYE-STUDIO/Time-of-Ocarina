@@ -12,6 +12,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Sprite spriteRight;
 
     public bool IsMoving { get; private set; }
+    private bool isMovingWithTween;
+
+    public bool IsBlocked { get; private set; }
+
+    private Vector2 positionBeforeMove;
+    private bool wasTryingToMove;
+    private const float BlockedThreshold = 0.0001f;
 
     public Vector2 FacingDirection { get; private set; } = Vector2.down;
 
@@ -20,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 moveInput;
     private Vector2 startPosition;
-
 
     private float PixelSize => 1f / pixelsPerUnit;
 
@@ -33,6 +39,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isMovingWithTween)
+        {
+            IsBlocked = false;
+            wasTryingToMove = false;
+            return;
+        }
+
+        if (wasTryingToMove)
+        {
+            float distanceMoved = Vector2.Distance( rb.position, positionBeforeMove );
+
+            IsBlocked = moveInput != Vector2.zero && distanceMoved < BlockedThreshold;
+        }
+        else
+        {
+            IsBlocked = false;
+        }
+
+        positionBeforeMove = rb.position;
+        wasTryingToMove = moveInput != Vector2.zero;
+
         Move();
     }
 
@@ -41,6 +68,12 @@ public class PlayerMovement : MonoBehaviour
         moveInput = input;
 
         IsMoving = input != Vector2.zero;
+
+        if (!IsMoving)
+        {
+            IsBlocked = false;
+            wasTryingToMove = false;
+        }
 
         if (IsMoving)
         {
@@ -63,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
     public void MovePlayer(int tiles, float duration, Vector2 direction)
     {
         IsMoving = true;
+        isMovingWithTween = true;
 
         PlayerController.Instance.StopPlayer();
 
@@ -77,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
         pushSequence.OnComplete(() =>
         {
             IsMoving = false;
+            isMovingWithTween = false;
 
             PlayerController.Instance.ResumePlayer();
         });

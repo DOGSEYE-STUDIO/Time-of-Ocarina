@@ -1,53 +1,78 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class PushableObject : APlayerInteractable
 {
-    [SerializeField] private float pushDuration = 0.4f;
-
     private Rigidbody2D rb;
-
-    private int pixelsPerTile = 16;
     private bool isMoving;
+
+    private Vector2 collisionBoxSize = new Vector2(0.9f, 0.9f);
+    private Vector2 collisionBoxOffset = Vector2.zero;
+
+    private readonly Collider2D[] overlapResults = new Collider2D[32];
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public override void OnPlayerInteract()
+    public override void OnPlayerInteract() { }
+
+    public void Push(Vector2 direction, float distance, float duration, Action onComplete)
     {
         if (isMoving)
             return;
 
-        MoveObject();
-    }
-
-    private void MoveObject()
-    {
         isMoving = true;
 
-        PlayerController.Instance.StopPlayer();
+        Vector2 target = rb.position + direction * distance;
 
-        Vector2 tileMovement = PlayerController.Instance.GetFacingDirection() * (pixelsPerTile / 16f);
+        rb.DOMove(target, duration)
+            .SetEase(Ease.Linear)
+            .OnComplete(() =>
+            {
+                isMoving = false;
+                onComplete?.Invoke();
+            });
+    }
 
-        Vector2 objectTarget = rb.position + tileMovement;
+    public bool CanPush(Vector2 direction, float distance)
+    {
+        Vector2 targetPosition = rb.position + direction * distance;
 
-        PlayerController.Instance.MovePlayer(1, pushDuration);
-
-        Sequence pushSequence = DOTween.Sequence();
-
-        pushSequence.Join(
-            rb
-                .DOMove(objectTarget, pushDuration)
-                .SetEase(Ease.Linear)
+        int count = Physics2D.OverlapBox(
+            targetPosition + collisionBoxOffset,
+            collisionBoxSize,
+            rb.rotation,
+            new ContactFilter2D
+            {
+                useTriggers = true
+            },
+            overlapResults
         );
 
-        pushSequence.OnComplete(() =>
+        for (int i = 0; i < count; i++)
         {
-            isMoving = false;
+            Collider2D hit = overlapResults[i];
 
-            PlayerController.Instance.ResumePlayer();
-        });
+            if (hit == null)
+                continue;
+
+            // Ignoramos los colliders del propio objeto.
+            if (hit.transform == transform ||
+                hit.transform.IsChildOf(transform))
+                continue;
+
+            // Ignoramos los colliders que pertenecen al jugador.
+            if (hit.transform == PlayerController.Instance.transform ||
+                hit.transform.IsChildOf(PlayerController.Instance.transform))
+                continue;
+
+            // Cualquier otro collider bloquea el empuje.
+            return false;
+        }
+
+        return true;
     }
 }

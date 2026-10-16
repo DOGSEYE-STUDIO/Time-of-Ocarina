@@ -69,9 +69,24 @@ public class PlayerController : MonoBehaviour
 
     public void MovePlayer(int tiles, float duration, Vector2 direction = new Vector2())
     {
-        if (direction == Vector2.zero) direction = movement.FacingDirection;
+        if (direction == new Vector2()) direction = movement.FacingDirection;
 
         movement.MovePlayer(tiles, duration, direction);
+    }
+
+    public bool IsHoldingDirection(Vector2 direction)
+    {
+        Vector2 input = moveAction.action.ReadValue<Vector2>();
+
+        if (input == Vector2.zero)
+            return false;
+
+        if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
+            input = input.x > 0 ? Vector2.right : Vector2.left;
+        else
+            input = input.y > 0 ? Vector2.up : Vector2.down;
+
+        return input == direction;
     }
 
     public void StopPlayerMovement()
@@ -128,6 +143,11 @@ public class PlayerController : MonoBehaviour
     public void ResumePlayerInteraction()
     {
         interactAction.action.performed += OnInteract;
+    }
+
+    public APlayerInteractable GetCurrentInteractable()
+    {
+        return interaction.hitbox.interactable;
     }
 
     // GENERAL

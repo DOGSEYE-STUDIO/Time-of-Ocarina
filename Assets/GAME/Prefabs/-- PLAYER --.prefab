@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 7793398036082112706}
   - component: {fileID: 6174437662301588607}
   - component: {fileID: 7826722120687428736}
+  - component: {fileID: 2061103394163061492}
   m_Layer: 0
   m_Name: -- PLAYER --
   m_TagString: Untagged
@@ -292,7 +293,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -357,6 +358,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   hitbox: {fileID: 7044232960134466380}
+--- !u!114 &2061103394163061492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035997641239303737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca91e3f310e52f43828d51081eec51b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPush
+  pushHoldDelay: 0.25
+  pushDuration: 0.4
+  playerSprite: {fileID: 5771333143794856085}
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  touchingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  pushingColor: {r: 0, g: 0.86782575, b: 1, a: 1}
 --- !u!1 &5714049957089758194
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +500,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.13}
+  m_Size: {x: 0.125, y: 0.125}
   m_EdgeRadius: 0
 --- !u!1 &6201813123697631558
 GameObject:
@@ -727,7 +746,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5625, z: 0}
-  m_LocalScale: {x: 1, y: 0.13, z: 1}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3350122790859452020}
