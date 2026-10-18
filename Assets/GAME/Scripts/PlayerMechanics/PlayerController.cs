@@ -6,11 +6,13 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement movement;
     private PlayerAttack basicAttack;
     private PlayerInteraction interaction;
+    private PlayerSpecial special;
 
     [Header("InputActions")]
     public InputActionReference moveAction;
     public InputActionReference attackAction;
     public InputActionReference interactAction;
+    public InputActionReference specialAction;
 
     public static PlayerController Instance { get; private set; }
 
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         basicAttack = GetComponent<PlayerAttack>();
         interaction = GetComponent<PlayerInteraction>();
+        special = GetComponent<PlayerSpecial>();
     }
 
     private void OnEnable()
@@ -43,6 +46,11 @@ public class PlayerController : MonoBehaviour
 
         interactAction.action.performed += OnInteract;
         interactAction.action.Enable();
+
+        specialAction.action.performed += OnUseSpecial;
+        specialAction.action.started += OnSpecialStarted;
+        specialAction.action.canceled += OnSpecialCanceled;
+        specialAction.action.Enable();
     }
 
     private void OnDisable()
@@ -56,6 +64,11 @@ public class PlayerController : MonoBehaviour
 
         interactAction.action.performed -= OnInteract;
         interactAction.action.Disable();
+
+        specialAction.action.performed -= OnUseSpecial;
+        specialAction.action.started -= OnSpecialStarted;
+        specialAction.action.canceled -= OnSpecialCanceled;
+        specialAction.action.Disable();
     }
 
     // MOVEMENT
@@ -129,6 +142,32 @@ public class PlayerController : MonoBehaviour
         attackAction.action.performed += OnAttack;
     }
 
+    // SPECIAL
+    private void OnUseSpecial(InputAction.CallbackContext context)
+    {
+        special.UseSpecial(movement.FacingDirection);
+    }
+
+    private void OnSpecialStarted(InputAction.CallbackContext context)
+    {
+        special.SetSpecialButtonHeld(true);
+    }
+
+    private void OnSpecialCanceled(InputAction.CallbackContext context)
+    {
+        special.SetSpecialButtonHeld(false);
+    }
+
+    public void StopPlayerSpecial()
+    {
+        specialAction.action.performed -= OnUseSpecial;
+    }
+
+    public void ResumePlayerSpecial()
+    {
+        specialAction.action.performed += OnUseSpecial;
+    }
+
     // INTERACT
     private void OnInteract(InputAction.CallbackContext context)
     {
@@ -156,6 +195,7 @@ public class PlayerController : MonoBehaviour
         StopPlayerMovement();
         StopPlayerAttack();
         StopPlayerInteraction();
+        StopPlayerSpecial();
     }
 
     public void ResumePlayer()
@@ -163,5 +203,6 @@ public class PlayerController : MonoBehaviour
         ResumePlayerMovement();
         ResumePlayerAttack();
         ResumePlayerInteraction();
+        ResumePlayerSpecial();
     }
 }
