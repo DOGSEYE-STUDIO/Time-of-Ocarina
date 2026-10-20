@@ -31,7 +31,7 @@ public class FrisbeeItem : SpecialItem
 
         projectile.OnReturned += () => activeFrisbee = null;
         projectile.SetButtonHeld(isButtonHeld);
-        projectile.Launch( facingDirection, PlayerController.Instance.transform;
+        projectile.Launch(facingDirection, PlayerController.Instance.transform);
     }
 
     public override void SetButtonHeld(bool held)

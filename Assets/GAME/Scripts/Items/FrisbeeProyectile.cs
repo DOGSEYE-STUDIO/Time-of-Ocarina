@@ -117,4 +117,25 @@ public class FrisbeeProyectile : MonoBehaviour
     {
         outboundSequence?.Kill();
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        AFrisbeeInteractable interactable = other.gameObject.GetComponent<AFrisbeeInteractable>();
+
+        if (interactable != null)
+        {
+            interactable.OnFrisbeeHit();
+
+            if (!interactable.ReturnOnHit) return;
+        }
+
+        if (isReturning) return;
+
+        if (other.gameObject.CompareTag("Player")) return;
+
+        isReturning = true;
+        isWaitingToReturn = false;
+
+        outboundSequence?.Kill();
+    }
 }
