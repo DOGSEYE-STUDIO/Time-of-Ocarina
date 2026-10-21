@@ -10,8 +10,7 @@ public class SwordHitbox : MonoBehaviour
     public bool DebugMode;
     public Transform debugSprite;
 
-
-    public void Start()
+    private void Start()
     {
         debugSprite.gameObject.SetActive(DebugMode);
     }
