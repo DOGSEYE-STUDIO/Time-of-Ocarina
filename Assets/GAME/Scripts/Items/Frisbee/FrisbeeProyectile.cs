@@ -133,6 +133,8 @@ public class FrisbeeProyectile : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player")) return;
 
+        if (other.gameObject.GetComponent<InteractHitbox>() != null || other.gameObject.GetComponent<PressurePlate>() != null) return;
+
         isReturning = true;
         isWaitingToReturn = false;
 

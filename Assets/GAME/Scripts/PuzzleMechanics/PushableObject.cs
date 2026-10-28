@@ -56,20 +56,12 @@ public class PushableObject : APlayerInteractable
         {
             Collider2D hit = overlapResults[i];
 
-            if (hit == null)
-                continue;
+            if (hit == null) continue;
 
-            // Ignoramos los colliders del propio objeto.
-            if (hit.transform == transform ||
-                hit.transform.IsChildOf(transform))
-                continue;
+            if (hit.transform == PlayerController.Instance.transform || hit.transform.IsChildOf(PlayerController.Instance.transform)) continue;
 
-            // Ignoramos los colliders que pertenecen al jugador.
-            if (hit.transform == PlayerController.Instance.transform ||
-                hit.transform.IsChildOf(PlayerController.Instance.transform))
-                continue;
+            if (hit.gameObject.GetComponent<PressurePlate>() != null) continue;
 
-            // Cualquier otro collider bloquea el empuje.
             return false;
         }
 

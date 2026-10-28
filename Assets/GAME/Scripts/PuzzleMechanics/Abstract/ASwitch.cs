@@ -22,14 +22,19 @@ public abstract class ASwitch : MonoBehaviour
     {
         IsOn = !IsOn;
         UpdateSprite();
-        OnStateChanged?.Invoke(IsOn);
+        UpdateState();
     }
 
-    private void UpdateSprite()
+    protected void UpdateSprite()
     {
         if (spriteRenderer == null)
             return;
 
         spriteRenderer.sprite = IsOn ? onSprite : offSprite;
+    }
+
+    protected void UpdateState()
+    {
+        OnStateChanged?.Invoke(IsOn);
     }
 }

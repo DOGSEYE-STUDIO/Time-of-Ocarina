@@ -29,14 +29,11 @@ public class SwitchBlock : MonoBehaviour
 
     private void UpdateBlock(bool isOn)
     {
-        bool shouldBeActive =
-            blockColor == BlockColor.Red ? !isOn : isOn;
+        bool shouldBeActive = blockColor == BlockColor.Red ? !isOn : isOn;
 
         if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = shouldBeActive
-                ? activeSprite
-                : inactiveSprite;
+            spriteRenderer.sprite = shouldBeActive ? activeSprite : inactiveSprite;
         }
 
         if (blockCollider != null)
