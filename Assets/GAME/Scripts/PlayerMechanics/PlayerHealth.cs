@@ -2,7 +2,6 @@ using DG.Tweening;
 using MelenitasDev.SoundsGood;
 using MoreMountains.Feedbacks;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -36,13 +35,13 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage, Vector2 sourcePosition)
     {
-        if (Time.time < _invulnerableUntil) return;
+        if (CurrentHealth <= 0 || Time.time < _invulnerableUntil) return;
 
         CurrentHealth -= damage;
 
         if (CurrentHealth <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameOverMenu.Instance.Show();
             return;
         }
 
