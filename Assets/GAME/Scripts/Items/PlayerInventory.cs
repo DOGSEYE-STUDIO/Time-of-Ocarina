@@ -8,6 +8,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private int smallKeys = 0;
     [SerializeField] private int coins = 0;
     public bool HasBossKey { get; private set; }
+    public int Coins { get { return coins; } }
 
     public Action OnKeyChange;
     public Action OnCoinChange;
