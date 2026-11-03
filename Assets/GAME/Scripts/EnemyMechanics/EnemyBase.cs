@@ -7,6 +7,7 @@ public class EnemyBase : ASwordInteractable
     [SerializeField] private int _health = 100;
     [SerializeField] private int _damagePerHit = 10;
     [SerializeField] private float _knockbackForce = 5f;
+    [SerializeField] private int _contactDamage = 1;
     protected Rigidbody2D _rb;
 
     //Feedbacks
@@ -41,6 +42,13 @@ public class EnemyBase : ASwordInteractable
 
         // Sonido
         _sfxPlayer.Play();
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
+
+        if (player != null) player.TakeDamage(_contactDamage, transform.position);
     }
 
     public void Die()

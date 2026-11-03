@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 7826722120687428736}
   - component: {fileID: 2061103394163061492}
   - component: {fileID: 8373479508396218978}
+  - component: {fileID: 345964873083064912}
   m_Layer: 0
   m_Name: -- PLAYER --
   m_TagString: Player
@@ -568,6 +569,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpecial
   EquippedItem: {fileID: 4546971146039744595}
+--- !u!114 &345964873083064912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035997641239303737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9040d5645c1f7f4da21125105632d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  _maxHealth: 6
+  _invulnerableTime: 1
+  _knockbackSpeed: 10
+  _knockbackTime: 0.12
+  _sprite: {fileID: 5771333143794856085}
+  _hitFeedback: {fileID: 0}
 --- !u!1 &5714049957089758194
 GameObject:
   m_ObjectHideFlags: 0
