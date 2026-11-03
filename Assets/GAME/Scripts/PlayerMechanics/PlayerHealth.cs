@@ -10,7 +10,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float _invulnerableTime = 1f;
     [SerializeField] private float _knockbackSpeed = 10f;
     [SerializeField] private float _knockbackTime = 0.12f;
-    [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private MMF_Player _hitFeedback;
 
     private Rigidbody2D _rb;
@@ -54,10 +53,6 @@ public class PlayerHealth : MonoBehaviour
             _knockbackDirection = (_rb.position - sourcePosition).normalized;
             _knockbackTimer = _knockbackTime;
         }
-
-        int blinks = Mathf.RoundToInt(_invulnerableTime / 0.08f / 2f) * 2;
-        _sprite.DOKill();
-        _sprite.DOFade(0.2f, 0.08f).SetLoops(blinks, LoopType.Yoyo).SetLink(gameObject);
 
         new Sound(SFX.hit).SetOutput(Output.SFX).Play();
         if (_hitFeedback != null) _hitFeedback.PlayFeedbacks();
