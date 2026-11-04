@@ -5285,6 +5285,7 @@ GameObject:
   - component: {fileID: 8220172052554773660}
   - component: {fileID: 3455988417230537368}
   - component: {fileID: 5318135896454817754}
+  - component: {fileID: 2584211398726788865}
   m_Layer: 0
   m_Name: Enemy Follow
   m_TagString: Untagged
@@ -5397,6 +5398,25 @@ MonoBehaviour:
   _detectionRange: 6
   _moveSpeed: 3
   _stunDuration: 0.3
+--- !u!114 &2584211398726788865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4231754250742392381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90f29447b8d593418cd33b5ebfb07bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDrop
+  _dropsList:
+  - prefab: {fileID: 0}
+    weight: 40
+  - prefab: {fileID: 3467115669531355755, guid: df585c9c11272e846b912c35e1db56f8, type: 3}
+    weight: 40
+  - prefab: {fileID: 7491310310269221634, guid: 2f78b9a01eeb3e74fa4387b8e72a73f6, type: 3}
+    weight: 20
 --- !u!1 &5872845682497593954
 GameObject:
   m_ObjectHideFlags: 0

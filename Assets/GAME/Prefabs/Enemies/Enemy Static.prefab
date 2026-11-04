@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5263472882449542212}
   - component: {fileID: 9153786130748660435}
   - component: {fileID: 2652662244434531027}
+  - component: {fileID: 893469267357023316}
   m_Layer: 0
   m_Name: Enemy Static
   m_TagString: Untagged
@@ -121,6 +122,25 @@ MonoBehaviour:
   particlesFeedback: {fileID: 2327540055412254500}
   cameraFeedback: {fileID: 2687960742433685662}
   _sfxPlayer: {fileID: 541876651422355072}
+--- !u!114 &893469267357023316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573504172008826416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90f29447b8d593418cd33b5ebfb07bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDrop
+  _dropsList:
+  - prefab: {fileID: 0}
+    weight: 80
+  - prefab: {fileID: 3467115669531355755, guid: df585c9c11272e846b912c35e1db56f8, type: 3}
+    weight: 18
+  - prefab: {fileID: 7491310310269221634, guid: 2f78b9a01eeb3e74fa4387b8e72a73f6, type: 3}
+    weight: 2
 --- !u!1 &3808845573193154515
 GameObject:
   m_ObjectHideFlags: 0

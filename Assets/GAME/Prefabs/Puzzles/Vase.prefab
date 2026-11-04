@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4255902331966894234}
   - component: {fileID: 3229830805740656392}
   - component: {fileID: 6747022990921436829}
+  - component: {fileID: 3607831455688010288}
   m_Layer: 0
   m_Name: Vase
   m_TagString: Untagged
@@ -133,6 +134,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523e4ce62ab3aff4591161d8949a66b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordBreakableDrop
+--- !u!114 &3607831455688010288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024407838755825153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90f29447b8d593418cd33b5ebfb07bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDrop
   _dropsList:
   - prefab: {fileID: 0}
     weight: 60

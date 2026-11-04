@@ -2,6 +2,7 @@ using MelenitasDev.SoundsGood;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 
+[RequireComponent(typeof(ItemDrop))]
 public class EnemyBase : ASwordInteractable
 {
     [SerializeField] private int _health = 100;
@@ -54,6 +55,7 @@ public class EnemyBase : ASwordInteractable
     public void Die()
     {
         // Muere
+        GetComponent<ItemDrop>().Drop();
         Destroy(gameObject);
     }
     
