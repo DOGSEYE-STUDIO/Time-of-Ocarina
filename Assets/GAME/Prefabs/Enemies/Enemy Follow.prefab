@@ -5389,7 +5389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFollowPlayer
   _health: 100
   _damagePerHit: 10
-  _knockbackForce: 5
+  _knockbackForce: 10
+  _contactDamage: 1
   particlesFeedback: {fileID: 360347378374329345}
   cameraFeedback: {fileID: 4714382527827783468}
   _sfxPlayer: {fileID: 2595918321526222432}

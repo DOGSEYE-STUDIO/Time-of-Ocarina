@@ -3,6 +3,7 @@ using MelenitasDev.SoundsGood;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 
+[DefaultExecutionOrder(100)]
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int _maxHealth = 6;
