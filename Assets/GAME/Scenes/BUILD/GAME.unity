@@ -1822,7 +1822,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.7, y: -0.97, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2275,6 +2275,30 @@ MonoBehaviour:
     FrequencyGain: 1
     Duration: 1
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!1 &905989171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1024407838755825153, guid: f028f63bf0b80a94cba16bf0e8d64148, type: 3}
+  m_PrefabInstance: {fileID: 1429510057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &905989177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905989171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523e4ce62ab3aff4591161d8949a66b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwordBreakableDrop
+  _dropsList:
+  - prefab: {fileID: 0}
+    weight: 60
+  - prefab: {fileID: 3467115669531355755, guid: df585c9c11272e846b912c35e1db56f8, type: 3}
+    weight: 30
+  - prefab: {fileID: 7491310310269221634, guid: 2f78b9a01eeb3e74fa4387b8e72a73f6, type: 3}
+    weight: 10
 --- !u!1 &1063560920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,10 +3281,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9215085982625053672, guid: f028f63bf0b80a94cba16bf0e8d64148, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1024407838755825153, guid: f028f63bf0b80a94cba16bf0e8d64148, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 905989177}
   m_SourcePrefab: {fileID: 100100000, guid: f028f63bf0b80a94cba16bf0e8d64148, type: 3}
 --- !u!1001 &1435680697
 PrefabInstance:
@@ -4594,6 +4622,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 345964873083064912, guid: 0df5f9d6360d337498b6a28718c2c8ab, type: 3}
+      propertyPath: _knockbackSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5035997641239303737, guid: 0df5f9d6360d337498b6a28718c2c8ab, type: 3}
       propertyPath: m_Name
       value: -- PLAYER --

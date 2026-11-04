@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7515895510895897575}
   - component: {fileID: 6487735391132630808}
-  - component: {fileID: 9215085982625053672}
   - component: {fileID: 4255902331966894234}
   - component: {fileID: 3229830805740656392}
+  - component: {fileID: 6747022990921436829}
   m_Layer: 0
   m_Name: Vase
   m_TagString: Untagged
@@ -82,18 +82,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9215085982625053672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024407838755825153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0198b721bb63c024fae898a8e2623f9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwordBreakable
 --- !u!114 &4255902331966894234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +121,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6747022990921436829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024407838755825153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523e4ce62ab3aff4591161d8949a66b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwordBreakableDrop
+  _dropsList:
+  - prefab: {fileID: 0}
+    weight: 60
+  - prefab: {fileID: 3467115669531355755, guid: df585c9c11272e846b912c35e1db56f8, type: 3}
+    weight: 30
+  - prefab: {fileID: 7491310310269221634, guid: 2f78b9a01eeb3e74fa4387b8e72a73f6, type: 3}
+    weight: 10
 --- !u!1 &6874454520334953696
 GameObject:
   m_ObjectHideFlags: 0
