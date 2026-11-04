@@ -24,7 +24,11 @@ public class ItemDrop : MonoBehaviour
             roll -= _dropsList[i].weight;
             if (roll > 0f) continue;
 
-            if (_dropsList[i].prefab != null) Instantiate(_dropsList[i].prefab, transform.position, Quaternion.identity);
+            if (_dropsList[i].prefab != null)
+            {
+                GameObject item = Instantiate(_dropsList[i].prefab, transform.position, Quaternion.identity);
+                item.GetComponent<DropFall>().Play();
+            }
             return;
         }
     }
