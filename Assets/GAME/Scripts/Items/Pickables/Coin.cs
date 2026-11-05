@@ -1,4 +1,5 @@
 using System;
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class Coin : APickable
@@ -8,6 +9,7 @@ public class Coin : APickable
     public override void OnPickup()
     {
         PlayerInventory.Instance.AddCoins(_amount);
+        new Sound(SFX.coin).SetOutput(Output.SFX).Play();
         Destroy(gameObject);
     }
 

@@ -24,6 +24,8 @@ public class Chest : APlayerInteractable
 
         _opened = true;
 
+        new Sound(SFX.ChestOpen).SetOutput(Output.SFX).Play();
+
         if (_openSprite != null) _renderer.sprite = _openSprite;
 
         APickable item = Instantiate(_itemPrefab, _spawnPoint.position, Quaternion.identity);
@@ -42,7 +44,5 @@ public class Chest : APlayerInteractable
     {
         item.OnPickup();
         Destroy(item.gameObject);
-
-        new Sound(SFX.coin).SetOutput(Output.SFX).Play();
     }
 }

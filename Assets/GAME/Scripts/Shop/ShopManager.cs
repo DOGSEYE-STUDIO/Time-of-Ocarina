@@ -1,3 +1,4 @@
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -36,6 +37,7 @@ public class ShopManager : MonoBehaviour
     {
         ReturnHeld();
 
+        new Sound(SFX.ShopPick).SetOutput(Output.SFX).Play();
         Held = item;
         item.gameObject.SetActive(false);
         _heldIcon.sprite = item.Sprite;

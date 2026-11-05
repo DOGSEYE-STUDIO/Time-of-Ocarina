@@ -323,7 +323,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 9a749f78185acb44fb522e54f4e5c1c9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd972de1fc739e743bedca812df292c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
-  hitbox: {fileID: 5754067731197267074}
+  hitbox: {fileID: 0}
 --- !u!1 &5714049957089758194
 GameObject:
   m_ObjectHideFlags: 0

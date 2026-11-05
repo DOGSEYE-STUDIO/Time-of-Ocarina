@@ -34,3 +34,48 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 0961788c7173d654e8a664e31dd85b0b, type: 3}
     compressionPreset: 1
     forceToMono: 1
+  - tag: SwordSwing
+    clips:
+    - {fileID: 8300000, guid: 83e12bc2a9e7c466f85a0a9056f121ef, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: ChestOpen
+    clips:
+    - {fileID: 8300000, guid: 16e89c535fc76465eb13606cb2c2a039, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: VaseBreak
+    clips:
+    - {fileID: 8300000, guid: 876f70b03d1d7443287c0369542a7c0f, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: HeartPickup
+    clips:
+    - {fileID: 8300000, guid: 7336cd5e6e4f74693ac6c4b607b671ef, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: Buy
+    clips:
+    - {fileID: 8300000, guid: 3202e32342f284a42a3dd45f0ac9bd01, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: Error
+    clips:
+    - {fileID: 8300000, guid: 0dfe9f9829141478689194368436b534, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: Talk
+    clips:
+    - {fileID: 8300000, guid: 801a894d272f24eb5ad28f5219e62bfe, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: GrassCut
+    clips:
+    - {fileID: 8300000, guid: 7f25e4d1fb85541e5b86dd24eec1b76a, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: ShopPick
+    clips:
+    - {fileID: 8300000, guid: 4110772b9efb94e5b919923d775a1ca7, type: 3}
+    compressionPreset: 1
+    forceToMono: 1

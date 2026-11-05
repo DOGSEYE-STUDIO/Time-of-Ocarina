@@ -1,4 +1,5 @@
 using DG.Tweening;
+using MelenitasDev.SoundsGood;
 using System.Globalization;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     public void Attack(Vector2 attackDirection)
     {
         sword.SetActive(true);
+        new Sound(SFX.SwordSwing).SetOutput(Output.SFX).Play();
 
         //Temporal hasta tener la animación
         float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;

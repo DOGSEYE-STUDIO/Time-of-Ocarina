@@ -1,3 +1,4 @@
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class HeartPickup : APickable
@@ -7,5 +8,6 @@ public class HeartPickup : APickable
     public override void OnPickup()
     {
         PlayerController.Instance.GetComponent<PlayerHealth>().Heal(_amount);
+        new Sound(SFX.HeartPickup).SetOutput(Output.SFX).Play();
     }
 }
