@@ -17,6 +17,8 @@ public class PushableObject : APlayerInteractable
         rb = GetComponent<Rigidbody2D>();
     }
 
+    public override string ActionText { get { return ""; } }
+
     public override void OnPlayerInteract() { }
 
     public void Push(Vector2 direction, float distance, float duration, Action onComplete)

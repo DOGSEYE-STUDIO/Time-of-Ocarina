@@ -16,6 +16,8 @@ public class Chest : APlayerInteractable
 
     private bool _opened;
 
+    public override string ActionText { get { return _opened ? "" : "Abrir"; } }
+
     public override void OnPlayerInteract()
     {
         if (_opened) return;

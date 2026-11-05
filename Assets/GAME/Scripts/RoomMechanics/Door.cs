@@ -14,6 +14,8 @@ public class Door : APlayerInteractable
     public Sprite closedSprite;
     public Sprite lockedSprite;
 
+    public override string ActionText { get { return isLocked ? "Abrir" : ""; } }
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();

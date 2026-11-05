@@ -6,11 +6,12 @@ public class InteractHitbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        interactable = other.GetComponent<APlayerInteractable>();
+        APlayerInteractable found = other.GetComponent<APlayerInteractable>();
+        if (found != null) interactable = found;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        interactable = null;
+        if (other.GetComponent<APlayerInteractable>() == interactable) interactable = null;
     }
 }
