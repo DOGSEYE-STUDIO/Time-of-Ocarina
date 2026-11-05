@@ -40,7 +40,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddCoins(int newCoins)
     {
         coins += newCoins;
-        OnKeyChange?.Invoke();
+        OnCoinChange?.Invoke();
     }
 
     public void RemoveCoins(int newCoins)
