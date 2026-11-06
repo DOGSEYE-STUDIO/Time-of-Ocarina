@@ -16,10 +16,12 @@ public class PlayerHud : MonoBehaviour
     [SerializeField] private Sprite _interactIcon;
 
     private PlayerHealth _health;
+    private Hotbar _hotbar;
 
     private void Start()
     {
         _health = PlayerController.Instance.GetComponent<PlayerHealth>();
+        _hotbar = PlayerController.Instance.GetComponent<Hotbar>();
     }
 
     private void Update()
@@ -37,7 +39,7 @@ public class PlayerHud : MonoBehaviour
 
         if (interactable == null || interactable.ActionText == "")
         {
-            _actionText.text = "Atacar";
+            _actionText.text = _hotbar.Selected == 0 ? "Atacar" : "Usar";
             _actionIcon.sprite = _attackIcon;
         }
         else

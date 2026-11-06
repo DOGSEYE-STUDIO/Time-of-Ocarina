@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private PlayerAttack basicAttack;
     private PlayerInteraction interaction;
     private PlayerSpecial special;
+    private Hotbar hotbar;
 
     [Header("InputActions")]
     public InputActionReference moveAction;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         basicAttack = GetComponent<PlayerAttack>();
         interaction = GetComponent<PlayerInteraction>();
         special = GetComponent<PlayerSpecial>();
+        hotbar = GetComponent<Hotbar>();
     }
 
     private void OnEnable()
@@ -126,6 +128,12 @@ public class PlayerController : MonoBehaviour
     // ATTACK
     private void OnAttack(InputAction.CallbackContext context)
     {
+        if (hotbar.Selected != 0)
+        {
+            hotbar.UseSelected();
+            return;
+        }
+
         Vector2 value = moveAction.action.ReadValue<Vector2>();
         movement.UpdateFacingDirection(value);
 

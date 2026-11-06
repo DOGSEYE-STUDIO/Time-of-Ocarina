@@ -608,6 +608,7 @@ GameObject:
   - component: {fileID: 2061103394163061492}
   - component: {fileID: 8373479508396218978}
   - component: {fileID: 8404662924885360269}
+  - component: {fileID: 3481526028564962117}
   m_Layer: 0
   m_Name: -- PLAYER --
   m_TagString: Player
@@ -833,6 +834,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
   hitbox: {fileID: 0}
+--- !u!114 &3481526028564962117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035997641239303737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbd70c83e0130f4f9aeb8bf052e02e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hotbar
 --- !u!1 &5714049957089758194
 GameObject:
   m_ObjectHideFlags: 0

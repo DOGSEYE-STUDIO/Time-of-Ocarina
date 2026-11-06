@@ -58,11 +58,9 @@ public class ShopManager : MonoBehaviour
         if (Held == null) return false;
         if (!PlayerInventory.Instance.HasEnoughCoins(Held.Price)) return false;
 
-        PlayerInventory.Instance.RemoveCoins(Held.Price);
+        if (!PlayerController.Instance.GetComponent<Hotbar>().AddItem(Held.Reward)) return false;
 
-        APickable reward = Instantiate(Held.Reward, PlayerController.Instance.transform.position, Quaternion.identity);
-        reward.OnPickup();
-        Destroy(reward.gameObject);
+        PlayerInventory.Instance.RemoveCoins(Held.Price);
 
         Held = null;
         _heldIcon.enabled = false;
