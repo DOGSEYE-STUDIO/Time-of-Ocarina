@@ -21,6 +21,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _creditsPanel;
     [SerializeField] private CanvasGroup _pressStartText;
     [SerializeField] private Transform _infoButtonRoot;
+    [SerializeField] private CanvasGroup _pressStartGroup;
+    [SerializeField] private CanvasGroup _mainGroup;
+    [SerializeField] private RectTransform _sidePanel;
+    [SerializeField] private RectTransform _bigLogo;
+    [SerializeField] private Image _wave;
 
     [Header("Botones")]
     [SerializeField] private Button _playButton;
@@ -81,11 +86,24 @@ public class MainMenu : MonoBehaviour
 
     private void ShowMainPanel()
     {
-        new Sound(SFX.coin).SetOutput(Output.SFX).Play();
+        new Sound(SFX.hit).SetOutput(Output.SFX).Play();
 
-        _pressStartPanel.SetActive(false);
+        _pressStartText.gameObject.SetActive(false);
         _mainPanel.SetActive(true);
+        _mainGroup.alpha = 0;
+        _sidePanel.anchoredPosition = new Vector2(-_sidePanel.sizeDelta.x, 0);
         EventSystem.current.SetSelectedGameObject(_playButton.gameObject);
+
+        _wave.gameObject.SetActive(true);
+        _wave.transform.localScale = Vector3.one * 0.2f;
+        _wave.color = new Color(1, 1, 1, 0.8f);
+        _wave.transform.DOScale(3f, 1f).SetEase(Ease.OutCubic).SetLink(gameObject);
+        _wave.DOFade(0, 1f).SetLink(gameObject).OnComplete(() => _wave.gameObject.SetActive(false));
+
+        _bigLogo.DOPunchScale(Vector3.one * 0.15f, 0.4f).SetLink(gameObject);
+        _pressStartGroup.DOFade(0, 0.5f).SetDelay(0.3f).SetLink(gameObject).OnComplete(() => _pressStartPanel.SetActive(false));
+        _mainGroup.DOFade(1, 0.6f).SetDelay(0.3f).SetLink(gameObject);
+        _sidePanel.DOAnchorPosX(0, 0.6f).SetDelay(0.3f).SetEase(Ease.OutBack).SetLink(gameObject);
     }
 
     private void Open(GameObject panel, Button firstButton)
