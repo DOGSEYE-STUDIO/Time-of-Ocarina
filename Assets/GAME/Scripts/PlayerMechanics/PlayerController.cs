@@ -89,6 +89,16 @@ public class PlayerController : MonoBehaviour
         movement.MovePlayer(tiles, duration, direction);
     }
 
+    public void SetPlayerSpeed(float newSpeed)
+    {
+        movement.SetSpeed(newSpeed);
+    }
+
+    public float GetPlayerSpeed()
+    {
+        return movement.GetSpeed();
+    }
+
     public bool IsHoldingDirection(Vector2 direction)
     {
         Vector2 input = moveAction.action.ReadValue<Vector2>();

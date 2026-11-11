@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 positionBeforeMove;
     private bool wasTryingToMove;
     private const float BlockedThreshold = 0.0001f;
+    private Vector2 movementAccumulator;
 
     public Vector2 FacingDirection { get; private set; } = Vector2.down;
 
@@ -48,9 +49,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (wasTryingToMove)
         {
-            float distanceMoved = Vector2.Distance( rb.position, positionBeforeMove );
+            float distanceMoved = Vector2.Distance(rb.position, positionBeforeMove);
 
-            IsBlocked = moveInput != Vector2.zero && distanceMoved < BlockedThreshold;
+            IsBlocked = moveInput != Vector2.zero && distanceMoved < BlockedThreshold && speed * Time.fixedDeltaTime >= PixelSize;
         }
         else
         {
@@ -71,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!IsMoving)
         {
+            movementAccumulator = Vector2.zero;
             IsBlocked = false;
             wasTryingToMove = false;
         }
@@ -83,20 +85,25 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        Vector2 movement = moveInput * speed * Time.fixedDeltaTime;
-        Vector2 target = rb.position + movement;
+        movementAccumulator += moveInput * speed * Time.fixedDeltaTime;
 
-        target.x = startPosition.x + Mathf.Round((target.x - startPosition.x) / PixelSize) * PixelSize;
-        target.y = startPosition.y + Mathf.Round((target.y - startPosition.y) / PixelSize) * PixelSize;
+        Vector2 pixelMovement = new Vector2(
+            Mathf.Round(movementAccumulator.x / PixelSize),
+            Mathf.Round(movementAccumulator.y / PixelSize)
+        );
+
+        Vector2 target = rb.position + pixelMovement * PixelSize;
+
+        movementAccumulator -= pixelMovement * PixelSize;
 
         rb.MovePosition(target);
-
     }
 
     public void MovePlayer(int tiles, float duration, Vector2 direction)
     {
         IsMoving = true;
         isMovingWithTween = true;
+        movementAccumulator = Vector2.zero;
 
         PlayerController.Instance.StopPlayer();
 
@@ -112,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         {
             IsMoving = false;
             isMovingWithTween = false;
+            movementAccumulator = Vector2.zero;
 
             PlayerController.Instance.ResumePlayer();
         });
@@ -145,5 +153,15 @@ public class PlayerMovement : MonoBehaviour
         {
             spriteRenderer.sprite = spriteRight;
         }
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
     }
 }
