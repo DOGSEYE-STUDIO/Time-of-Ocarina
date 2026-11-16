@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: fd0d47fbf0289334caea7e99c8a11fdf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9078698899381248794
+    second: heart_icon-DEAD_0
+  - first:
+      213: -201427694358769783
+    second: heart_icon-DEAD_1
+  - first:
+      213: 6511422424202190069
+    second: heart_icon-DEAD_2
+  - first:
+      213: 7963424499491298385
+    second: heart_icon-DEAD_3
+  - first:
+      213: 6670027851217392275
+    second: heart_icon-DEAD_4
+  - first:
+      213: -337130966171934110
+    second: heart_icon-DEAD_5
+  - first:
+      213: -4028507936468864739
+    second: heart_icon-DEAD_6
+  - first:
+      213: 9200643169846608710
+    second: heart_icon-DEAD_7
+  - first:
+      213: -7925589390228228800
+    second: heart_icon-DEAD_8
+  - first:
+      213: -773061841473062629
+    second: heart_icon-DEAD_9
+  - first:
+      213: -1733851143467776834
+    second: heart_icon-DEAD_10
+  - first:
+      213: -6820551537303723324
+    second: heart_icon-DEAD_11
+  - first:
+      213: 8978482239827821925
+    second: heart_icon-DEAD_12
+  - first:
+      213: -7848449568609030656
+    second: heart_icon-DEAD_13
+  - first:
+      213: -7067126669875862262
+    second: heart_icon-DEAD_14
+  - first:
+      213: 5653237131815311165
+    second: heart_icon-DEAD_15
+  - first:
+      213: -3575724527860692630
+    second: heart_icon-DEAD_16
+  - first:
+      213: 2564243715605724128
+    second: heart_icon-DEAD_17
+  - first:
+      213: 4710675454887447792
+    second: heart_icon-DEAD_18
+  - first:
+      213: -3272045373796385231
+    second: heart_icon-DEAD_19
+  - first:
+      213: -1755104684421315670
+    second: heart_icon-DEAD_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: heart_icon-DEAD_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 9
+        width: 137
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1369584c840efd70800000000000000
+      internalID: 9078698899381248794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 8
+        width: 137
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fc1d54492643df0800000000000000
+      internalID: -201427694358769783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_2
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 9
+        width: 137
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fc951122383d5a50800000000000000
+      internalID: 6511422424202190069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_3
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 9
+        width: 137
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15c52d7e364c38e60800000000000000
+      internalID: 7963424499491298385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_4
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 8
+        width: 137
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39256c9cdf2b09c50800000000000000
+      internalID: 6670027851217392275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_5
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 3
+        width: 131
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 262a9862c25425bf0800000000000000
+      internalID: -337130966171934110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_6
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 3
+        width: 81
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d117eef206dd718c0800000000000000
+      internalID: -4028507936468864739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_7
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 90
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 643c4d347304faf70800000000000000
+      internalID: 9200643169846608710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_8
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 59
+        width: 70
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04577dfe076a20290800000000000000
+      internalID: -7925589390228228800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_9
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 85
+        width: 70
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b19b69dd9588545f0800000000000000
+      internalID: -773061841473062629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_10
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 85
+        width: 70
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb4c234429f10f7e0800000000000000
+      internalID: -1733851143467776834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_11
+      rect:
+        serializedVersion: 2
+        x: 1457
+        y: 3
+        width: 81
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c264ce73888851a0800000000000000
+      internalID: -6820551537303723324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_12
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 20
+        width: 70
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 565471fe60af99c70800000000000000
+      internalID: 8978482239827821925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_13
+      rect:
+        serializedVersion: 2
+        x: 1614
+        y: 9
+        width: 137
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00ead7143b4b41390800000000000000
+      internalID: -7848449568609030656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_14
+      rect:
+        serializedVersion: 2
+        x: 1774
+        y: 9
+        width: 137
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a052c5bacb58ced90800000000000000
+      internalID: -7067126669875862262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_15
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 2
+        width: 81
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3756e02835547e40800000000000000
+      internalID: 5653237131815311165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_16
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 76
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a694636ac79706ec0800000000000000
+      internalID: -3575724527860692630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_17
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 2
+        width: 81
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ebf43ac216069320800000000000000
+      internalID: 2564243715605724128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_18
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 55
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fcc7b43e5eaf5140800000000000000
+      internalID: 4710675454887447792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_19
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 56
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ef7ed811c5792d0800000000000000
+      internalID: -3272045373796385231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_icon-DEAD_20
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 43
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa38175a69d94a7e0800000000000000
+      internalID: -1755104684421315670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      heart_icon-DEAD_0: 9078698899381248794
+      heart_icon-DEAD_1: -201427694358769783
+      heart_icon-DEAD_10: -1733851143467776834
+      heart_icon-DEAD_11: -6820551537303723324
+      heart_icon-DEAD_12: 8978482239827821925
+      heart_icon-DEAD_13: -7848449568609030656
+      heart_icon-DEAD_14: -7067126669875862262
+      heart_icon-DEAD_15: 5653237131815311165
+      heart_icon-DEAD_16: -3575724527860692630
+      heart_icon-DEAD_17: 2564243715605724128
+      heart_icon-DEAD_18: 4710675454887447792
+      heart_icon-DEAD_19: -3272045373796385231
+      heart_icon-DEAD_2: 6511422424202190069
+      heart_icon-DEAD_20: -1755104684421315670
+      heart_icon-DEAD_3: 7963424499491298385
+      heart_icon-DEAD_4: 6670027851217392275
+      heart_icon-DEAD_5: -337130966171934110
+      heart_icon-DEAD_6: -4028507936468864739
+      heart_icon-DEAD_7: 9200643169846608710
+      heart_icon-DEAD_8: -7925589390228228800
+      heart_icon-DEAD_9: -773061841473062629
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
