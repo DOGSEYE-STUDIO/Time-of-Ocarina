@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,17 @@ public class HotbarUI : MonoBehaviour
     [SerializeField] private RectTransform _selector;
 
     private Hotbar _hotbar;
+    private RectTransform _rect;
+    private float _shownY;
+    private float _hiddenY;
 
     private void Start()
     {
+        _rect = (RectTransform)transform;
+        _shownY = _rect.anchoredPosition.y;
+        _hiddenY = -_rect.rect.height;
+        _rect.anchoredPosition = new Vector2(_rect.anchoredPosition.x, _hiddenY);
+
         _hotbar = PlayerController.Instance.GetComponent<Hotbar>();
         _hotbar.OnChanged += Refresh;
         Refresh();
@@ -33,5 +42,8 @@ public class HotbarUI : MonoBehaviour
         }
 
         _selector.position = _icons[_hotbar.Selected].transform.position;
+
+        _rect.DOKill();
+        _rect.DOAnchorPosY(_hotbar.IsOpen ? _shownY : _hiddenY, 0.3f).SetEase(Ease.OutCubic);
     }
 }

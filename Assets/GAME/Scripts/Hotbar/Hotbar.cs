@@ -11,6 +11,7 @@ public class Hotbar : MonoBehaviour
     public event Action OnChanged;
 
     public int Selected { get; private set; }
+    public bool IsOpen { get; private set; }
 
     public APickable GetConsumable(int slot)
     {
@@ -19,8 +20,18 @@ public class Hotbar : MonoBehaviour
 
     private void Update()
     {
-        int previous = Selected;
         Keyboard keyboard = Keyboard.current;
+
+        if (keyboard.tabKey.wasPressedThisFrame)
+        {
+            IsOpen = !IsOpen;
+            if (!IsOpen) Selected = 0;
+            OnChanged();
+        }
+
+        if (!IsOpen) return;
+
+        int previous = Selected;
         if (keyboard.digit1Key.wasPressedThisFrame) Selected = 0;
         if (keyboard.digit2Key.wasPressedThisFrame) Selected = 1;
         if (keyboard.digit3Key.wasPressedThisFrame) Selected = 2;
