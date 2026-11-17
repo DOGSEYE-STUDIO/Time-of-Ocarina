@@ -8,12 +8,12 @@ public class StairSpawn : MonoBehaviour
     public GameObject bottomRow;
     public GameObject pit;
 
-    private ChangeSpeedPlayer speedPlayer;
+    private BoxCollider2D collider;
 
     void Start()
     {
-        speedPlayer = GetComponent<ChangeSpeedPlayer>();
-        speedPlayer.enabled = false;
+        collider = GetComponent<BoxCollider2D>();
+        collider.enabled = false;
 
         topRow.SetActive(false);
         bottomRow.SetActive(false);
@@ -27,6 +27,6 @@ public class StairSpawn : MonoBehaviour
         bottomRow.SetActive(isOn);
         pit.SetActive(!isOn);
 
-        speedPlayer.enabled = isOn;
+        collider.enabled = isOn;
     }
 }
