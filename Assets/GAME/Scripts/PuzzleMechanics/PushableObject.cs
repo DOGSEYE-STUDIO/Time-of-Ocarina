@@ -12,6 +12,8 @@ public class PushableObject : APlayerInteractable
 
     private readonly Collider2D[] overlapResults = new Collider2D[32];
 
+    private int pixelsPerUnit = 16;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,7 +21,7 @@ public class PushableObject : APlayerInteractable
 
     public override string ActionText { get { return ""; } }
 
-    public override void OnPlayerInteract() { }
+    public override void OnPlayerInteract() {}
 
     public void Push(Vector2 direction, float distance, float duration, Action onComplete)
     {
@@ -28,13 +30,18 @@ public class PushableObject : APlayerInteractable
 
         isMoving = true;
 
-        Vector2 target = rb.position + direction * distance;
+        Vector2 startPosition = SnapToPixel(rb.position);
+        Vector2 target = startPosition + direction * distance;
+
+        rb.position = startPosition;
 
         rb.DOMove(target, duration)
             .SetEase(Ease.Linear)
             .OnComplete(() =>
             {
+                rb.position = target;
                 isMoving = false;
+
                 onComplete?.Invoke();
             });
     }
@@ -68,5 +75,15 @@ public class PushableObject : APlayerInteractable
         }
 
         return true;
+    }
+
+    private Vector2 SnapToPixel(Vector2 position)
+    {
+        float pixelSize = 1f / pixelsPerUnit;
+
+        position.x = Mathf.Round(position.x / pixelSize) * pixelSize;
+        position.y = Mathf.Round(position.y / pixelSize) * pixelSize;
+
+        return position;
     }
 }

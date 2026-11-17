@@ -1,29 +1,29 @@
-
 using UnityEngine;
-using DG.Tweening;
 
 public class PlayerPush : MonoBehaviour
 {
     [Header("Push Settings")]
-    [SerializeField] private float pushHoldDelay = 0.25f;
     [SerializeField] private float pushDuration = 0.4f;
 
     private int pixelsPerTile = 16;
 
-    [Header("Placeholder")]
-    [SerializeField] private SpriteRenderer playerSprite;
-    [SerializeField] private Color baseColor = Color.white;
-    [SerializeField] private Color touchingColor = Color.yellow;
-    [SerializeField] private Color pushingColor = Color.blue;
-
     private PlayerController player;
     private PlayerMovement movement;
-    private PlayerInteraction interaction;
 
     private PushableObject targetObject;
 
-    private float holdTimer;
     private bool isPushing;
+    private bool isMovingObject;
+    private bool wantsToRelease;
+
+    private bool playerMoveFinished;
+    private bool objectMoveFinished;
+
+    private float alignDuration = 0.1f;
+
+    private Vector2 pushDirection;
+
+    private bool isAligning;
 
     public bool IsPushing => isPushing;
 
@@ -31,107 +31,131 @@ public class PlayerPush : MonoBehaviour
     {
         player = GetComponent<PlayerController>();
         movement = GetComponent<PlayerMovement>();
-        interaction = GetComponent<PlayerInteraction>();
     }
 
     private void Update()
     {
-        if (isPushing)
-        {
-            UpdatePlayerColor();
+        if (!isPushing)
             return;
-        }
 
-        UpdatePushTarget();
+        Vector2 input = player.GetMovementInput();
 
-        if (targetObject == null)
-        {
-            holdTimer = 0f;
-            UpdatePlayerColor();
+        if (isMovingObject)
             return;
-        }
 
-        Vector2 facing = movement.FacingDirection;
-
-        if (!player.IsHoldingDirection(facing))
-        {
-            holdTimer = 0f;
-            UpdatePlayerColor();
+        if (isAligning)
             return;
-        }
 
-        holdTimer += Time.deltaTime;
+        Vector2 direction = GetPushDirection(input);
 
-        UpdatePlayerColor();
+        if (direction == Vector2.zero)
+            return;
 
-        if (holdTimer >= pushHoldDelay)
-        {
-            holdTimer = 0f;
-            StartPush(facing);
-            UpdatePlayerColor();
-        }
+        PushObject(direction);
     }
 
-    private void UpdatePushTarget()
+    private Vector2 GetPushDirection(Vector2 input)
     {
-        APlayerInteractable interactable = interaction.hitbox.interactable;
-        targetObject = interactable as PushableObject;
+        if (input == Vector2.zero)
+            return Vector2.zero;
+
+        if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
+            return input.x > 0 ? Vector2.right : Vector2.left;
+
+        return input.y > 0 ? Vector2.up : Vector2.down;
     }
 
-
-    private void StartPush(Vector2 direction)
+    public void TryGrab(PushableObject pushable)
     {
-        if (targetObject == null || isPushing)
+        if (isPushing || pushable == null)
             return;
 
-        PushableObject currentObject = targetObject;
+        pushDirection = movement.FacingDirection;
+
+        targetObject = pushable;
+        isPushing = true;
+        wantsToRelease = false;
+        isAligning = true;
+
+        movement.SetPushing(true);
+
+        movement.AlignToObject(
+            targetObject.transform,
+            pushDirection,
+            alignDuration,
+            () =>
+            {
+                isAligning = false;
+
+                if (wantsToRelease)
+                    FinishRelease();
+            }
+        );
+    }
+
+    private void PushObject(Vector2 direction)
+    {
+        if (targetObject == null || isMovingObject)
+            return;
 
         float tileSize = pixelsPerTile / 16f;
 
-        // Comprobamos si el objeto puede avanzar un tile.
-        if (!currentObject.CanPush(direction, tileSize))
-        {
-            holdTimer = 0f;
+        if (!movement.CanMove(direction, tileSize, targetObject.transform))
             return;
-        }
 
-        // Solo iniciamos el empuje si el destino está libre.
-        isPushing = true;
+        if (!targetObject.CanPush(direction, tileSize))
+            return;
 
-        player.MovePlayer(1, pushDuration, direction);
+        isMovingObject = true;
+        playerMoveFinished = false;
+        objectMoveFinished = false;
 
-        currentObject.Push(direction, tileSize, pushDuration, () =>
+        movement.MovePlayer(1, pushDuration, direction, () =>
         {
-            isPushing = false;
-            holdTimer = 0f;
+            playerMoveFinished = true;
+            CheckMovementFinished();
+        });
 
-            UpdatePlayerColor();
+        targetObject.Push(direction, tileSize, pushDuration, () =>
+        {
+            objectMoveFinished = true;
+            CheckMovementFinished();
         });
     }
 
-    public void CancelPush()
+    private void CheckMovementFinished()
     {
-        holdTimer = 0f;
-    }
-
-    private void UpdatePlayerColor()
-    {
-        if (playerSprite == null)
+        if (!playerMoveFinished || !objectMoveFinished)
             return;
 
-        if (isPushing)
+        isMovingObject = false;
+
+        if (wantsToRelease)
         {
-            playerSprite.color = pushingColor;
+            FinishRelease();
         }
-        else if (movement.IsBlocked ||
-                 (targetObject != null &&
-                  player.IsHoldingDirection(movement.FacingDirection)))
+    }
+
+    public void ReleaseObject()
+    {
+        if (!isPushing)
+            return;
+
+        if (isMovingObject || isAligning)
         {
-            playerSprite.color = touchingColor;
+            wantsToRelease = true;
+            return;
         }
-        else
-        {
-            playerSprite.color = baseColor;
-        }
+
+        FinishRelease();
+    }
+
+    private void FinishRelease()
+    {
+        isPushing = false;
+        wantsToRelease = false;
+        targetObject = null;
+
+        movement.SetPushing(false);
     }
 }

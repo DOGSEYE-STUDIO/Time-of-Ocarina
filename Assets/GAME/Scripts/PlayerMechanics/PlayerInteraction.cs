@@ -4,6 +4,13 @@ public class PlayerInteraction : MonoBehaviour
 {
     public InteractHitbox hitbox;
 
+    private PlayerPush playerPush;
+
+    private void Awake()
+    {
+        playerPush = GetComponent<PlayerPush>();
+    }
+
     public void UpdateFacingDirection(Vector2 input)
     {
         if (input == Vector2.zero) return;
@@ -18,5 +25,20 @@ public class PlayerInteraction : MonoBehaviour
         {
             hitbox.interactable.OnPlayerInteract();
         }
+    }
+
+    public void BeginInteract()
+    {
+        PushableObject pushable = hitbox.interactable as PushableObject;
+
+        if (pushable != null)
+        {
+            playerPush.TryGrab(pushable);
+        }
+    }
+
+    public void EndInteract()
+    {
+        playerPush.ReleaseObject();
     }
 }

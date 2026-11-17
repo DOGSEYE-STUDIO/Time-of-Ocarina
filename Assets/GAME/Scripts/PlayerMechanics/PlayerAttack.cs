@@ -2,15 +2,15 @@ using DG.Tweening;
 using MelenitasDev.SoundsGood;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private GameObject sword;
     [SerializeField] private SwordHitbox hitbox;
 
-    private float attackDuration = 0.25f;
+    private float attackDuration = 0.21f;
 
-    private Sequence attackSequence;
     private void Start()
     {
         sword.SetActive(false);
@@ -18,27 +18,24 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack(Vector2 attackDirection)
     {
-        sword.SetActive(true);
         new Sound(SFX.SwordSwing).SetOutput(Output.SFX).Play();
 
-        //Temporal hasta tener la animación
-        float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
-        sword.transform.localRotation = Quaternion.Euler(0, 0, angle + 90f);
+        sword.SetActive(true);
 
-        attackSequence?.Kill();
-
-        attackSequence = DOTween.Sequence();
-        attackSequence.AppendCallback(() =>
-        {
-            PlayerController.Instance.StopPlayerMovement();
-            hitbox.HitboxMove(attackDuration);
-        });
-        attackSequence.Append(sword.transform.DOLocalMove(attackDirection, 0));
-        attackSequence.AppendInterval(attackDuration);
-        attackSequence.AppendCallback(() => 
-        {
-            sword.SetActive(false); 
+        PlayerController.Instance.PlayAnimation("Attack_" + GetDirectionName(PlayerController.Instance.GetFacingDirection()), () => {
             PlayerController.Instance.ResumePlayerMovement();
-        });
+            sword.SetActive(false);
+            });
+        PlayerController.Instance.StopPlayerMovement();
+        hitbox.HitboxMove(attackDuration, attackDirection);
+    }
+
+    private string GetDirectionName(Vector2 facing)
+    {
+        if (facing == Vector2.up) return "Up";
+        if (facing == Vector2.down) return "Down";
+        if (facing == Vector2.left) return "Left";
+
+        return "Right";
     }
 }

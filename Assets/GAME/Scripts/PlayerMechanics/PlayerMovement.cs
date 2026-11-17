@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -6,60 +7,38 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private int pixelsPerUnit = 16;
 
-    [SerializeField] private Sprite spriteUp;
-    [SerializeField] private Sprite spriteLeft;
-    [SerializeField] private Sprite spriteDown;
-    [SerializeField] private Sprite spriteRight;
+    private PlayerAnimation playerAnimation;
 
     public bool IsMoving { get; private set; }
     private bool isMovingWithTween;
 
-    public bool IsBlocked { get; private set; }
+    public bool IsPushing { get; private set; }
 
-    private Vector2 positionBeforeMove;
-    private bool wasTryingToMove;
-    private const float BlockedThreshold = 0.0001f;
+    private Vector2 collisionBoxSize = new Vector2(0.8f, 0.8f);
+    private Vector2 collisionBoxOffset = Vector2.zero;
+
+    private readonly Collider2D[] overlapResults = new Collider2D[32];
+
     private Vector2 movementAccumulator;
 
     public Vector2 FacingDirection { get; private set; } = Vector2.down;
 
     private Rigidbody2D rb;
-    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private Vector2 moveInput;
-    private Vector2 startPosition;
 
     private float PixelSize => 1f / pixelsPerUnit;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        startPosition = rb.position;
+        playerAnimation = GetComponent<PlayerAnimation>();
     }
 
     private void FixedUpdate()
     {
         if (isMovingWithTween)
-        {
-            IsBlocked = false;
-            wasTryingToMove = false;
             return;
-        }
-
-        if (wasTryingToMove)
-        {
-            float distanceMoved = Vector2.Distance(rb.position, positionBeforeMove);
-
-            IsBlocked = moveInput != Vector2.zero && distanceMoved < BlockedThreshold && speed * Time.fixedDeltaTime >= PixelSize;
-        }
-        else
-        {
-            IsBlocked = false;
-        }
-
-        positionBeforeMove = rb.position;
-        wasTryingToMove = moveInput != Vector2.zero;
 
         Move();
     }
@@ -68,23 +47,31 @@ public class PlayerMovement : MonoBehaviour
     {
         moveInput = input;
 
+        if (IsPushing)
+        {
+            movementAccumulator = Vector2.zero;
+
+            playerAnimation.UpdateLocomotion(IsMoving, IsPushing, FacingDirection);
+
+            return;
+        }
+
         IsMoving = input != Vector2.zero;
 
         if (!IsMoving)
-        {
             movementAccumulator = Vector2.zero;
-            IsBlocked = false;
-            wasTryingToMove = false;
-        }
 
         if (IsMoving)
-        {
             UpdateFacingDirection(input);
-        }
+
+        playerAnimation.UpdateLocomotion(IsMoving, IsPushing, FacingDirection);
     }
 
     public void Move()
     {
+        if (IsPushing)
+            return;
+
         movementAccumulator += moveInput * speed * Time.fixedDeltaTime;
 
         Vector2 pixelMovement = new Vector2(
@@ -99,60 +86,133 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(target);
     }
 
-    public void MovePlayer(int tiles, float duration, Vector2 direction)
+    public void MovePlayer(int tiles, float duration, Vector2 direction, Action onComplete = null)
     {
         IsMoving = true;
         isMovingWithTween = true;
         movementAccumulator = Vector2.zero;
 
-        PlayerController.Instance.StopPlayer();
+        playerAnimation.UpdateLocomotion(IsMoving, IsPushing, FacingDirection);
 
-        Vector2 tileMovement = direction * tiles;
+        Vector2 startPosition = SnapToPixel(rb.position);
+        Vector2 target = startPosition + direction * tiles;
 
-        Vector2 target = rb.position + tileMovement;
+        rb.position = startPosition;
 
-        Sequence pushSequence = DOTween.Sequence();
-        
-        pushSequence.Join(rb.DOMove(target, duration).SetEase(Ease.Linear));
+        rb.DOMove(target, duration)
+            .SetEase(Ease.Linear)
+            .OnComplete(() =>
+            {
+                rb.position = target;
 
-        pushSequence.OnComplete(() =>
+                IsMoving = false;
+                isMovingWithTween = false;
+                movementAccumulator = Vector2.zero;
+
+                playerAnimation.UpdateLocomotion(
+                    IsMoving,
+                    IsPushing,
+                    FacingDirection
+                );
+
+                onComplete?.Invoke();
+            });
+    }
+
+    private Vector2 SnapToPixel(Vector2 position)
+    {
+        float pixelSize = 1f / pixelsPerUnit;
+
+        position.x = Mathf.Round(position.x / pixelSize) * pixelSize;
+        position.y = Mathf.Round(position.y / pixelSize) * pixelSize;
+
+        return position;
+    }
+
+    public void AlignToObject(Transform targetObject, Vector2 direction, float duration, Action onComplete)
+    {
+        isMovingWithTween = true;
+        movementAccumulator = Vector2.zero;
+
+        Vector2 targetPosition = rb.position;
+        Vector2 objectPosition = targetObject.position;
+
+        if (direction == Vector2.up || direction == Vector2.down)
         {
-            IsMoving = false;
-            isMovingWithTween = false;
-            movementAccumulator = Vector2.zero;
+            targetPosition.x = objectPosition.x;
+        }
+        else
+        {
+            targetPosition.y = objectPosition.y;
+        }
 
-            PlayerController.Instance.ResumePlayer();
-        });
+        targetPosition = SnapToPixel(targetPosition);
+
+        rb.DOMove(targetPosition, duration)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                rb.position = SnapToPixel(rb.position);
+
+                isMovingWithTween = false;
+                movementAccumulator = Vector2.zero;
+
+                onComplete?.Invoke();
+            });
+    }
+
+    public bool CanMove(Vector2 direction, float distance, Transform ignoredObject)
+    {
+        Vector2 targetPosition = rb.position + direction * distance;
+
+        int count = Physics2D.OverlapBox(
+            targetPosition + collisionBoxOffset,
+            collisionBoxSize,
+            rb.rotation,
+            new ContactFilter2D
+            {
+                useTriggers = true
+            },
+            overlapResults
+        );
+
+        for (int i = 0; i < count; i++)
+        {
+            Collider2D hit = overlapResults[i];
+
+            if (hit == null)
+                continue;
+
+            if (hit.transform == transform ||
+                hit.transform.IsChildOf(transform))
+                continue;
+
+            if (hit.transform == ignoredObject ||
+                hit.transform.IsChildOf(ignoredObject))
+                continue;
+
+            if (hit.GetComponent<PressurePlate>() != null)
+                continue;
+
+            return false;
+        }
+
+        return true;
     }
 
     public void UpdateFacingDirection(Vector2 input)
     {
-        if (input == Vector2.zero) return;
+        if (input == Vector2.zero || IsPushing) return;
 
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y)) { FacingDirection = input.x > 0 ? Vector2.right : Vector2.left; }
         else { FacingDirection = input.y > 0 ? Vector2.up : Vector2.down; }
-
-        UpdateSprite();
     }
 
-    private void UpdateSprite()
+    public void SetPushing(bool pushing)
     {
-        if (FacingDirection == Vector2.up)
-        {
-            spriteRenderer.sprite = spriteUp;
-        }
-        else if (FacingDirection == Vector2.down)
-        {
-            spriteRenderer.sprite = spriteDown;
-        }
-        else if (FacingDirection == Vector2.left)
-        {
-            spriteRenderer.sprite = spriteLeft;
-        }
-        else if (FacingDirection == Vector2.right)
-        {
-            spriteRenderer.sprite = spriteRight;
-        }
+        IsPushing = pushing;
+
+        playerAnimation.UpdateLocomotion( IsMoving, IsPushing, FacingDirection);
     }
 
     public void SetSpeed(float newSpeed)
@@ -163,5 +223,12 @@ public class PlayerMovement : MonoBehaviour
     public float GetSpeed()
     {
         return speed;
+    }
+
+    public void SetFacingDirection(Vector2 direction)
+    {
+        if (IsPushing) return;
+
+        UpdateFacingDirection(direction);
     }
 }

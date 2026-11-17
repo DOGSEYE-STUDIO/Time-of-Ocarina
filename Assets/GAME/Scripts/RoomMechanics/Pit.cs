@@ -4,26 +4,22 @@ using UnityEngine;
 public class Pit : MonoBehaviour
 {
     [SerializeField] private PitRespawn respawn;
+    [SerializeField] private GameObject movePos;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player"))
             return;
 
+        other.gameObject.transform.DOMove(movePos.transform.position, 0.3f);
+
         PlayerController.Instance.StopPlayer();
-
-        Sequence seq = DOTween.Sequence();
-
-        seq.AppendInterval(0.5f);
-
-        //Animación
-
-        seq.AppendCallback(() => other.transform.position = respawn.respawnPosition);
-        seq.AppendCallback(Respawn);
+        PlayerController.Instance.PlayAnimation("Falling", () => Respawn(other));
     }
 
-    private void Respawn()
+    private void Respawn(Collider2D other)
     {
+        other.transform.position = respawn.respawnPosition; 
         PlayerController.Instance.ResumePlayer();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private PlayerAttack basicAttack;
     private PlayerInteraction interaction;
     private PlayerSpecial special;
+    private PlayerAnimation animator;
     private Hotbar hotbar;
 
     [Header("InputActions")]
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
         basicAttack = GetComponent<PlayerAttack>();
         interaction = GetComponent<PlayerInteraction>();
         special = GetComponent<PlayerSpecial>();
+        animator = GetComponent<PlayerAnimation>();
         hotbar = GetComponent<Hotbar>();
     }
 
@@ -47,6 +50,8 @@ public class PlayerController : MonoBehaviour
         attackAction.action.Enable();
 
         interactAction.action.performed += OnInteract;
+        interactAction.action.started += OnInteractStarted;
+        interactAction.action.canceled += OnInteractCanceled;
         interactAction.action.Enable();
 
         specialAction.action.performed += OnUseSpecial;
@@ -65,6 +70,8 @@ public class PlayerController : MonoBehaviour
         attackAction.action.Disable();
 
         interactAction.action.performed -= OnInteract;
+        interactAction.action.started -= OnInteractStarted;
+        interactAction.action.canceled -= OnInteractCanceled;
         interactAction.action.Disable();
 
         specialAction.action.performed -= OnUseSpecial;
@@ -112,6 +119,11 @@ public class PlayerController : MonoBehaviour
             input = input.y > 0 ? Vector2.up : Vector2.down;
 
         return input == direction;
+    }
+
+    public Vector2 GetMovementInput()
+    {
+        return moveAction.action.ReadValue<Vector2>();
     }
 
     public void StopPlayerMovement()
@@ -192,6 +204,16 @@ public class PlayerController : MonoBehaviour
         interaction.Interact();
     }
 
+    private void OnInteractStarted(InputAction.CallbackContext context)
+    {
+        interaction.BeginInteract();
+    }
+
+    private void OnInteractCanceled(InputAction.CallbackContext context)
+    {
+        interaction.EndInteract();
+    }
+
     public void StopPlayerInteraction()
     {
         interactAction.action.performed -= OnInteract;
@@ -222,5 +244,10 @@ public class PlayerController : MonoBehaviour
         ResumePlayerAttack();
         ResumePlayerInteraction();
         ResumePlayerSpecial();
+    }
+
+    public void PlayAnimation(string animationName, Action onFinished = null)
+    {
+        animator.PlayAnimation(animationName, onFinished);
     }
 }

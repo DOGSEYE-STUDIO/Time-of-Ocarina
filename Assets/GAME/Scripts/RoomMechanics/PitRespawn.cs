@@ -10,6 +10,5 @@ public class PitRespawn : MonoBehaviour
             return;
 
        respawnPosition = other.gameObject.transform.position;
-        Debug.Log(respawnPosition);
     }
 }
