@@ -8,12 +8,12 @@ public class StairSpawn : MonoBehaviour
     public GameObject bottomRow;
     public GameObject pit;
 
-    private BoxCollider2D collider;
+    private BoxCollider2D stairCollider;
 
     void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
-        collider.enabled = false;
+        stairCollider = GetComponent<BoxCollider2D>();
+        stairCollider.enabled = false;
 
         topRow.SetActive(false);
         bottomRow.SetActive(false);
@@ -27,6 +27,6 @@ public class StairSpawn : MonoBehaviour
         bottomRow.SetActive(isOn);
         pit.SetActive(!isOn);
 
-        collider.enabled = isOn;
+        stairCollider.enabled = isOn;
     }
 }
