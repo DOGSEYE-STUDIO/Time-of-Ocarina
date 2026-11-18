@@ -9,6 +9,9 @@ public class PlayerHud : MonoBehaviour
     [SerializeField] private Sprite[] _deadHeartFrames;
     [SerializeField] private Sprite _emptyHeart;
     [SerializeField] private float _heartFps = 12f;
+    [SerializeField] private Image _coinIcon;
+    [SerializeField] private Sprite[] _coinFrames;
+    [SerializeField] private float _coinFps = 8f;
     [SerializeField] private TMP_Text _coinsText;
     [SerializeField] private TMP_Text _keysText;
     [SerializeField] private GameObject _bossKeyIcon;
@@ -67,7 +70,8 @@ public class PlayerHud : MonoBehaviour
             _wasFull[i] = full;
         }
 
-        _coinsText.text = PlayerInventory.Instance.Coins.ToString();
+        _coinIcon.sprite = _coinFrames[(int)(Time.time * _coinFps) % _coinFrames.Length];
+        _coinsText.text =PlayerInventory.Instance.Coins.ToString();
         _keysText.text = PlayerInventory.Instance.Keys.ToString();
         _bossKeyIcon.SetActive(PlayerInventory.Instance.HasBossKey);
 
