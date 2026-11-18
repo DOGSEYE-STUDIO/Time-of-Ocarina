@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7515895510895897575}
   - component: {fileID: 6487735391132630808}
-  - component: {fileID: 4255902331966894234}
   - component: {fileID: 3229830805740656392}
   - component: {fileID: 6747022990921436829}
   - component: {fileID: 3607831455688010288}
@@ -83,18 +82,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4255902331966894234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024407838755825153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9328b9bc03ecf4e95533143aa94091, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PushableObject
 --- !u!50 &3229830805740656392
 Rigidbody2D:
   serializedVersion: 5

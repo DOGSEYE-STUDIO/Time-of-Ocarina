@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 1c6da234de8bbdb409b25b1238b49d44, type: 3}
+  m_Sprite: {fileID: 9118298182820363707, guid: ffd4709b742033640a4a2e78d328f867, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c749eca0b7344b4a857beb04c8dc7a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Switch
-  offSprite: {fileID: 21300000, guid: 1c6da234de8bbdb409b25b1238b49d44, type: 3}
-  onSprite: {fileID: 21300000, guid: 99c366d5b0ab6df49900ead78505a58b, type: 3}
+  offSprite: {fileID: 9118298182820363707, guid: ffd4709b742033640a4a2e78d328f867, type: 3}
+  onSprite: {fileID: 5038387761726404689, guid: 2d74fbecebf1f5842aa050c38712ac4f, type: 3}
   IsOn: 0
 --- !u!61 &5361350664782083977
 BoxCollider2D:

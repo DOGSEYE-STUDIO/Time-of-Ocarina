@@ -781,8 +781,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 4
   pixelsPerUnit: 16
-  collisionBoxSize: {x: 0.9, y: 0.9}
-  collisionBoxOffset: {x: 0, y: 0}
 --- !u!114 &7793398036082112706
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: f26437bc3df15e04b8e20959cc4a794b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52e57da3f27996c49ab149f62ee23223, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c061621094ad104f8edf1093e0ecdcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PressurePlate
-  offSprite: {fileID: 21300000, guid: f26437bc3df15e04b8e20959cc4a794b, type: 3}
-  onSprite: {fileID: 21300000, guid: e20b1b4d01ae06a4c9507eb1b71e94a2, type: 3}
+  offSprite: {fileID: 21300000, guid: 52e57da3f27996c49ab149f62ee23223, type: 3}
+  onSprite: {fileID: 21300000, guid: 52e57da3f27996c49ab149f62ee23223, type: 3}
   IsOn: 0
 --- !u!50 &840315957293237252
 Rigidbody2D:

@@ -79,3 +79,38 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4110772b9efb94e5b919923d775a1ca7, type: 3}
     compressionPreset: 1
     forceToMono: 1
+  - tag: MarimbaA
+    clips:
+    - {fileID: 8300000, guid: 1156864d9589ccd409e986c244190ea2, type: 3}
+    compressionPreset: 2
+    forceToMono: 0
+  - tag: MarimbaB
+    clips:
+    - {fileID: 8300000, guid: cc649e8f3df5ce44692412a6e477acef, type: 3}
+    compressionPreset: 2
+    forceToMono: 0
+  - tag: MarimbaC
+    clips:
+    - {fileID: 8300000, guid: dadbfca52a0bb5d439839670a8792dcd, type: 3}
+    compressionPreset: 2
+    forceToMono: 0
+  - tag: MarimbaD
+    clips:
+    - {fileID: 8300000, guid: 606a471ef4b195446921c1704975740f, type: 3}
+    compressionPreset: 2
+    forceToMono: 0
+  - tag: MarimbaE
+    clips:
+    - {fileID: 8300000, guid: 829fd4e3e2c37fb489574519d6f7a757, type: 3}
+    compressionPreset: 2
+    forceToMono: 0
+  - tag: MarimbaF
+    clips:
+    - {fileID: 8300000, guid: 66e1b41bbcdf000448c967e4224a479a, type: 3}
+    compressionPreset: 2
+    forceToMono: 0
+  - tag: MarimbaG
+    clips:
+    - {fileID: 8300000, guid: 40f7659ead126d14a99ae4e114a083f3, type: 3}
+    compressionPreset: 2
+    forceToMono: 0

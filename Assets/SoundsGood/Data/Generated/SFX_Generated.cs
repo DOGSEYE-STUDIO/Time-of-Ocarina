@@ -15,6 +15,13 @@ namespace MelenitasDev.SoundsGood
 		public static readonly SFX Talk = new SFX("Talk");
 		public static readonly SFX GrassCut = new SFX("GrassCut");
 		public static readonly SFX ShopPick = new SFX("ShopPick");
+		public static readonly SFX MarimbaA = new SFX("MarimbaA");
+		public static readonly SFX MarimbaB = new SFX("MarimbaB");
+		public static readonly SFX MarimbaC = new SFX("MarimbaC");
+		public static readonly SFX MarimbaD = new SFX("MarimbaD");
+		public static readonly SFX MarimbaE = new SFX("MarimbaE");
+		public static readonly SFX MarimbaF = new SFX("MarimbaF");
+		public static readonly SFX MarimbaG = new SFX("MarimbaG");
 	}
 }
 #endif

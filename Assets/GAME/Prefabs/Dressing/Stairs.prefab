@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 3194358674055597323}
   - component: {fileID: 4049308362135394095}
   - component: {fileID: 5072984413776850016}
+  - component: {fileID: 4091728320242927018}
   m_Layer: 0
   m_Name: Stairs
   m_TagString: Untagged
@@ -400,6 +401,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stairs
   speedMultiplier: 0.5
+--- !u!114 &4091728320242927018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6771199874592242749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d8b277f7946ee41be75f62537111ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StairSpawn
+  targetSwitch: {fileID: 0}
+  objectsToSpawn:
+  - {fileID: 7358137563002493155}
+  - {fileID: 485195417802642372}
+  objectsToDespawn: []
+  poof: {fileID: 3922907185297753138, guid: f65dade26d88ca3469b9d3d5465ab46f, type: 3}
+  spawnDelay: 0.1
 --- !u!1 &7358137563002493155
 GameObject:
   m_ObjectHideFlags: 0
