@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1177603035298754235}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7957124436916617837, guid: 26d9d5469e840d443972990e44c9134f, type: 3}
+  m_Sprite: {fileID: -3443853521838383015, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -296,8 +296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimation
   _frames:
-  - {fileID: 7957124436916617837, guid: 26d9d5469e840d443972990e44c9134f, type: 3}
-  - {fileID: -9009844369769418382, guid: 26d9d5469e840d443972990e44c9134f, type: 3}
-  - {fileID: -4899827238986791320, guid: 26d9d5469e840d443972990e44c9134f, type: 3}
-  - {fileID: -1029130757165403212, guid: 26d9d5469e840d443972990e44c9134f, type: 3}
+  - {fileID: -3443853521838383015, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
+  - {fileID: 3896911424030311870, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
+  - {fileID: -5624048240365649951, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
+  - {fileID: -4363167667984014114, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
   _fps: 8
