@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5e588b0b5c02e694193f10003854c157
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266130
+  packageName: Sounds Good - Easy & Optimized Audio Manager
+  packageVersion: 2.3.0
+  assetPath: Packages/com.melenitasdev.sounds-good/AI/Skills/sounds-good-audio-channels/SKILL.md
+  uploadId: 1010456

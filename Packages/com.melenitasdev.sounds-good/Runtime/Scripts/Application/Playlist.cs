@@ -669,7 +669,7 @@ namespace MelenitasDev.SoundsGood
         // ----- Private Methods
         private bool TrySetCachedClips ()
         {
-            if (playlist is { Count: > 0 }) return true;
+            if (playlist != null && playlist.Count > 0) return true;
 
             if (!CheckClipsAreValid(cachedPlaylistTags.ToArray())) return false;
             

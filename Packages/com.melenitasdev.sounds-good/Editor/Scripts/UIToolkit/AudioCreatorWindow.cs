@@ -203,7 +203,7 @@ namespace MelenitasDev.SoundsGood.Editor
 
             foreach (var obj in DragAndDrop.objectReferences)
             {
-                if (obj is not AudioClip clip) continue;
+                if (!(obj is AudioClip clip)) continue;
                 
                 AddAudioClip(clip);
             }
@@ -274,7 +274,7 @@ namespace MelenitasDev.SoundsGood.Editor
                         currentCompressionPreset, forceToMono, out resultMessage);
             }
 
-            resultMessageLabel.style.color = new StyleColor(creationSuccess ? Color.white : EditorHelper.RED_COLOR);
+            resultMessageLabel.style.color = new StyleColor(creationSuccess ? Color.white : (Color)EditorHelper.RED_COLOR);
             resultMessageLabel.text = resultMessage;
             
             if (!creationSuccess) return;

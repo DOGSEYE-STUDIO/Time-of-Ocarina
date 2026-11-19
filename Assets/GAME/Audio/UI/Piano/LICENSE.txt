@@ -1,0 +1,10 @@
+Piano_4C/4D/4E/4G/4A/4B, Piano_5C/5D/5E/5G/5B (.ogg) y Piano_ArpeggioCmaj9.ogg
+
+Origen: "Separate Piano Keys - 5 Octaves" (piano-keys.zip), de Usta Games
+URL: https://aliustaoglu.itch.io/separate-piano-keys-5-octaves
+Licencia: Creative Commons Zero v1.0 Universal (CC0) - dominio público, sin atribución obligatoria
+https://creativecommons.org/publicdomain/zero/1.0/
+Descargado: 2026-11-19
+Cambios: renombrados (4C.ogg -> Piano_4C.ogg, etc.) y normalizados a pico de -1 dB (ffmpeg).
+Piano_ArpeggioCmaj9.ogg es una mezcla de las notas originales C4 E4 G4 B4 D5 con 120 ms entre cada una.
+Uso (Sounds Good): MenuConfirm (C5 E5 G5 B5, Cmaj7), MenuStart (arpegio Cmaj9), MenuMove (C4 D4 E4 G4 A4, pentatónica)

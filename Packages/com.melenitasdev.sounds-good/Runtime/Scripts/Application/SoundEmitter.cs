@@ -178,6 +178,26 @@ namespace MelenitasDev.SoundsGood
             Sound.Play(fadeInTime);
         }
 
+        /// <summary>
+        /// Plays the sound with its configured volume scaled by <paramref name="factor"/>, for
+        /// callers that vary loudness per play - Collision Sound scales it by impact strength.
+        /// </summary>
+        /// <param name="factor">
+        /// 0 is silent, 1 is the volume set in the Inspector. The scale always applies to that
+        /// configured volume and never to the volume the sound is currently at, so playing
+        /// repeatedly at a low factor cannot walk the volume down towards silence.
+        /// </param>
+        public void PlayScaled (float factor)
+        {
+            factor = Mathf.Clamp01(factor);
+
+            // Re-roll the random settings on every play so repeated sounds keep varying.
+            if (randomVolume) Sound.SetRandomVolume(volumeRange.x * factor, volumeRange.y * factor);
+            else Sound.SetVolume(volume * factor);
+            if (randomPitch) Sound.SetRandomPitch(pitchRange);
+            Sound.Play(fadeInTime);
+        }
+
         /// <summary>Stops the sound with the configured fade out.</summary>
         public override void Stop () => Sound.Stop(fadeOutTime);
 

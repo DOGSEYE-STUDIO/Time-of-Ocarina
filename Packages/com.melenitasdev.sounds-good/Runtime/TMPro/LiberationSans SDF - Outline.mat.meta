@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 79459efec17a4d00a321bdcc27bbc385
 timeCreated: 1484172856
-licenseType: Pro
+licenseType: Store
 NativeFormatImporter:
   userData: 
   assetBundleName: 
@@ -10,7 +10,7 @@ AssetOrigin:
   serializedVersion: 1
   productId: 266130
   packageName: Sounds Good - Easy & Optimized Audio Manager
-  packageVersion: 2.2.2
+  packageVersion: 2.3.0
   assetPath: Packages/com.melenitasdev.sounds-good/Runtime/TMPro/LiberationSans SDF
     - Outline.mat
-  uploadId: 984388
+  uploadId: 1010456

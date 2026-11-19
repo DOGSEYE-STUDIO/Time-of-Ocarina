@@ -1,4 +1,4 @@
-/*
+﻿/*
  * All rights to the Sounds Good plugin, © Created by Melenitas Dev, are reserved.
  * Distribution of the standalone asset is strictly prohibited.
  */
@@ -65,8 +65,34 @@ namespace MelenitasDev.SoundsGood.Editor
         /// Adds a group named <paramref name="name"/> under Master and exposes its volume under that
         /// same name, so <see cref="SoundsGoodManager"/> can drive it.
         /// </summary>
+        /// <summary>
+        /// True when an output of this name is already registered. Case-insensitive, matching what
+        /// the Output Manager window checks, because two names differing only in case would still
+        /// read as the same channel to whoever set them up.
+        /// </summary>
+        private static bool OutputExists (string name)
+        {
+            var collection = AssetLocator.Instance.OutputDataCollection;
+            if (collection == null) return false;
+
+            foreach (var output in collection.Outputs)
+                if (string.Equals(output.Name, name, StringComparison.OrdinalIgnoreCase)) return true;
+
+            return false;
+        }
+
         internal static bool TryCreateOutput (string name, out string error)
         {
+            // Unity will happily add a second group under the same name, and every output becomes a
+            // member of the generated Output enum - two members with one name is CS0102, and the
+            // project stops compiling. The Output Manager window asks before getting here; a script
+            // calling SoundsGoodAuthoring.CreateOutput did not, so the check belongs on this side.
+            if (OutputExists(name))
+            {
+                error = $"An output named '{name}' already exists.";
+                return false;
+            }
+
             if (!TryGetMixer(out AudioMixer mixer, out error)) return false;
 
             try

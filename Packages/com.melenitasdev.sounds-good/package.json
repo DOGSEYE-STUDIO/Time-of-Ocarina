@@ -1,6 +1,6 @@
 {
   "name": "com.melenitasdev.sounds-good",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "displayName": "Sounds Good - Easy & Optimized Audio Manager",
   "description": "The easiest and quickest way to implement audio into your game - An optimized and user-friendly system for all skill levels ;D \n\nThis audio manager will help you implement sounds, music, playlists, dynamic music and multiple audio channels in your games. It's designed to be user-friendly and easy to use. You can implement audio with a single line of code, and you can manage your game's audio comfortably and visually with the help of the editor windows.",
   "keywords": [
@@ -11,6 +11,7 @@
     "soundeffects",
     "manager"
   ],
+  "unity": "2022.3",
   "dependencies": {
     "com.unity.textmeshpro": "3.0.7",
     "com.unity.modules.uielements": "1.0.0"
@@ -19,6 +20,7 @@
     "Runtime",
     "Editor",
     "Samples",
+    "AI",
     "README.md",
     "CHANGELOG.md"
   ],

@@ -14,11 +14,11 @@ namespace MelenitasDev.SoundsGood.Editor
 
         public new class UxmlTraits : VisualElement.UxmlTraits
         {
-            UxmlStringAttributeDescription m_Label = new() { name = "label", defaultValue = "Label" };
-            UxmlStringAttributeDescription m_Value = new() { name = "value", defaultValue = "" };
-            UxmlStringAttributeDescription m_Suffix = new() { name = "suffix", defaultValue = "" };
-            UxmlFloatAttributeDescription m_LeftSpace = new() { name = "left-space", defaultValue = 0f };
-            UxmlFloatAttributeDescription m_RightSpace = new() { name = "right-space", defaultValue = 0f };
+            UxmlStringAttributeDescription m_Label = new UxmlStringAttributeDescription() { name = "label", defaultValue = "Label" };
+            UxmlStringAttributeDescription m_Value = new UxmlStringAttributeDescription() { name = "value", defaultValue = "" };
+            UxmlStringAttributeDescription m_Suffix = new UxmlStringAttributeDescription() { name = "suffix", defaultValue = "" };
+            UxmlFloatAttributeDescription m_LeftSpace = new UxmlFloatAttributeDescription() { name = "left-space", defaultValue = 0f };
+            UxmlFloatAttributeDescription m_RightSpace = new UxmlFloatAttributeDescription() { name = "right-space", defaultValue = 0f };
 
             public override void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc)
             {

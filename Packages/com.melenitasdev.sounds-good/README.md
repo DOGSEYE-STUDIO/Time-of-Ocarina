@@ -139,6 +139,60 @@ Effects can also be applied per-Output, or automatically in the world with an **
 
 ---
 
+## 🤖 AI Skills — let your AI assistant use Sounds Good
+
+Sounds Good ships **7 skills** at `Packages/com.melenitasdev.sounds-good/AI/Skills/`: written instructions that teach an AI coding assistant how to drive this asset properly. Without them an agent asked for audio tends to write its own `AudioSource` code from scratch, next to the audio manager you already installed.
+
+They are plain Markdown, so they work with any assistant that can read your project.
+
+### ✅ The easy way — ask your assistant to install them
+
+Paste this into whichever AI you are using:
+
+> Install the AI Skills that Sounds Good ships. They are in `Packages/com.melenitasdev.sounds-good/AI/Skills/`, one folder per skill. Put them wherever you read skills or project instructions from, using your own conventions.
+
+Your assistant knows where its own instructions live better than any installer could, so this covers every tool. **Do it once per project.**
+
+After that you never mention Sounds Good again. Say *"play a sound when the player jumps"* and it reaches for the right skill by itself, registers the clip and writes the one line that plays it.
+
+### 🛠️ Or do it by hand
+
+Each skill is a folder containing a `SKILL.md`. Where they go depends on your assistant:
+
+- **If it supports skills** (Claude Code, for example, reads `<your project>/.claude/skills/`), copy the 7 folders in as they are. It then loads only the one the task needs.
+- **If it reads a single instructions file** (a project-rules or custom-instructions file), do **not** paste all 7 in — together they are about 1,400 lines, and you would pay for all of them on every message. Add this pointer instead:
+
+  ```
+  This project uses Sounds Good for audio. Before writing any audio code, read the
+  matching skill in Packages/com.melenitasdev.sounds-good/AI/Skills/:
+    sounds-good-setup-and-overview   - read first; what is registered, how tags work
+    sounds-good-register-audio       - adding clips as sounds or music tracks
+    sounds-good-play-audio           - playing, stopping, fading, callbacks from code
+    sounds-good-inspector-components - emitters, triggers and zones, no code
+    sounds-good-audio-channels       - output channels and volume sliders
+    sounds-good-audio-effects        - reverb, filters, effect zones
+    sounds-good-audio-occlusion      - walls muffling sound, surface materials
+  Do not write your own AudioSource wrapper.
+  ```
+
+### 📋 What they cover
+
+| Skill | What it teaches |
+|-------|-----------------|
+| **setup-and-overview** | Confirming the install, the tag-and-enum model, where data lives, which skill to use next |
+| **register-audio** | Registering clips under tags, compression presets, several clips per tag |
+| **play-audio** | The 4 audio types, `Set`/`Change`/`On` conventions, 3D audio, fades, ids |
+| **inspector-components** | Emitters, triggers, zones, random ambience, volume sliders |
+| **audio-channels** | Creating outputs, routing audio, saved channel volumes |
+| **audio-effects** | Effect presets, applying them per sound, per channel or globally, effect zones |
+| **audio-occlusion** | Turning occlusion on, tuning it, authoring surface materials |
+
+They also ship a scripted authoring API, `SoundsGoodAuthoring`, which is what lets an agent register audio and create channels without clicking through the editor windows. It is just as usable from your own editor tooling.
+
+> ℹ️ The skills are kept in step with the asset: each one records the version it was verified against. If you upgrade Sounds Good, re-run the install line above to refresh your copies.
+
+---
+
 ## 🛠️ Editor windows (`Tools > Sounds Good`)
 
 | Window | What it does |

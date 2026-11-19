@@ -1,4 +1,4 @@
-/*
+﻿/*
  * All rights to the Sounds Good plugin, © Created by Melenitas Dev, are reserved.
  * Distribution of the standalone asset is strictly prohibited.
  */
@@ -967,13 +967,7 @@ namespace MelenitasDev.SoundsGood
 
             if (fadeOutTime > 0)
             {
-                if (currentState == SourceState.FadingIn)
-                {
-                    StopCoroutine(fadeInOnChangeTrackCor);
-                    fadeInOnChangeTrackCor = null;
-                }
-
-                StopLerpCoroutine();
+                StopEveryVolumeFade();
                 ChangeState(SourceState.Pausing);
                 lerpVolumeCor = StartCoroutine(LerpVolume(0, fadeOutTime, CompletePause, true));
                 return;
@@ -1019,8 +1013,15 @@ namespace MelenitasDev.SoundsGood
             if (fadeOutTime > 0)
             {
                 stopping = true;
+                // Whatever fade is in flight has to go first: left running it keeps writing `volume`
+                // every frame, and which of the two the listener hears comes down to the order Unity
+                // happens to resume them in. The fade-out starts from the level the fade-in reached,
+                // which is what `volume` already holds.
+                StopEveryVolumeFade();
                 ChangeState(SourceState.Stopping);
-                lerpVolumeCor = StartCoroutine(LerpVolume(0, fadeOutTime, () => Stop(0, onStop)));
+                // ignorePause: a stop asked for while paused still has to finish and free the source.
+                // Without it the fade waits on `Paused` forever and the source never returns to the pool.
+                lerpVolumeCor = StartCoroutine(LerpVolume(0, fadeOutTime, () => Stop(0, onStop), true));
                 return;
             }
 
@@ -1096,6 +1097,10 @@ namespace MelenitasDev.SoundsGood
 
         private void ReleaseSource ()
         {
+            // A fade still running here would keep writing volume on a source that is back in the
+            // pool, and stomp whatever borrows it next.
+            StopEveryVolumeFade();
+
             StopTailCoroutine();
 //#SG_PRO_BEGIN
             StopEffectLerp();
@@ -1229,6 +1234,9 @@ namespace MelenitasDev.SoundsGood
 
         private void HandlePlaylistPlaying ()
         {
+            // Already stopping: a track change now would restart the audio under the fade-out.
+            if (stopping) return;
+
             PlayingTime += DeltaTime;
 
             // A clip that already stopped has to be caught too: at fadeOutTime 0 the remaining
@@ -1333,6 +1341,25 @@ namespace MelenitasDev.SoundsGood
             if (lerpVolumeCor == null) return;
             StopCoroutine(lerpVolumeCor);
             lerpVolumeCor = null;
+        }
+
+        /// <summary>
+        /// Kills the fade-in a track change started. Only PlayNextSong sets this one, so outside a
+        /// playlist it is null while the state still says FadingIn - a Play() fade-in lives in
+        /// lerpVolumeCor instead. Both have to be stoppable without knowing which is in flight.
+        /// </summary>
+        private void StopFadeInOnChangeTrackCoroutine ()
+        {
+            if (fadeInOnChangeTrackCor == null) return;
+            StopCoroutine(fadeInOnChangeTrackCor);
+            fadeInOnChangeTrackCor = null;
+        }
+
+        /// <summary>Stops whichever fade is in flight, so a new one is the only thing writing volume.</summary>
+        private void StopEveryVolumeFade ()
+        {
+            StopFadeInOnChangeTrackCoroutine();
+            StopLerpCoroutine();
         }
 
         private void ChangeState (SourceState newState) { currentState = newState; }

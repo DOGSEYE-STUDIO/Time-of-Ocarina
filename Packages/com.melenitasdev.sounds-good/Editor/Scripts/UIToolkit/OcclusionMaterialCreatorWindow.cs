@@ -34,7 +34,7 @@ namespace MelenitasDev.SoundsGood.Editor
         private VisualElement densityContainer;
         private Label messageLabel;
         private VisualElement listContainer;
-        private readonly System.Collections.Generic.List<AudioOcclusionMaterial> editClones = new();
+        private readonly System.Collections.Generic.List<AudioOcclusionMaterial> editClones = new System.Collections.Generic.List<AudioOcclusionMaterial>();
 
         private ObjectField clipField;
         private Button previewButton;

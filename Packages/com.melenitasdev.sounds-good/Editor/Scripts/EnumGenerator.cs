@@ -1,4 +1,4 @@
-﻿/*
+/*
  * All rights to the Sounds Good plugin, © Created by Melenitas Dev, are reserved.
  * Distribution of the standalone asset is strictly prohibited.
  */
@@ -34,7 +34,7 @@ namespace MelenitasDev.SoundsGood.Editor
                 streamWriter.WriteLine(ident + "public partial struct " + enumName);
                 streamWriter.WriteLine(ident + "{");
 
-                if (tags is { Length: > 0 })
+                if (tags != null && tags.Length > 0)
                 {
                     foreach (var tag in tags)
                     {

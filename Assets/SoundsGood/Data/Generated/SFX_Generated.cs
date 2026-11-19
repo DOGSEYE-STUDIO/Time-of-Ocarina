@@ -22,6 +22,9 @@ namespace MelenitasDev.SoundsGood
 		public static readonly SFX MarimbaE = new SFX("MarimbaE");
 		public static readonly SFX MarimbaF = new SFX("MarimbaF");
 		public static readonly SFX MarimbaG = new SFX("MarimbaG");
+		public static readonly SFX MenuMove = new SFX("MenuMove");
+		public static readonly SFX MenuConfirm = new SFX("MenuConfirm");
+		public static readonly SFX MenuStart = new SFX("MenuStart");
 	}
 }
 #endif

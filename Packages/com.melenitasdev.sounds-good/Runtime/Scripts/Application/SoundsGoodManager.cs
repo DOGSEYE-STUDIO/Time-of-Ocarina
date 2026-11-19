@@ -26,6 +26,10 @@ namespace MelenitasDev.SoundsGood
 //#SG_PRO_BEGIN
         private static readonly RaycastHit[] occlusionDepthHits = new RaycastHit[16];
         private static readonly RaycastHit[] occlusionRayHits = new RaycastHit[16];
+        private static readonly RaycastHit[] occlusionBackHits = new RaycastHit[16];
+        // Colliders the emitter sits inside, which are the sounding object itself and not a wall.
+        private static readonly Collider[] occlusionSelfColliders = new Collider[16];
+        private static int occlusionSelfCount;
 //#SG_PRO_END
     }
 
@@ -130,6 +134,8 @@ namespace MelenitasDev.SoundsGood
 
             float directSpread = Mathf.Max(AssetLocator.SoundsGoodSettings.BounceRadiusMin, 0.1f) * 0.5f;
 
+            FindCollidersAroundTheSource(listenerPosition, sourcePosition, dir, distance, mask);
+
             // How much a ray is blocked, accounting for every surface it crosses — not just the
             // first one. Each surface only lets (1 - density) of what reaches it through, so the
             // whole stack transmits the product of those: a 50% window behind another 50% window
@@ -145,6 +151,8 @@ namespace MelenitasDev.SoundsGood
                 float transmission = 1f;
                 for (int i = 0; i < count; i++)
                 {
+                    if (IsTheSoundingObject(occlusionRayHits[i].collider)) continue;
+
                     transmission *= 1f - OcclusionSurfaceRegistry.GetDensity(occlusionRayHits[i].collider);
                     // Already fully blocked: nothing behind it can matter.
                     if (transmission <= 0f) return 1f;
@@ -201,7 +209,11 @@ namespace MelenitasDev.SoundsGood
 
             float depthDensitySum = 0f;
             for (int i = 0; i < hitCount; i++)
+            {
+                if (IsTheSoundingObject(occlusionDepthHits[i].collider)) continue;
+
                 depthDensitySum += OcclusionSurfaceRegistry.GetDensity(occlusionDepthHits[i].collider);
+            }
 
             // Layers beyond the first obstacle, weighted by how much each blocks: a solid wall counts
             // as ~1 layer, three thin windows barely add depth. With every density at 1 this is just
@@ -217,6 +229,55 @@ namespace MelenitasDev.SoundsGood
             {
                 depth = Mathf.Clamp01(extraLayers / (maxLayers - 1));
             }
+        }
+
+        /// <summary>
+        /// Works out which colliders the emitter is sitting inside, so they can be left out of the
+        /// occlusion result. A door, a drawer or a lamp has a collider around the point its sound
+        /// comes from, and that collider is the thing making the noise, not a wall in front of it -
+        /// counted as an obstacle it muffles the sound permanently, and at the default density of 1
+        /// (no Occlusion Surface) it muffles it completely.
+        ///
+        /// Unity already does this at the near end: a raycast never reports a collider its origin is
+        /// inside, which is why the listener's own collider has never occluded anything. The far end
+        /// needs the same rule, and one cast back from the source applies it - that cast cannot see
+        /// what encloses the source either, so whatever the forward cast found and this one did not
+        /// is exactly what the emitter is inside.
+        /// </summary>
+        private static void FindCollidersAroundTheSource (Vector3 listenerPosition, Vector3 sourcePosition,
+            Vector3 dir, float distance, LayerMask mask)
+        {
+            occlusionSelfCount = 0;
+
+            int forward = Physics.RaycastNonAlloc(listenerPosition, dir, occlusionRayHits, distance, mask,
+                QueryTriggerInteraction.Ignore);
+            if (forward == 0) return;
+
+            int back = Physics.RaycastNonAlloc(sourcePosition, -dir, occlusionBackHits, distance, mask,
+                QueryTriggerInteraction.Ignore);
+
+            for (int i = 0; i < forward && occlusionSelfCount < occlusionSelfColliders.Length; i++)
+            {
+                Collider candidate = occlusionRayHits[i].collider;
+
+                bool seenFromTheSource = false;
+                for (int j = 0; j < back; j++)
+                {
+                    if (occlusionBackHits[j].collider != candidate) continue;
+                    seenFromTheSource = true;
+                    break;
+                }
+
+                if (!seenFromTheSource) occlusionSelfColliders[occlusionSelfCount++] = candidate;
+            }
+        }
+
+        private static bool IsTheSoundingObject (Collider collider)
+        {
+            for (int i = 0; i < occlusionSelfCount; i++)
+                if (occlusionSelfColliders[i] == collider) return true;
+
+            return false;
         }
 //#SG_PRO_END
     }
@@ -241,9 +302,9 @@ namespace MelenitasDev.SoundsGood
         /// </summary>
         /// <param name="output">Target output</param>
         /// <param name="value">Target volume: min 0, Max: 1</param>
-        public static void ChangeOutputVolume (Output output, float value)
+        public static void ChangeOutputVolume (Output output, float value, bool save = true)
         {
-            ChangeOutputVolume(output.ToString(), value);
+            ChangeOutputVolume(output.ToString(), value, save);
         }
 
         /// <summary>
@@ -251,7 +312,15 @@ namespace MelenitasDev.SoundsGood
         /// </summary>
         /// <param name="outputName">Target output name</param>
         /// <param name="value">Target volume: min 0, Max: 1</param>
-        public static void ChangeOutputVolume (string outputName, float value)
+        /// <param name="save">
+        /// True, the default, stores the value as the player's setting, which is what a volume
+        /// slider in an options menu wants. Pass false for a change the player did not ask for and
+        /// should not inherit - ducking the music under a cutscene, muting while the game is in the
+        /// background - and call <see cref="RestoreSavedOutputVolume(string)"/> to put it back.
+        /// Saving a temporary change leaves it as the saved setting for good: quit during a duck
+        /// and the music is quiet from then on, with nothing in the options menu to explain it.
+        /// </param>
+        public static void ChangeOutputVolume (string outputName, float value, bool save = true)
         {
             AudioMixerGroup outputGroup = GetOutput(outputName);
 
@@ -265,7 +334,27 @@ namespace MelenitasDev.SoundsGood
             AudioMixer mixer = outputGroup.audioMixer;
 
             if (Application.isPlaying) SetAudioMixerLinearVolume(mixer, outputName, value);
-            PlayerPrefs.SetFloat(outputName, value);
+            if (save) PlayerPrefs.SetFloat(outputName, value);
+        }
+
+        /// <summary>
+        /// Puts an Output back to the volume the player chose, undoing a change made with
+        /// <c>save: false</c>. Outputs the player never touched go back to full.
+        /// </summary>
+        /// <param name="output">Target output</param>
+        public static void RestoreSavedOutputVolume (Output output)
+        {
+            RestoreSavedOutputVolume(output.ToString());
+        }
+
+        /// <summary>
+        /// Puts an Output back to the volume the player chose, undoing a change made with
+        /// <c>save: false</c>. Outputs the player never touched go back to full.
+        /// </summary>
+        /// <param name="outputName">Target output name</param>
+        public static void RestoreSavedOutputVolume (string outputName)
+        {
+            ChangeOutputVolume(outputName, PlayerPrefs.GetFloat(outputName, 1f), false);
         }
 
         // Global and per-Output effects: the whole paid effects API.

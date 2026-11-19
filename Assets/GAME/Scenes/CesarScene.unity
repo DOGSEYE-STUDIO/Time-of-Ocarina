@@ -2406,9 +2406,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.078125
+    x: 0
     y: 0
-    width: 0.84375
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -4097,13 +4097,6 @@ MonoBehaviour:
   - {fileID: -5306457255859886180, guid: b1a4289b6e6d78e47ba796e60d512adc, type: 3}
   _emptyHeart: {fileID: 2486513209985726198, guid: b71f514ee9b7e224b91695e5709a0a2b, type: 3}
   _heartFps: 12
-  _coinIcon: {fileID: 516332493}
-  _coinFrames:
-  - {fileID: -3443853521838383015, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
-  - {fileID: 3896911424030311870, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
-  - {fileID: -5624048240365649951, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
-  - {fileID: -4363167667984014114, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
-  _coinFps: 8
   _coinsText: {fileID: 368957616}
   _keysText: {fileID: 318813888}
   _bossKeyIcon: {fileID: 150958383}

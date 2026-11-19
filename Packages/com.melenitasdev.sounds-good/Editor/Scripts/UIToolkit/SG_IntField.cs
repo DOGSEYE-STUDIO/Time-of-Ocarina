@@ -19,12 +19,12 @@ namespace MelenitasDev.SoundsGood.Editor
 
         public new class UxmlTraits : VisualElement.UxmlTraits
         {
-            UxmlStringAttributeDescription m_Label = new() { name = "label", defaultValue = "Label" };
-            UxmlIntAttributeDescription m_Value = new() { name = "value", defaultValue = 0 };
-            UxmlStringAttributeDescription m_Suffix = new() { name = "suffix", defaultValue = "" };
-            UxmlFloatAttributeDescription m_LeftSpace = new() { name = "left-space", defaultValue = 0f };
-            UxmlFloatAttributeDescription m_RightSpace = new() { name = "right-space", defaultValue = 0f };
-            UxmlIntAttributeDescription m_DefaultValue = new() { name = "default-value", defaultValue = int.MinValue };
+            UxmlStringAttributeDescription m_Label = new UxmlStringAttributeDescription() { name = "label", defaultValue = "Label" };
+            UxmlIntAttributeDescription m_Value = new UxmlIntAttributeDescription() { name = "value", defaultValue = 0 };
+            UxmlStringAttributeDescription m_Suffix = new UxmlStringAttributeDescription() { name = "suffix", defaultValue = "" };
+            UxmlFloatAttributeDescription m_LeftSpace = new UxmlFloatAttributeDescription() { name = "left-space", defaultValue = 0f };
+            UxmlFloatAttributeDescription m_RightSpace = new UxmlFloatAttributeDescription() { name = "right-space", defaultValue = 0f };
+            UxmlIntAttributeDescription m_DefaultValue = new UxmlIntAttributeDescription() { name = "default-value", defaultValue = int.MinValue };
 
             public override void Init (VisualElement ve, IUxmlAttributes bag, CreationContext cc)
             {

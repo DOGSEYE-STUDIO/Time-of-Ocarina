@@ -65,15 +65,16 @@ namespace MelenitasDev.SoundsGood
             if (Time.time - lastPlayTime < cooldown) return;
             lastPlayTime = Time.time;
 
-            // Play at the exact contact point, then scale whatever volume the emitter decided
-            // (fixed or freshly re-rolled by Random Volume) down by the impact strength.
+            // Play at the exact contact point, at a volume scaled by how hard the hit was.
+            // The scale goes through PlayScaled so it is always applied to the emitter's
+            // configured volume. Scaling the live volume instead compounded: a soft hit left the
+            // sound quieter, the next hit scaled that quieter value again, and a few taps walked
+            // the sound down to nothing.
             Vector3 point = collision.contactCount > 0 ? collision.GetContact(0).point : transform.position;
             emitter.Sound.SetPosition(point);
-            emitter.Play();
 
             float t = Mathf.Clamp01((impact - minImpact) / Mathf.Max(0.01f, maxImpact - minImpact));
-            float baseVolume = emitter.Sound.Volume;
-            emitter.Sound.ChangeVolume(Mathf.Lerp(baseVolume * minImpactVolumeScale, baseVolume, t));
+            emitter.PlayScaled(Mathf.Lerp(minImpactVolumeScale, 1f, t));
         }
     }
 

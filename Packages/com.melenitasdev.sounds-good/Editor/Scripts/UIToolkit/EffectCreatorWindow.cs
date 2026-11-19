@@ -34,7 +34,7 @@ namespace MelenitasDev.SoundsGood.Editor
         private VisualElement effectsContainer;
         private Label messageLabel;
         private VisualElement listContainer;
-        private readonly System.Collections.Generic.List<AudioEffectPreset> editClones = new();
+        private readonly System.Collections.Generic.List<AudioEffectPreset> editClones = new System.Collections.Generic.List<AudioEffectPreset>();
 
         private ObjectField clipField;
         private Button previewButton;

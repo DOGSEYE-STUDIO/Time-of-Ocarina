@@ -3,19 +3,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MenuButton : MonoBehaviour, IPointerEnterHandler, IMoveHandler, ISubmitHandler, IPointerClickHandler
+public class MenuButton : MonoBehaviour, IPointerEnterHandler, ISubmitHandler, IPointerClickHandler
 {
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (EventSystem.current.currentSelectedGameObject == gameObject) return;
 
         EventSystem.current.SetSelectedGameObject(gameObject);
-        new Sound(SFX.hit).SetVolume(0.5f).SetOutput(Output.SFX).Play();
-    }
-
-    public void OnMove(AxisEventData eventData)
-    {
-        new Sound(SFX.hit).SetVolume(0.5f).SetOutput(Output.SFX).Play();
     }
 
     public void OnSubmit(BaseEventData eventData)
@@ -32,6 +26,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IMoveHandler, ISu
     {
         if (GetComponent<Slider>() != null) return;
 
-        new Sound(SFX.coin).SetOutput(Output.SFX).Play();
+        new Sound(SFX.MenuConfirm).SetOutput(Output.SFX).Play();
     }
 }

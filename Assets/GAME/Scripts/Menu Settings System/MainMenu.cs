@@ -86,7 +86,7 @@ public class MainMenu : MonoBehaviour
 
     private void ShowMainPanel()
     {
-        new Sound(SFX.hit).SetOutput(Output.SFX).Play();
+        new Sound(SFX.MenuStart).SetOutput(Output.SFX).Play();
 
         _pressStartText.gameObject.SetActive(false);
         _mainPanel.SetActive(true);
@@ -129,7 +129,7 @@ public class MainMenu : MonoBehaviour
     {
         if (_openPanel == null || RebindButton.IsRebinding) return;
 
-        new Sound(SFX.coin).SetOutput(Output.SFX).Play();
+        new Sound(SFX.MenuConfirm).SetOutput(Output.SFX).Play();
         Back();
     }
 }

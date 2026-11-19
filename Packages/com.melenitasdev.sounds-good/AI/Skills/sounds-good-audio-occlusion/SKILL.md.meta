@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d3a904c88bd09954a824b4441c24247a
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 266130
+  packageName: Sounds Good - Easy & Optimized Audio Manager
+  packageVersion: 2.3.0
+  assetPath: Packages/com.melenitasdev.sounds-good/AI/Skills/sounds-good-audio-occlusion/SKILL.md
+  uploadId: 1010456

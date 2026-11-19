@@ -8,9 +8,9 @@ namespace MelenitasDev.SoundsGood.Editor
 {
     internal class EditorHelper : MonoBehaviour
     {
-        internal static readonly Color32 ORANGE_COLOR = new (255, 192, 88, 255);
-        internal static readonly Color32 GREY_COLOR = new (142, 142, 142, 255);
-        internal static readonly Color32 RED_COLOR = new (255, 65, 65, 255);
+        internal static readonly Color32 ORANGE_COLOR = new Color32(255, 192, 88, 255);
+        internal static readonly Color32 GREY_COLOR = new Color32(142, 142, 142, 255);
+        internal static readonly Color32 RED_COLOR = new Color32(255, 65, 65, 255);
         
         internal static void SaveCollectionChanges (Sections section, bool saveAssets = true)
         {

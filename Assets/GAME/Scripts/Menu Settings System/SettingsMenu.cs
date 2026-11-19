@@ -106,7 +106,7 @@ public class SettingsMenu : MonoBehaviour
         if (Time.unscaledTime < _nextSfxPreview) return;
 
         _nextSfxPreview = Time.unscaledTime + 0.12f;
-        new Sound(SFX.coin).SetOutput(Output.SFX).Play();
+        new Sound(SFX.MenuMove).SetOutput(Output.SFX).Play();
     }
 
     private void BuildResolutions()

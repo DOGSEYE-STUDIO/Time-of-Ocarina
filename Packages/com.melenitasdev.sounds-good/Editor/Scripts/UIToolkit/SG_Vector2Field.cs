@@ -23,13 +23,13 @@ namespace MelenitasDev.SoundsGood.Editor
 
         public new class UxmlTraits : VisualElement.UxmlTraits
         {
-            UxmlStringAttributeDescription m_Label = new() { name = "label", defaultValue = "Label" };
-            UxmlStringAttributeDescription m_XLabel = new() { name = "x-label", defaultValue = "X" };
-            UxmlStringAttributeDescription m_YLabel = new() { name = "y-label", defaultValue = "Y" };
-            UxmlFloatAttributeDescription m_X = new() { name = "x", defaultValue = 0f };
-            UxmlFloatAttributeDescription m_Y = new() { name = "y", defaultValue = 0f };
-            UxmlFloatAttributeDescription m_LeftSpace = new() { name = "left-space", defaultValue = 0f };
-            UxmlIntAttributeDescription m_Decimals = new() { name = "decimals", defaultValue = 2 };
+            UxmlStringAttributeDescription m_Label = new UxmlStringAttributeDescription() { name = "label", defaultValue = "Label" };
+            UxmlStringAttributeDescription m_XLabel = new UxmlStringAttributeDescription() { name = "x-label", defaultValue = "X" };
+            UxmlStringAttributeDescription m_YLabel = new UxmlStringAttributeDescription() { name = "y-label", defaultValue = "Y" };
+            UxmlFloatAttributeDescription m_X = new UxmlFloatAttributeDescription() { name = "x", defaultValue = 0f };
+            UxmlFloatAttributeDescription m_Y = new UxmlFloatAttributeDescription() { name = "y", defaultValue = 0f };
+            UxmlFloatAttributeDescription m_LeftSpace = new UxmlFloatAttributeDescription() { name = "left-space", defaultValue = 0f };
+            UxmlIntAttributeDescription m_Decimals = new UxmlIntAttributeDescription() { name = "decimals", defaultValue = 2 };
 
             public override void Init (VisualElement ve, IUxmlAttributes bag, CreationContext cc)
             {

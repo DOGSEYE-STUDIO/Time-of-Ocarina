@@ -15,9 +15,9 @@ namespace MelenitasDev.SoundsGood.Editor
 
         public new class UxmlTraits : VisualElement.UxmlTraits
         {
-            UxmlStringAttributeDescription m_Label = new() { name = "label", defaultValue = "Layer Mask" };
-            UxmlIntAttributeDescription m_Value = new() { name = "value", defaultValue = 0 };
-            UxmlFloatAttributeDescription m_Space = new() { name = "space", defaultValue = 0f };
+            UxmlStringAttributeDescription m_Label = new UxmlStringAttributeDescription() { name = "label", defaultValue = "Layer Mask" };
+            UxmlIntAttributeDescription m_Value = new UxmlIntAttributeDescription() { name = "value", defaultValue = 0 };
+            UxmlFloatAttributeDescription m_Space = new UxmlFloatAttributeDescription() { name = "space", defaultValue = 0f };
 
             public override void Init(VisualElement ve, IUxmlAttributes bag, CreationContext cc)
             {

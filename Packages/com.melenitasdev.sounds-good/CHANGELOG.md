@@ -6,6 +6,27 @@ This project follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) fo
 
 ---
 
+## [2.3.0] – 2026-10-03
+
+### Fixed
+- **Occlusion counted the sounding object's own collider as a wall.** The ray reached the emitter's exact position, so a door, a drawer or a lamp with the emitter inside it occluded its own sound - fully, since a collider with no Occlusion Surface has density 1. Unity already ignores whatever the ray starts inside, which is why the listener's collider never did this; the far end now gets the same rule.
+- **Collision Sound got quieter with every soft impact.** It scaled the live volume instead of the configured one, so each hit scaled a value the previous hit had already scaled, walking the sound down to nothing. Only emitters using Random Volume escaped it, because the roll reset the level each play.
+- **`ChangeOutputVolume` always wrote to `PlayerPrefs`**, so there was no way to duck or mute a channel without making it the player's saved setting. It takes `save` now, and `RestoreSavedOutputVolume` puts the player's level back.
+- Pausing with a fade out while a fade in was still running threw an exception, left the audio playing and blocked every later fade on that sound, so a **Stop with a fade out did nothing**.
+- Stopping with a fade out during a fade in left both fades running at once, fighting over the volume.
+- A fade could outlive its sound and keep driving the volume of a pooled source already handed to the next one.
+- A playlist told to stop with a fade out could still change track in the middle of the fade.
+
+### Changed
+- The package now declares **Unity 2022.3** as its minimum. This is not a new restriction: the editor windows have used UI Toolkit's `background-size` since 2.2.2, which needs 2022.2. Declaring it means the Package Manager says so up front, instead of the package installing on an older editor and failing to compile.
+
+### Added
+- **AI Skills.** The package now ships instructions that teach an AI agent how to drive Sounds Good, at `AI/Skills/`. Ask your assistant to install them (the README explains how, for any tool) and it can register audio, play it, add components, create effects and occlusion materials and set up channels, instead of writing its own audio code from scratch.
+- **`SoundsGoodAuthoring`**, a public editor API to do from script what the editor windows do: register sounds and music, create effect presets and occlusion materials, create output channels, and regenerate the tag enums. This is what makes the skills above work, and it is just as usable from your own editor tooling.
+- **`SoundEmitter.PlayScaled(factor)`**, to play at a fraction of the volume set in the Inspector. Collision Sound uses it for impact strength, and it is there for any loudness you vary per play.
+
+---
+
 ## [2.2.2] – 2026-08-29
 
 ### Changed
