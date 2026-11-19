@@ -147,6 +147,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 GetFacingDirection() { return movement.FacingDirection; }
 
+    public void SetFacingDirection(Vector2 newFacingDirection) { movement.UpdateFacingDirection(newFacingDirection); }
+
     // ATTACK
     private void OnAttack(InputAction.CallbackContext context)
     {
@@ -246,8 +248,13 @@ public class PlayerController : MonoBehaviour
         ResumePlayerSpecial();
     }
 
-    public void PlayAnimation(string animationName, Action onFinished = null)
+    public void PlayAnimation(string animationName, Action onFinished = null, bool updateLocomotion = true)
     {
-        animator.PlayAnimation(animationName, onFinished);
+        animator.PlayAnimation(animationName, onFinished, updateLocomotion);
+    }
+
+    public void ResumeLocomotion()
+    {
+        animator.ResumeLocomotion();
     }
 }

@@ -80,7 +80,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3443853521838383015, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -92,6 +92,24 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &6047505769566995800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786566659793381703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50808919bc5a2f54781f48b99974ca4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimation
+  _frames:
+  - {fileID: -3443853521838383015, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
+  - {fileID: 3896911424030311870, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
+  - {fileID: -5624048240365649951, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
+  - {fileID: -4363167667984014114, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
+  _fps: 8
 --- !u!1 &3467115669531355755
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,21 +301,3 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &6047505769566995800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786566659793381703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50808919bc5a2f54781f48b99974ca4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimation
-  _frames:
-  - {fileID: -3443853521838383015, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
-  - {fileID: 3896911424030311870, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
-  - {fileID: -5624048240365649951, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
-  - {fileID: -4363167667984014114, guid: f1a9ca43e4729764aa1a211150e0fe06, type: 3}
-  _fps: 8
