@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98ae97e99a1b7454998a77b14613d8e4
+guid: 1dcae0f9a0e771c478a8913bd1fb7b19
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: antorcha
+  - name: boton_selevanta_azul
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 8
-      height: 15
-    spriteID: 43b02e12cf3495b469241de974bc7a32
+      width: 16
+      height: 16
+    spriteID: 74508bf8c62be094eb6e014945f6f1c8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 2723607976
+      value0: 1036741165
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: antorcha
+    name: boton_selevanta_azul
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: antorcha
+    - name: boton_selevanta_azul
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 4
+        x: 0
         y: 0
-        width: 8
-        height: 15
-      spriteId: 43b02e12cf3495b469241de974bc7a32
+        width: 16
+        height: 16
+      spriteId: 74508bf8c62be094eb6e014945f6f1c8
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 16, y: 16}
-  previousTextureSize: {x: 16, y: 32}
+  canvasSize: {x: 16, y: 32}
+  previousTextureSize: {x: 32, y: 32}
