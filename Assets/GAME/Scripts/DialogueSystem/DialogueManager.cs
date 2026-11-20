@@ -190,7 +190,6 @@ public class DialogueManager : MonoBehaviour
             textGroup.DOFade(0f, 0.15f)
         );
 
-        // Si hay un personaje visible, lo hacemos desaparecer.
         if (isCharacterVisible)
         {
             dialogueSequence.Join(
@@ -314,7 +313,6 @@ public class DialogueManager : MonoBehaviour
     {
         characterSequence?.Kill();
 
-        // Si no hay personaje, lo escondemos.
         if (newCharacter == null)
         {
             if (!isCharacterVisible)
@@ -338,17 +336,14 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        // Determinamos si debe aparecer a la derecha.
         bool shouldBeOnRight = newCharacter.characterName == "  Tamboril";
 
         float targetX = shouldBeOnRight
             ? characterRightX
             : characterLeftX;
 
-        // Actualizamos el sprite y el nombre.
         characterText.text = newCharacter.characterName;
 
-        // Si estaba oculto, hacemos la animación de aparición.
         if (!isCharacterVisible)
         {
             character.SetActive(true);
@@ -377,7 +372,6 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        // Si ya estaba visible, únicamente cambiamos su posición horizontal.
         if (isCharacterOnRight != shouldBeOnRight)
         {
             isCharacterOnRight = shouldBeOnRight;
