@@ -13,7 +13,8 @@ public class SwitchBlock : MonoBehaviour
     [SerializeField] private ASwitch targetSwitch;
 
     private Collider2D blockCollider;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Animator animator;
+    [SerializeField] private Animator animatorTop;
 
     private void Start()
     {
@@ -27,9 +28,10 @@ public class SwitchBlock : MonoBehaviour
     {
         bool shouldBeActive = blockColor == BlockColor.Red ? !isOn : isOn;
 
-        if (spriteRenderer != null)
+        if (animator != null)
         {
-            //spriteRenderer.sprite = shouldBeActive ? activeSprite : inactiveSprite;
+            animator.SetBool("cerrado", shouldBeActive);
+            animatorTop.SetBool("cerrado", shouldBeActive);
         }
 
         if (blockCollider != null)

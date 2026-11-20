@@ -9,6 +9,7 @@ public abstract class ASwitch : MonoBehaviour
     [SerializeField] private Sprite onSprite;
 
     public bool IsOn;
+    public bool CanToggle { get; protected set; } = true;
 
     public event Action<bool> OnStateChanged;
 
@@ -20,9 +21,19 @@ public abstract class ASwitch : MonoBehaviour
 
     public void Toggle()
     {
+        if (!CanToggle)
+            return;
+
+        CanToggle = false;
+
         IsOn = !IsOn;
         UpdateSprite();
         UpdateState();
+    }
+
+    protected void FinishToggle()
+    {
+        CanToggle = true;
     }
 
     protected void UpdateSprite()
