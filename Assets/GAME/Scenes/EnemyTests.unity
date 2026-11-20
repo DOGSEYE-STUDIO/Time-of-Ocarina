@@ -2579,6 +2579,10 @@ PrefabInstance:
       value: Enemy Frog
       objectReference: {fileID: 0}
     - target: {fileID: 2652662244434531027, guid: a9626661735e1a347ad6f6bf57790953, type: 3}
+      propertyPath: _health
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2652662244434531027, guid: a9626661735e1a347ad6f6bf57790953, type: 3}
       propertyPath: _duracionSalto
       value: 0.4
       objectReference: {fileID: 0}
