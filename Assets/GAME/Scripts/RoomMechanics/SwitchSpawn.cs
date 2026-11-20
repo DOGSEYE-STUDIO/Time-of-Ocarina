@@ -16,13 +16,13 @@ public class SwitchSpawn : MonoBehaviour
 
     void Start()
     {
+        targetSwitch.OnStateChanged += SpawnObjects;
+
         objectCollider = GetComponent<BoxCollider2D>();
         if (objectCollider != null) objectCollider.enabled = false;
 
         foreach (var obj in objectsToSpawn) obj.SetActive(false);
         foreach (var obj in objectsToDespawn) obj.SetActive(true);
-
-        targetSwitch.OnStateChanged += SpawnObjects;
     }
 
     private void SpawnObjects(bool isOn)

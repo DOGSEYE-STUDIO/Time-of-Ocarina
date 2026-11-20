@@ -1,10 +1,13 @@
 using MelenitasDev.SoundsGood;
 using MoreMountains.Feedbacks;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(ItemDrop))]
 public class EnemyBase : ASwordInteractable
 {
+    public static event Action<EnemyBase> OnEnemyDeath;
+
     [SerializeField] private int _health = 100;
     [SerializeField] private int _damagePerHit = 10;
     [SerializeField] private float _knockbackForce = 5f;
@@ -15,8 +18,9 @@ public class EnemyBase : ASwordInteractable
     [SerializeField] private MMF_Player particlesFeedback;  
     [SerializeField] private MMF_Player cameraFeedback;
     [SerializeField] private SoundEmitter _sfxPlayer;
-    
-    
+
+    private bool isDead;
+
     protected virtual void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -58,6 +62,12 @@ public class EnemyBase : ASwordInteractable
 
     public virtual void Die()
     {
+        if (isDead)
+            return;
+
+        isDead = true;
+        OnEnemyDeath?.Invoke(this);
+
         // Muere
         GetComponent<ItemDrop>().Drop();
         Destroy(gameObject);

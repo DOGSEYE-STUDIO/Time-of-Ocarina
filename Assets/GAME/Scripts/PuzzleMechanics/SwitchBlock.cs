@@ -13,15 +13,11 @@ public class SwitchBlock : MonoBehaviour
     [SerializeField] private ASwitch targetSwitch;
 
     private Collider2D blockCollider;
-    private SpriteRenderer spriteRenderer;
-
-    [SerializeField] private Sprite activeSprite;
-    [SerializeField] private Sprite inactiveSprite;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
         blockCollider = GetComponent<Collider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
         UpdateBlock(targetSwitch.IsOn);
         targetSwitch.OnStateChanged += UpdateBlock;
@@ -33,7 +29,7 @@ public class SwitchBlock : MonoBehaviour
 
         if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = shouldBeActive ? activeSprite : inactiveSprite;
+            //spriteRenderer.sprite = shouldBeActive ? activeSprite : inactiveSprite;
         }
 
         if (blockCollider != null)
