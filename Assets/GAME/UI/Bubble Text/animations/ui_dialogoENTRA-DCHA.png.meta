@@ -61,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -120,6 +120,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -127,20 +140,20 @@ TextureImporter:
       name: ui_dialogoENTRA-DCHA_0
       rect:
         serializedVersion: 2
-        x: 1177
-        y: 102
-        width: 7
-        height: 7
+        x: 1178
+        y: 103
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4154045ab4bdda280800000000000000
-      internalID: -9030320559866493676
+      spriteID: 8a57ec48c2ceab1498237b1ba1f6b047
+      internalID: 2133130403
       vertices: []
       indices: 
       edges: []
@@ -149,20 +162,20 @@ TextureImporter:
       name: ui_dialogoENTRA-DCHA_1
       rect:
         serializedVersion: 2
-        x: 926
-        y: 92
-        width: 7
-        height: 7
+        x: 927
+        y: 93
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f9c21f63f25ef4c80800000000000000
-      internalID: -8336192394291499873
+      spriteID: fdfcd50d8a45cb447b3e30c7190d6aa0
+      internalID: 365321721
       vertices: []
       indices: 
       edges: []
@@ -171,20 +184,20 @@ TextureImporter:
       name: ui_dialogoENTRA-DCHA_2
       rect:
         serializedVersion: 2
-        x: 492
-        y: 0
-        width: 216
-        height: 85
+        x: 493
+        y: 1
+        width: 214
+        height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ad06b0158e004be40800000000000000
-      internalID: 5671158828558409946
+      spriteID: 865b2c1532eb3c14c85cc7e062e18cbf
+      internalID: 1142797217
       vertices: []
       indices: 
       edges: []
@@ -193,20 +206,20 @@ TextureImporter:
       name: ui_dialogoENTRA-DCHA_3
       rect:
         serializedVersion: 2
-        x: 732
-        y: 0
-        width: 216
-        height: 91
+        x: 733
+        y: 1
+        width: 214
+        height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6cdc258d6d3ecedf0800000000000000
-      internalID: -149494175718257210
+      spriteID: 4b90c0b753849f14dafde25f46c96692
+      internalID: 1056869716
       vertices: []
       indices: 
       edges: []
@@ -215,20 +228,20 @@ TextureImporter:
       name: ui_dialogoENTRA-DCHA_4
       rect:
         serializedVersion: 2
-        x: 972
-        y: 0
-        width: 216
-        height: 91
+        x: 973
+        y: 1
+        width: 214
+        height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2bfd54ae9ec4f8530800000000000000
-      internalID: 3859387973221343154
+      spriteID: 60701a736676d9043bc573d5efe4511c
+      internalID: -1686190079
       vertices: []
       indices: 
       edges: []
@@ -237,20 +250,20 @@ TextureImporter:
       name: ui_dialogoENTRA-DCHA_5
       rect:
         serializedVersion: 2
-        x: 1212
-        y: 0
-        width: 216
-        height: 91
+        x: 1213
+        y: 1
+        width: 214
+        height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4198ec37570dfbf00800000000000000
-      internalID: 1134854833993320724
+      spriteID: e62683e528567214eb276c350baf7bd5
+      internalID: -1610064702
       vertices: []
       indices: 
       edges: []
@@ -259,20 +272,20 @@ TextureImporter:
       name: ui_dialogoENTRA-DCHA_6
       rect:
         serializedVersion: 2
-        x: 1429
-        y: 83
-        width: 7
-        height: 7
+        x: 1430
+        y: 84
+        width: 5
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c8157e1ac81d53cb0800000000000000
-      internalID: -4884767818871516788
+      spriteID: 48a32a0d045945747bdadfc8db848238
+      internalID: -2015710326
       vertices: []
       indices: 
       edges: []
@@ -281,20 +294,20 @@ TextureImporter:
       name: ui_dialogoENTRA-DCHA_7
       rect:
         serializedVersion: 2
-        x: 12
-        y: 0
-        width: 216
-        height: 76
+        x: 13
+        y: 1
+        width: 214
+        height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 991c9f302ccaa7b00800000000000000
-      internalID: 827163430866239897
+      spriteID: d2b7a7217d492e7448b904ddc87dc6a2
+      internalID: -1058147434
       vertices: []
       indices: 
       edges: []
@@ -303,20 +316,20 @@ TextureImporter:
       name: ui_dialogoENTRA-DCHA_8
       rect:
         serializedVersion: 2
-        x: 252
-        y: 0
-        width: 216
-        height: 78
+        x: 253
+        y: 1
+        width: 214
+        height: 76
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5b5710130b580a530800000000000000
-      internalID: 3864235472066803125
+      spriteID: 4229216fb05d3584b8604ac979109fdf
+      internalID: -90110225
       vertices: []
       indices: 
       edges: []
@@ -325,7 +338,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -333,17 +346,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1.0,"y":7.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ui_dialogoENTRA-DCHA_0: -9030320559866493676
-      ui_dialogoENTRA-DCHA_1: -8336192394291499873
-      ui_dialogoENTRA-DCHA_2: 5671158828558409946
-      ui_dialogoENTRA-DCHA_3: -149494175718257210
-      ui_dialogoENTRA-DCHA_4: 3859387973221343154
-      ui_dialogoENTRA-DCHA_5: 1134854833993320724
-      ui_dialogoENTRA-DCHA_6: -4884767818871516788
-      ui_dialogoENTRA-DCHA_7: 827163430866239897
-      ui_dialogoENTRA-DCHA_8: 3864235472066803125
+      ui_dialogoENTRA-DCHA_0: 2133130403
+      ui_dialogoENTRA-DCHA_1: 365321721
+      ui_dialogoENTRA-DCHA_2: 1142797217
+      ui_dialogoENTRA-DCHA_3: 1056869716
+      ui_dialogoENTRA-DCHA_4: -1686190079
+      ui_dialogoENTRA-DCHA_5: -1610064702
+      ui_dialogoENTRA-DCHA_6: -2015710326
+      ui_dialogoENTRA-DCHA_7: -1058147434
+      ui_dialogoENTRA-DCHA_8: -90110225
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

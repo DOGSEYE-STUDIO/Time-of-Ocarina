@@ -37,7 +37,7 @@ public class PlayerAnimation : MonoBehaviour
         animator.Play(animationName, 0, 0f);
     }
 
-    public void PlayAnimation(string animationName, Action onFinished = null)
+    public void PlayAnimation(string animationName, Action onFinished = null, bool updateLocomotion = true)
     {
         if (actionSequence != null)
             actionSequence.Kill();
@@ -55,15 +55,15 @@ public class PlayerAnimation : MonoBehaviour
 
         actionSequence.OnComplete(() =>
         {
-            isPlayingAction = false;
             actionSequence = null;
-            currentAnimation = "";
 
-            UpdateLocomotion(
-                false,
-                false,
-                PlayerController.Instance.GetFacingDirection()
-            );
+            if (updateLocomotion)
+            {
+                isPlayingAction = false;
+                currentAnimation = "";
+
+                UpdateLocomotion(false, false, PlayerController.Instance.GetFacingDirection());
+            }
 
             onFinished?.Invoke();
         });
@@ -89,6 +89,14 @@ public class PlayerAnimation : MonoBehaviour
         if (facing == Vector2.left) return "Left";
 
         return "Right";
+    }
+
+    public void ResumeLocomotion()
+    {
+        isPlayingAction = false;
+        currentAnimation = "";
+
+        UpdateLocomotion(false, false, PlayerController.Instance.GetFacingDirection());
     }
 
     private void OnDestroy()

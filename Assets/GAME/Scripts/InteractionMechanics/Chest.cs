@@ -9,10 +9,7 @@ public class Chest : APlayerInteractable
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Sprite _openSprite;
 
-    [Header("Animación del objeto")]
-    [SerializeField] private float _riseHeight = 1f;
-    [SerializeField] private float _riseTime = 1.5f;
-    [SerializeField] private float _holdTime = 1.5f;
+    [SerializeField] private DialogueData _dialogueData;
 
     private bool _opened;
 
@@ -20,29 +17,26 @@ public class Chest : APlayerInteractable
 
     public override void OnPlayerInteract()
     {
-        if (_opened) return;
+        if (_opened || PlayerController.Instance.GetFacingDirection() != Vector2.up) return;
+
+        PlayerController.Instance.StopPlayer();
+        PlayerController.Instance.gameObject.transform.DOMoveX(gameObject.transform.position.x, 0.1f);
+        PlayerController.Instance.PlayAnimation("GetItem", () => {
+            //new Sound(SFX.ChestOpen).SetOutput(Output.SFX).Play();
+            APickable item = Instantiate(_itemPrefab, _spawnPoint.position, Quaternion.identity);
+            item.GetComponent<Collider2D>().enabled = false;
+            _dialogueData.lines[0].onNext += () => GiveItem(item);
+            DialogueManager.Instance.StartDialogue(_dialogueData);
+        }, false);
 
         _opened = true;
-
-        new Sound(SFX.ChestOpen).SetOutput(Output.SFX).Play();
-
         if (_openSprite != null) _renderer.sprite = _openSprite;
-
-        APickable item = Instantiate(_itemPrefab, _spawnPoint.position, Quaternion.identity);
-        
-        item.GetComponent<Collider2D>().enabled = false;
-
-
-        DOTween.Sequence()
-            .Append(item.transform.DOMoveY(_spawnPoint.position.y + _riseHeight, _riseTime).SetEase(Ease.OutQuad))
-            .AppendInterval(_holdTime)
-            .AppendCallback(() => GiveItem(item))
-            .SetLink(item.gameObject);
     }
 
     private void GiveItem(APickable item)
     {
         item.OnPickup();
         Destroy(item.gameObject);
+        PlayerController.Instance.SetFacingDirection(Vector2.down);
     }
 }

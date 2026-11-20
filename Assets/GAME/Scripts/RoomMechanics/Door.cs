@@ -1,42 +1,55 @@
+using DG.Tweening;
+using System;
 using UnityEngine;
 
 public class Door : APlayerInteractable
 {
-    private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider;
 
     public bool isLocked;
     public bool isBossDoor;
 
+    [SerializeField] private GameObject poof;
+    [SerializeField] private Transform sprite;
+
+    private float spriteStart;
+
     [SerializeField] private ASwitch targetSwitch;
 
-    public Sprite openSprite;
-    public Sprite closedSprite;
-    public Sprite lockedSprite;
+    public event Action<bool> onDoorChange;
 
     public override string ActionText { get { return isLocked ? "Abrir" : ""; } }
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
 
         if (!isLocked) targetSwitch.OnStateChanged += UpdateDoor;
-        else spriteRenderer.sprite = lockedSprite;
+
+        spriteStart = sprite.localPosition.y;
     }
 
     private void UpdateDoor(bool isOn)
     {
         boxCollider.enabled = !isOn;
-        spriteRenderer.sprite = isOn ? closedSprite : openSprite;
+        onDoorChange?.Invoke(isOn);
+
+        if (isOn) sprite.DOLocalMoveY(spriteStart + 1, 0.3f);
+        else sprite.DOLocalMoveY(spriteStart, 0.3f);
     }
 
     public override void OnPlayerInteract()
     {
         if (isLocked && PlayerInventory.Instance.HasKey())
         {
-            UpdateDoor(true);
-            PlayerInventory.Instance.RemoveKey();
+            Instantiate(poof, sprite.position, sprite.rotation);
+            Sequence seq = DOTween.Sequence();
+            seq.AppendInterval(0.1f);
+            seq.AppendCallback(() =>
+            {
+                UpdateDoor(true);
+                PlayerInventory.Instance.RemoveKey();
+            });
             return;
         }
 
