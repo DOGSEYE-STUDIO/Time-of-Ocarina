@@ -14,11 +14,16 @@ public class EnemyFrog : EnemyBase
     [SerializeField] private float _distanciaMaximaSalto = 3f;
     [SerializeField, Range(0f, 1f)] private float _porcentajeSiLejos = 0.3f;
     [SerializeField] private float _tiempoAturdida = 3f;
+    [SerializeField] private Sprite[] _framesSalto;
+    [SerializeField] private Sprite[] _framesMuerte;
+    [SerializeField] private float _duracionFrameMuerte = 0.08f;
 
     private FSM _fsmRana;
     private FSM _fsmActivo;
     private PushPerception _golpeFrisbee;
+    private PushPerception _sinVida;
     private bool _aturdida;
+    private float _tiempoMuriendo;
     private SpriteRenderer _visual;
     private Vector2 _direccionSalto;
     private float _distanciaSalto;
@@ -34,7 +39,7 @@ public class EnemyFrog : EnemyBase
         // Nivel 1
         State activo = _fsmRana.CreateState("Activo", new SubsystemAction(_fsmActivo));
         State aturdido = _fsmRana.CreateState("Aturdido", new FunctionalAction(AturdidoEntrar, null, AturdidoSalir));
-        State morir = _fsmRana.CreateState("Morir", new FunctionalAction(Die));
+        State morir = _fsmRana.CreateState("Morir", new FunctionalAction(MorirEntrar, MorirActualizar, null));
 
         // Nivel 2
         State esperando = _fsmActivo.CreateState("Esperando", new FunctionalAction(EsperandoEntrar));
@@ -51,6 +56,8 @@ public class EnemyFrog : EnemyBase
         StateTransition golpeada = _fsmRana.CreateTransition("Golpeada por frisbee", activo, aturdido, statusFlags: StatusFlags.None);
         _golpeFrisbee = new PushPerception(golpeada);
         _fsmRana.CreateTransition("Se recupera", aturdido, activo, new UnityTimePerception(_tiempoAturdida));
+        StateTransition muere = _fsmRana.CreateTransition("Sin vida", aturdido, morir, statusFlags: StatusFlags.None);
+        _sinVida = new PushPerception(muere);
 
         _fsmRana.Start();
     }
@@ -63,6 +70,11 @@ public class EnemyFrog : EnemyBase
     public override void Aturdir()
     {
         _golpeFrisbee.Fire();
+    }
+
+    public override void Die()
+    {
+        _sinVida.Fire();
     }
 
     public override void OnSwordHit()
@@ -85,7 +97,7 @@ public class EnemyFrog : EnemyBase
     private void EsperandoEntrar()
     {
         _rb.linearVelocity = Vector2.zero;
-        _visual.color = Color.green;
+        _visual.sprite = _framesSalto[0];
     }
 
     private void ApuntarEntrar()
@@ -117,27 +129,32 @@ public class EnemyFrog : EnemyBase
             _visual.flipX = _direccionSalto.x > 0f;
         }
 
-        _visual.color = Color.yellow;
+        _visual.sprite = _framesSalto[1];
     }
 
     private void SaltarEntrar()
     {
         _tiempoSaltando = 0f;
-        _visual.color = new Color(1f, 0.5f, 0f);
     }
 
     private Status SaltarActualizar()
     {
+        float duracion = _distanciaSalto / _velocidadSalto;
+
         _rb.linearVelocity = _direccionSalto * _velocidadSalto;
         _tiempoSaltando += Time.deltaTime;
 
-        if (_tiempoSaltando >= _distanciaSalto / _velocidadSalto) return Status.Success;
+        int frame = 2 + (int)(_tiempoSaltando / duracion * (_framesSalto.Length - 2));
+        _visual.sprite = _framesSalto[Mathf.Min(frame, _framesSalto.Length - 1)];
+
+        if (_tiempoSaltando >= duracion) return Status.Success;
         return Status.Running;
     }
 
     private void SaltarSalir()
     {
         _rb.linearVelocity = Vector2.zero;
+        _visual.sprite = _framesSalto[0];
     }
 
     private void AturdidoEntrar()
@@ -149,6 +166,29 @@ public class EnemyFrog : EnemyBase
 
     private void AturdidoSalir()
     {
+        _visual.color = Color.white;
         _aturdida = false;
+    }
+
+    private void MorirEntrar()
+    {
+        _rb.simulated = false;
+        _visual.color = Color.white;
+        _tiempoMuriendo = 0f;
+    }
+
+    private Status MorirActualizar()
+    {
+        int frame = (int)(_tiempoMuriendo / _duracionFrameMuerte);
+
+        if (frame >= _framesMuerte.Length)
+        {
+            base.Die();
+            return Status.Success;
+        }
+
+        _visual.sprite = _framesMuerte[frame];
+        _tiempoMuriendo += Time.deltaTime;
+        return Status.Running;
     }
 }

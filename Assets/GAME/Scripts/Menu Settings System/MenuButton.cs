@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MenuButton : MonoBehaviour, IPointerEnterHandler, ISubmitHandler, IPointerClickHandler
 {
+    [SerializeField] private bool _sonidoArpegio;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (EventSystem.current.currentSelectedGameObject == gameObject) return;
@@ -26,6 +28,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, ISubmitHandler, I
     {
         if (GetComponent<Slider>() != null) return;
 
-        new Sound(SFX.MenuConfirm).SetOutput(Output.SFX).Play();
+        if (_sonidoArpegio) new Sound(SFX.MenuStart).SetOutput(Output.SFX).Play();
+        else new Sound(SFX.MenuConfirm).SetOutput(Output.SFX).Play();
     }
 }
