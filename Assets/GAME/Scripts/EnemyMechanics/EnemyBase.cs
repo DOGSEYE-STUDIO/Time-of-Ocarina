@@ -45,6 +45,10 @@ public class EnemyBase : ASwordInteractable
         _sfxPlayer.Play();
     }
 
+    public virtual void Aturdir()
+    {
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         PlayerHealth player = collision.gameObject.GetComponent<PlayerHealth>();
