@@ -56,7 +56,7 @@ public class EnemyBase : ASwordInteractable
         if (player != null) player.TakeDamage(_contactDamage, transform.position);
     }
 
-    public void Die()
+    public virtual void Die()
     {
         // Muere
         GetComponent<ItemDrop>().Drop();
