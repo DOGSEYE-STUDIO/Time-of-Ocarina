@@ -26,11 +26,24 @@ public class DialogueManager : MonoBehaviour
     private SpriteRenderer dialogueSprite;
     private SpriteRenderer characterSprite;
     private SpriteRenderer noteSprite;
+    private CanvasGroup textGroup;
+    private CanvasGroup nameGroup;
 
     private Vector2 noteStartPos;
 
     private DialogueLine[] lines;
     private float textSpeed = 0.05f;
+
+    private float characterShowY = -0.5f;
+    private float characterHideY = -1.75f;
+    private float characterLeftX = -4.3125f;
+    private float characterRightX = 4.3125f;
+    private float characterMoveDuration = 0.3f;
+
+    private Sequence characterSequence;
+
+    private bool isCharacterVisible = false;
+    private bool isCharacterOnRight = false;
 
     private int index;
     private bool dialogueOpen = false;
@@ -62,14 +75,24 @@ public class DialogueManager : MonoBehaviour
         dialogueSprite = dialogue.GetComponent<SpriteRenderer>();
         characterSprite = character.GetComponent<SpriteRenderer>();
         noteSprite = note.GetComponent<SpriteRenderer>();
+        textGroup = dialogueText.GetComponent<CanvasGroup>();
+        nameGroup = characterText.GetComponent<CanvasGroup>();
 
         SetAlpha(dialogueSprite, 0f);
-        SetAlpha(characterSprite, 0f);
         SetAlpha(noteSprite, 0f);
 
         dialogue.SetActive(false);
         character.SetActive(false);
         note.SetActive(false);
+
+        character.transform.localPosition = new Vector3(
+            characterLeftX,
+            characterHideY,
+            character.transform.localPosition.z
+        );
+
+        isCharacterVisible = false;
+        isCharacterOnRight = false;
 
         dialogueText.text = "";
         noteStartPos = note.transform.localPosition;
@@ -108,7 +131,15 @@ public class DialogueManager : MonoBehaviour
     {
         PlayerController.Instance.StopPlayer();
 
-        transform.DOMove(PlayerController.Instance.transform.position, 0);
+        Camera mainCamera = Camera.main;
+
+        Vector3 cameraPosition = mainCamera.transform.position;
+
+        transform.position = new Vector3(
+            cameraPosition.x,
+            cameraPosition.y,
+            transform.position.z
+        );
 
         dialogueSequence?.Kill();
 
@@ -120,6 +151,12 @@ public class DialogueManager : MonoBehaviour
         dialogueSprite.DOKill();
         SetAlpha(dialogueSprite, 0f);
 
+        textGroup.DOKill();
+        textGroup.alpha = 1f;
+
+        nameGroup.DOKill();
+        nameGroup.alpha = 1f;
+
         dialogueText.text = "";
         dialogueText.maxVisibleCharacters = 0;
         characterText.text = "";
@@ -127,7 +164,7 @@ public class DialogueManager : MonoBehaviour
         dialogueSequence = DOTween.Sequence();
 
         dialogueSequence.Append(
-            dialogueSprite.DOFade(1f, 0.3f)
+            dialogueSprite.DOFade(1f, 0.4f)
         );
 
         dialogueSequence.OnComplete(() =>
@@ -141,6 +178,7 @@ public class DialogueManager : MonoBehaviour
     void HideDialogue()
     {
         dialogueSequence?.Kill();
+        characterSequence?.Kill();
 
         dialogueSequence = DOTween.Sequence();
 
@@ -149,12 +187,40 @@ public class DialogueManager : MonoBehaviour
         );
 
         dialogueSequence.Join(
-            dialogueText.GetComponent<CanvasGroup>().DOFade(0f, 0.15f)
+            textGroup.DOFade(0f, 0.15f)
         );
+
+        // Si hay un personaje visible, lo hacemos desaparecer.
+        if (isCharacterVisible)
+        {
+            dialogueSequence.Join(
+                character.transform.DOLocalMoveY(
+                    characterHideY,
+                    0.3f
+                ).SetEase(Ease.InOutQuad)
+            );
+
+            dialogueSequence.Join(
+                characterSprite.DOFade(0f, 0.15f)
+            );
+
+            dialogueSequence.Join(
+                nameGroup.DOFade(0f, 0.15f)
+            );
+        }
 
         dialogueSequence.OnComplete(() =>
         {
             dialogue.SetActive(false);
+
+            if (isCharacterVisible)
+            {
+                character.SetActive(false);
+                isCharacterVisible = false;
+            }
+
+            characterText.text = "";
+
             dialogueOpen = false;
             PlayerController.Instance.ResumePlayer();
             PlayerController.Instance.ResumeLocomotion();
@@ -169,10 +235,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = lines[index].text;
         dialogueText.maxVisibleCharacters = 0;
 
-        if (currentChar != null)
-            characterText.text = currentChar.characterName;
-        else
-            characterText.text = "";
+        UpdateCharacter(currentChar);
 
         for (int i = 0; i < dialogueText.text.Length; i++)
         {
@@ -245,6 +308,89 @@ public class DialogueManager : MonoBehaviour
         {
             note.gameObject.SetActive(false);
         });
+    }
+
+    void UpdateCharacter(Character newCharacter)
+    {
+        characterSequence?.Kill();
+
+        // Si no hay personaje, lo escondemos.
+        if (newCharacter == null)
+        {
+            if (!isCharacterVisible)
+                return;
+
+            characterSequence = DOTween.Sequence();
+
+            characterSequence.Append(
+                character.transform.DOLocalMoveY(
+                    characterHideY,
+                    characterMoveDuration
+                ).SetEase(Ease.InOutQuad)
+            );
+
+            characterSequence.OnComplete(() =>
+            {
+                character.SetActive(false);
+                isCharacterVisible = false;
+            });
+
+            return;
+        }
+
+        // Determinamos si debe aparecer a la derecha.
+        bool shouldBeOnRight = newCharacter.characterName == "  Tamboril";
+
+        float targetX = shouldBeOnRight
+            ? characterRightX
+            : characterLeftX;
+
+        // Actualizamos el sprite y el nombre.
+        characterText.text = newCharacter.characterName;
+
+        // Si estaba oculto, hacemos la animación de aparición.
+        if (!isCharacterVisible)
+        {
+            character.SetActive(true);
+
+            characterSprite.DOKill();
+            SetAlpha(characterSprite, 1f);
+
+            character.transform.localPosition = new Vector3(
+                targetX,
+                characterHideY,
+                character.transform.localPosition.z
+            );
+
+            isCharacterVisible = true;
+            isCharacterOnRight = shouldBeOnRight;
+
+            characterSequence = DOTween.Sequence();
+
+            characterSequence.Append(
+                character.transform.DOLocalMoveY(
+                    characterShowY,
+                    characterMoveDuration
+                ).SetEase(Ease.OutQuad)
+            );
+
+            return;
+        }
+
+        // Si ya estaba visible, únicamente cambiamos su posición horizontal.
+        if (isCharacterOnRight != shouldBeOnRight)
+        {
+            isCharacterOnRight = shouldBeOnRight;
+
+            characterSequence = DOTween.Sequence();
+
+            characterSequence.Append(
+                character.transform.DOLocalMoveX(
+                    targetX,
+                    characterMoveDuration
+                ).SetEase(Ease.InOutQuad)
+            );
+        }
     }
 
     public bool IsDialogueOpen()

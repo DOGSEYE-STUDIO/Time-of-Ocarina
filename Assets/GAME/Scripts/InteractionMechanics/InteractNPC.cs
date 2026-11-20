@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class InteractNPC : APlayerInteractable
 {
+    [SerializeField] private DialogueData dialogue;
+
     public override string ActionText { get { return "Hablar"; } }
 
     public override void OnPlayerInteract()
     {
-        new Sound(SFX.Talk).SetOutput(Output.SFX).Play();
-        Debug.Log("hola soy verity");
+        DialogueManager.Instance.StartDialogue(dialogue);
     }
 }
