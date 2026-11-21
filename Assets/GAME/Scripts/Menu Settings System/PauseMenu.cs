@@ -37,6 +37,11 @@ public class PauseMenu : MonoBehaviour
         _pauseAction.Disable();
     }
 
+    private void Update()
+    {
+        if (_paused && EventSystem.current.currentSelectedGameObject == null) EventSystem.current.SetSelectedGameObject(_resumeButton.gameObject);
+    }
+
     private void OnPause(InputAction.CallbackContext context)
     {
         if (GameOverMenu.Instance.IsGameOver) return;
@@ -49,7 +54,7 @@ public class PauseMenu : MonoBehaviour
     {
         _paused = true;
         Time.timeScale = 0f;
-        PlayerController.Instance.StopPlayer();
+        PlayerController.Instance.moveAction.action.actionMap.Disable();
 
         _panel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(_resumeButton.gameObject);
@@ -59,7 +64,7 @@ public class PauseMenu : MonoBehaviour
     {
         _paused = false;
         Time.timeScale = 1f;
-        PlayerController.Instance.ResumePlayer();
+        PlayerController.Instance.moveAction.action.actionMap.Enable();
 
         _panel.SetActive(false);
     }

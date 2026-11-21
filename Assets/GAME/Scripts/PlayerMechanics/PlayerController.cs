@@ -136,7 +136,9 @@ public class PlayerController : MonoBehaviour
 
     public void ResumePlayerMovement()
     {
+        moveAction.action.performed -= OnMove;
         moveAction.action.performed += OnMove;
+        moveAction.action.canceled -= OnMove;
         moveAction.action.canceled += OnMove;
 
         movement.SetMoveInput(moveAction.action.ReadValue<Vector2>());
@@ -171,6 +173,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResumePlayerAttack()
     {
+        attackAction.action.performed -= OnAttack;
         attackAction.action.performed += OnAttack;
     }
 
@@ -197,6 +200,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResumePlayerSpecial()
     {
+        specialAction.action.performed -= OnUseSpecial;
         specialAction.action.performed += OnUseSpecial;
     }
 
@@ -223,6 +227,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResumePlayerInteraction()
     {
+        interactAction.action.performed -= OnInteract;
         interactAction.action.performed += OnInteract;
     }
 

@@ -3,6 +3,7 @@ using BehaviourAPI.Core.Actions;
 using BehaviourAPI.Core.Perceptions;
 using BehaviourAPI.StateMachines;
 using BehaviourAPI.UnityToolkit;
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class EnemyTumbadora : EnemyBase
@@ -203,6 +204,7 @@ public class EnemyTumbadora : EnemyBase
     {
         _rb.simulated = false;
         _visual.color = Color.white;
+        new Sound(SFX.MuerteEnemigo).SetOutput(Output.SFX).SetRandomPitch().Play();
         base.Die();
     }
 

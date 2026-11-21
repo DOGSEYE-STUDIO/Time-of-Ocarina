@@ -136,3 +136,33 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2c75c2ec4230a0e4cb32a5d1958c9e01, type: 3}
     compressionPreset: 1
     forceToMono: 0
+  - tag: Pasos
+    clips:
+    - {fileID: 8300000, guid: 84dc7dc08cc9b534d9246bb5518ed2e5, type: 3}
+    - {fileID: 8300000, guid: 57bb0097b30ef2f4ea0c4083d5d8e219, type: 3}
+    - {fileID: 8300000, guid: 240f9e55743751a47992effda65622e8, type: 3}
+    - {fileID: 8300000, guid: c33f8d295c290bd4ab9e91224da47fb0, type: 3}
+    - {fileID: 8300000, guid: 0e6589e0a34ecc84db768049fe94c98d, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: AturdirTambor
+    clips:
+    - {fileID: 8300000, guid: af3a41ee9cc468740b4a8af0bbf71a59, type: 3}
+    - {fileID: 8300000, guid: 3e27c17309a6fb34295210ce2acec9d5, type: 3}
+    - {fileID: 8300000, guid: a3349d05fe16fe146b1df06b8dc280d8, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: MuerteEnemigo
+    clips:
+    - {fileID: 8300000, guid: be2f1f8793260404681547f668e29598, type: 3}
+    - {fileID: 8300000, guid: 2a1675f9c3d894b43869bacbe91765ba, type: 3}
+    - {fileID: 8300000, guid: 4248f8622cd33a94bad06e9c33fae4df, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: AterrizajeRana
+    clips:
+    - {fileID: 8300000, guid: d0a838e0f1c766f48ad57838ae32a9e8, type: 3}
+    - {fileID: 8300000, guid: 99379efbc6d859942b3de8d5d31202b5, type: 3}
+    - {fileID: 8300000, guid: 3be9a38bd5fcf68489db003b83f62b9b, type: 3}
+    compressionPreset: 1
+    forceToMono: 0

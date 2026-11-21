@@ -20,28 +20,45 @@ public class Hotbar : MonoBehaviour
 
     private void Update()
     {
-        Keyboard keyboard = Keyboard.current;
+        if (Time.timeScale == 0f) return;
 
-        if (keyboard.tabKey.wasPressedThisFrame)
+        Keyboard keyboard = Keyboard.current;
+        Mouse mouse = Mouse.current;
+        Gamepad mando = Gamepad.current;
+
+        bool abrir = (keyboard != null && keyboard.tabKey.wasPressedThisFrame) || (mando != null && mando.buttonNorth.wasPressedThisFrame);
+
+        if (abrir)
         {
             IsOpen = !IsOpen;
             if (!IsOpen) Selected = 0;
-            OnChanged();
+            Avisar();
         }
 
         if (!IsOpen) return;
 
         int previous = Selected;
-        if (keyboard.digit1Key.wasPressedThisFrame) Selected = 0;
-        if (keyboard.digit2Key.wasPressedThisFrame) Selected = 1;
-        if (keyboard.digit3Key.wasPressedThisFrame) Selected = 2;
-        if (keyboard.digit4Key.wasPressedThisFrame) Selected = 3;
 
-        float scroll = Mouse.current.scroll.ReadValue().y;
-        if (scroll > 0) Selected = (Selected + SlotCount - 1) % SlotCount;
-        if (scroll < 0) Selected = (Selected + 1) % SlotCount;
+        if (keyboard != null)
+        {
+            if (keyboard.digit1Key.wasPressedThisFrame) Selected = 0;
+            if (keyboard.digit2Key.wasPressedThisFrame) Selected = 1;
+            if (keyboard.digit3Key.wasPressedThisFrame) Selected = 2;
+            if (keyboard.digit4Key.wasPressedThisFrame) Selected = 3;
+        }
 
-        if (Selected != previous) OnChanged();
+        bool anterior = (mouse != null && mouse.scroll.ReadValue().y > 0) || (mando != null && mando.leftShoulder.wasPressedThisFrame);
+        bool siguiente = (mouse != null && mouse.scroll.ReadValue().y < 0) || (mando != null && mando.rightShoulder.wasPressedThisFrame);
+
+        if (anterior) Selected = (Selected + SlotCount - 1) % SlotCount;
+        if (siguiente) Selected = (Selected + 1) % SlotCount;
+
+        if (Selected != previous) Avisar();
+    }
+
+    private void Avisar()
+    {
+        if (OnChanged != null) OnChanged();
     }
 
     public bool AddItem(APickable item)
@@ -51,7 +68,7 @@ public class Hotbar : MonoBehaviour
             if (_consumables[i] == null)
             {
                 _consumables[i] = item;
-                OnChanged();
+                Avisar();
                 return true;
             }
         }
@@ -68,6 +85,6 @@ public class Hotbar : MonoBehaviour
         used.OnPickup();
         Destroy(used.gameObject);
         _consumables[Selected - 1] = null;
-        OnChanged();
+        Avisar();
     }
 }
