@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -598776315777035330, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
+  m_Sprite: {fileID: 403731373428336002, guid: 7115301326c6943468a3734543d66b15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,22 +165,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimation
   _frames:
-  - {fileID: -598776315777035330, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -3094310627742213273, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -6472218020908554066, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: 8274843386922110429, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -541017114302175908, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -2269320605606550508, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -6441039293365733703, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: 3432852187633886338, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -5897920016339621599, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -3799171501028549975, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -1953293220925720986, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -7369732906118117441, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -6370903336805352251, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -7350170790190971827, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: 3604260909832644390, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: -7940946541586049752, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: 2315056361892871435, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
-  - {fileID: 2225194869259051979, guid: a94cf2d7a398cbb47b75c235b0b43cad, type: 3}
+  - {fileID: 403731373428336002, guid: 7115301326c6943468a3734543d66b15, type: 3}
+  - {fileID: -185224538831714531, guid: 7115301326c6943468a3734543d66b15, type: 3}
+  - {fileID: 7086680715185198620, guid: 7115301326c6943468a3734543d66b15, type: 3}
+  - {fileID: -6614718739286984973, guid: 7115301326c6943468a3734543d66b15, type: 3}
+  - {fileID: 1028702839401075199, guid: 7115301326c6943468a3734543d66b15, type: 3}
+  - {fileID: 2305559014976602163, guid: 7115301326c6943468a3734543d66b15, type: 3}
+  - {fileID: 1786496101642665593, guid: 7115301326c6943468a3734543d66b15, type: 3}
+  - {fileID: -5069444633977657214, guid: 7115301326c6943468a3734543d66b15, type: 3}
   _fps: 18

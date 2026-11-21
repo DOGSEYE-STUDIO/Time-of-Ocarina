@@ -116,14 +116,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530ef065ad5091442981b1986795c184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
-  _health: 100
+  _health: 30
   _damagePerHit: 10
   _knockbackForce: 10
   _contactDamage: 1
   particlesFeedback: {fileID: 2327540055412254500}
   cameraFeedback: {fileID: 2687960742433685662}
   _sfxPlayer: {fileID: 541876651422355072}
-  _rangoDeteccion: 5.2
+  _rangoDeteccion: 5.7
   _tiempoApuntando: 0.8
   _velocidadSalto: 8
   _toleranciaEje: 1.3

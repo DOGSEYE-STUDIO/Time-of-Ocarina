@@ -14,6 +14,7 @@ public class EnemyFrog : EnemyBase
     [SerializeField] private float _distanciaMaximaSalto = 3f;
     [SerializeField, Range(0f, 1f)] private float _porcentajeSiLejos = 0.3f;
     [SerializeField] private float _tiempoAturdida = 3f;
+    [SerializeField] private Color _colorAturdida = new Color(0.8f, 1f, 1f);
     [SerializeField] private Sprite[] _framesSalto;
     [SerializeField] private Sprite[] _framesMuerte;
     [SerializeField] private float _duracionFrameMuerte = 0.08f;
@@ -160,7 +161,7 @@ public class EnemyFrog : EnemyBase
     private void AturdidoEntrar()
     {
         _rb.linearVelocity = Vector2.zero;
-        _visual.color = Color.cyan;
+        _visual.color = _colorAturdida;
         _aturdida = true;
     }
 
