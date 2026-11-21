@@ -1584,9 +1584,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.07812501
+    x: 0.078125
     y: 0
-    width: 0.84375006
+    width: 0.84375
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1623,6 +1623,88 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &378517595
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1812427390}
+    m_Modifications:
+    - target: {fileID: 2152439559950183919, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Room Camera Trigger (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502658778967258280, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.x
+      value: 6.7898073
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.y
+      value: 7.15234
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.35101986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.1368923
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+--- !u!4 &378517596 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+  m_PrefabInstance: {fileID: 378517595}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &408817078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1684,6 +1766,88 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6512913263671483017, guid: a0cccd1fe425dd448a98e95942bd0ecc, type: 3}
   m_PrefabInstance: {fileID: 408817078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &421230754
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1812427390}
+    m_Modifications:
+    - target: {fileID: 2152439559950183919, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Room Camera Trigger (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502658778967258280, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.x
+      value: 12.258759
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.y
+      value: 6.95117
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.59529114
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0363073
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+--- !u!4 &421230755 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+  m_PrefabInstance: {fileID: 421230754}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &439115565
 PrefabInstance:
@@ -2118,6 +2282,88 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6389735446542419543, guid: e30ffe8b0b81bbb46a167d1e89ca9071, type: 3}
   m_PrefabInstance: {fileID: 532212252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &598727953
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1812427390}
+    m_Modifications:
+    - target: {fileID: 2152439559950183919, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Room Camera Trigger (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502658778967258280, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.x
+      value: 10.63275
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.y
+      value: 6.95117
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.35101986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0363073
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -66.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+--- !u!4 &598727954 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+  m_PrefabInstance: {fileID: 598727953}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &621966297
 PrefabInstance:
@@ -2781,6 +3027,84 @@ Transform:
   - {fileID: 92703370}
   m_Father: {fileID: 1412734236}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &832402954
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1812427390}
+    m_Modifications:
+    - target: {fileID: 2152439559950183919, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Room Camera Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502658778967258280, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.x
+      value: 11.962503
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.y
+      value: 6.95117
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0363073
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+--- !u!4 &832402955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+  m_PrefabInstance: {fileID: 832402954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &846607079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2842,6 +3166,88 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3314175008789539582, guid: 2bdc71e4d616dc94a9d14d906e055e5a, type: 3}
   m_PrefabInstance: {fileID: 846607079}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &859005864
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1812427390}
+    m_Modifications:
+    - target: {fileID: 2152439559950183919, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Room Camera Trigger (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502658778967258280, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.x
+      value: 10.63275
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.y
+      value: 6.7398095
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.35101986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.9306271
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -24.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+--- !u!4 &859005865 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+  m_PrefabInstance: {fileID: 859005864}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &880986597
 GameObject:
@@ -5732,6 +6138,88 @@ Transform:
   - {fileID: 1736716050}
   m_Father: {fileID: 1251024722}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1165133354
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1812427390}
+    m_Modifications:
+    - target: {fileID: 2152439559950183919, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Room Camera Trigger (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502658778967258280, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.x
+      value: 10.63275
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.y
+      value: 8.693888
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.35101986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.9076662
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+--- !u!4 &1165133355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+  m_PrefabInstance: {fileID: 1165133354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1182244724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5855,6 +6343,88 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3314175008789539582, guid: 2bdc71e4d616dc94a9d14d906e055e5a, type: 3}
   m_PrefabInstance: {fileID: 1184017330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1208607839
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1812427390}
+    m_Modifications:
+    - target: {fileID: 2152439559950183919, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Room Camera Trigger (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502658778967258280, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.x
+      value: 7.07854
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.y
+      value: 19.20169
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.x
+      value: -5.179953
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.y
+      value: 7.1615677
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -46.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+--- !u!4 &1208607840 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+  m_PrefabInstance: {fileID: 1208607839}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1209564424
 PrefabInstance:
@@ -6729,6 +7299,88 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3314175008789539582, guid: 4a30dc70114139a4a876140409db43ea, type: 3}
   m_PrefabInstance: {fileID: 1425423006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1432648294
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1812427390}
+    m_Modifications:
+    - target: {fileID: 2152439559950183919, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Room Camera Trigger (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502658778967258280, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.x
+      value: 9.842398
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.y
+      value: 9.8182125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.14242649
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0363073
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+--- !u!4 &1432648295 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+  m_PrefabInstance: {fileID: 1432648294}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1442484453
 PrefabInstance:
@@ -8250,6 +8902,46 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6113026476907243487, guid: 5f69452ab3d76464683c87aea448aebe, type: 3}
   m_PrefabInstance: {fileID: 1799454363}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1812427389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1812427390}
+  m_Layer: 0
+  m_Name: Dungeon Cameras
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1812427390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812427389}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.07, y: 23.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 832402955}
+  - {fileID: 421230755}
+  - {fileID: 1208607840}
+  - {fileID: 598727954}
+  - {fileID: 859005865}
+  - {fileID: 1165133355}
+  - {fileID: 378517596}
+  - {fileID: 1869605996}
+  - {fileID: 1432648295}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1823323025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8435,6 +9127,88 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6389735446542419543, guid: e30ffe8b0b81bbb46a167d1e89ca9071, type: 3}
   m_PrefabInstance: {fileID: 1857944154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1869605995
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1812427390}
+    m_Modifications:
+    - target: {fileID: 2152439559950183919, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Name
+      value: Dungeon Room Camera Trigger (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502658778967258280, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.x
+      value: 12.638258
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Size.y
+      value: 26.810873
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.35101986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.5444689
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26.539997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+--- !u!4 &1869605996 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
+  m_PrefabInstance: {fileID: 1869605995}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1880795619
 PrefabInstance:
@@ -85504,3 +86278,4 @@ SceneRoots:
   - {fileID: 1391019947}
   - {fileID: 304336352}
   - {fileID: 1884147203}
+  - {fileID: 1812427390}
