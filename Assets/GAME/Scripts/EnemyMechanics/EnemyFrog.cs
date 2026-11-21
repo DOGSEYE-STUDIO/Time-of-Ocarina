@@ -3,6 +3,7 @@ using BehaviourAPI.Core.Actions;
 using BehaviourAPI.Core.Perceptions;
 using BehaviourAPI.StateMachines;
 using BehaviourAPI.UnityToolkit;
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class EnemyFrog : EnemyBase
@@ -154,6 +155,7 @@ public class EnemyFrog : EnemyBase
 
     private void SaltarSalir()
     {
+        new Sound(SFX.AterrizajeRana).SetOutput(Output.SFX).SetRandomPitch().Play();
         _rb.linearVelocity = Vector2.zero;
         _visual.sprite = _framesSalto[0];
     }
@@ -176,6 +178,7 @@ public class EnemyFrog : EnemyBase
         _rb.simulated = false;
         _visual.color = Color.white;
         _tiempoMuriendo = 0f;
+        new Sound(SFX.MuerteEnemigo).SetOutput(Output.SFX).SetRandomPitch().Play();
     }
 
     private Status MorirActualizar()

@@ -46,7 +46,7 @@ public class PlayerInventory : MonoBehaviour
     public void RemoveCoins(int newCoins)
     {
         coins -= newCoins;
-        OnKeyChange?.Invoke();
+        OnCoinChange?.Invoke();
     }
 
     public void AddBossKey() { HasBossKey = true; }

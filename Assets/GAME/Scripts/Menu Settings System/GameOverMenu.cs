@@ -23,6 +23,11 @@ public class GameOverMenu : MonoBehaviour
         _menuButton.onClick.AddListener(GoToMenu);
     }
 
+    private void Update()
+    {
+        if (IsGameOver && EventSystem.current.currentSelectedGameObject == null) EventSystem.current.SetSelectedGameObject(_retryButton.gameObject);
+    }
+
     public void Show()
     {
         IsGameOver = true;
