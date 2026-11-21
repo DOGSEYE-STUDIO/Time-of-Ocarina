@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private RectTransform _sidePanel;
     [SerializeField] private RectTransform _bigLogo;
     [SerializeField] private Image _wave;
+    [SerializeField] private Image _fundido;
 
     [Header("Botones")]
     [SerializeField] private Button _playButton;
@@ -49,7 +50,7 @@ public class MainMenu : MonoBehaviour
         _creditsPanel.SetActive(false);
         _pressStartPanel.SetActive(true);
 
-        _playButton.onClick.AddListener(() => SceneManager.LoadScene(_gameScene));
+        _playButton.onClick.AddListener(Jugar);
         _settingsButton.onClick.AddListener(() => Open(_settingsPanel, _settingsFirstButton));
         _creditsButton.onClick.AddListener(() => Open(_creditsPanel, _creditsBackButton));
         _quitButton.onClick.AddListener(Application.Quit);
@@ -106,6 +107,15 @@ public class MainMenu : MonoBehaviour
         _sidePanel.DOAnchorPosX(0, 0.6f).SetDelay(0.3f).SetEase(Ease.OutBack).SetLink(gameObject);
     }
 
+    private void Jugar()
+    {
+        if (_fundido.gameObject.activeSelf) return;
+
+        _fundido.gameObject.SetActive(true);
+        _fundido.color = new Color(0, 0, 0, 0);
+        _fundido.DOFade(1f, 0.5f).SetLink(gameObject).OnComplete(() => SceneManager.LoadScene(_gameScene));
+    }
+
     private void Open(GameObject panel, Button firstButton)
     {
         _returnSelection = EventSystem.current.currentSelectedGameObject;
@@ -114,15 +124,24 @@ public class MainMenu : MonoBehaviour
         _mainPanel.SetActive(false);
         panel.SetActive(true);
         EventSystem.current.SetSelectedGameObject(firstButton.gameObject);
+
+        Transform ventana = panel.transform.Find("Window");
+        ventana.localScale = Vector3.one * 0.8f;
+        ventana.DOScale(1f, 0.25f).SetEase(Ease.OutBack).SetLink(panel);
     }
 
     private void Back()
     {
-        _openPanel.SetActive(false);
+        GameObject panel = _openPanel;
         _openPanel = null;
 
-        _mainPanel.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(_returnSelection);
+        Transform ventana = panel.transform.Find("Window");
+        ventana.DOScale(0.8f, 0.15f).SetEase(Ease.InBack).SetLink(panel).OnComplete(() =>
+        {
+            panel.SetActive(false);
+            _mainPanel.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(_returnSelection);
+        });
     }
 
     private void OnCancel(InputAction.CallbackContext context)
