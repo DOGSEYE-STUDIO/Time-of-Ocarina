@@ -13,6 +13,16 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
+        if (_heldIcon == null)
+        {
+            Transform jugador = PlayerController.Instance.transform;
+            _heldIcon = new GameObject("Held Item Shop").AddComponent<SpriteRenderer>();
+            _heldIcon.transform.SetParent(jugador, false);
+            _heldIcon.transform.localPosition = jugador.Find("Held Item").localPosition;
+            _heldIcon.sortingOrder = 10;
+            _heldIcon.enabled = false;
+        }
+
         int count = Mathf.Min(_itemPrefabs.Length, _slots.Length);
         _items = new ShopItem[count];
 

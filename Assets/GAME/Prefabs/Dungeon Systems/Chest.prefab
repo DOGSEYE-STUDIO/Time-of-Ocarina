@@ -188,6 +188,8 @@ MonoBehaviour:
   _spawnPoint: {fileID: 512892856766448824}
   _renderer: {fileID: 3160594008928136571}
   _openSprite: {fileID: 21300000, guid: c97a354adc25aa8458a3057f931b3246, type: 3}
+  _destello: {fileID: 0}
+  _brillo: {fileID: 5157926303637747282, guid: f5b4c43d33a649044a67095ccc591a5d, type: 3}
   _dialogueData: {fileID: 11400000, guid: 7e42a013eb0163f41bee7354c61c1cc0, type: 2}
 --- !u!1 &8822686208962344781
 GameObject:

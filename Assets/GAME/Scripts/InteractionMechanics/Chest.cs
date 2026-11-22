@@ -9,6 +9,7 @@ public class Chest : APlayerInteractable
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private Sprite _openSprite;
     [SerializeField] private GameObject _destello;
+    [SerializeField] private GameObject _brillo;
 
     [SerializeField] private DialogueData _dialogueData;
 
@@ -27,6 +28,7 @@ public class Chest : APlayerInteractable
             if (_destello != null) Instantiate(_destello, _spawnPoint.position, Quaternion.identity);
             APickable item = Instantiate(_itemPrefab, _spawnPoint.position, Quaternion.identity);
             item.GetComponent<Collider2D>().enabled = false;
+            if (_brillo != null) Instantiate(_brillo, item.transform);
             _dialogueData.lines[0].onNext += () => GiveItem(item);
             DialogueManager.Instance.StartDialogue(_dialogueData);
         }, false);
