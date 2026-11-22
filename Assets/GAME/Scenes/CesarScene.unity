@@ -6718,14 +6718,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1059069933300303986, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.48800087
-      objectReference: {fileID: 0}
-    - target: {fileID: 1428965961067173360, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.957
-      objectReference: {fileID: 0}
     - target: {fileID: 3278634936249953639, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
       propertyPath: _heldIcon
       value: 
@@ -6733,18 +6725,6 @@ PrefabInstance:
     - target: {fileID: 4463054565704703499, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
       propertyPath: m_Name
       value: --- TIENDA ---
-      objectReference: {fileID: 0}
-    - target: {fileID: 5567762617104080160, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.48800087
-      objectReference: {fileID: 0}
-    - target: {fileID: 5604736883882228339, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.48800087
-      objectReference: {fileID: 0}
-    - target: {fileID: 6133621793959414810, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.488
       objectReference: {fileID: 0}
     - target: {fileID: 7442434038063587500, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6785,14 +6765,6 @@ PrefabInstance:
     - target: {fileID: 7442434038063587500, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7531945429089646457, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.48800087
-      objectReference: {fileID: 0}
-    - target: {fileID: 9022138683593885487, guid: 0bb8fe9568b6f5b40bd884e34897456d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.48800087
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
