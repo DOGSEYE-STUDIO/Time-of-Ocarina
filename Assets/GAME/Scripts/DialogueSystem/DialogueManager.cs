@@ -243,9 +243,10 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.maxVisibleCharacters++;
 
-            if (currentChar != null && i % 2 == 0 && char.IsLetterOrDigit(dialogueText.text[i]))
+            if (i % 2 == 0 && char.IsLetterOrDigit(dialogueText.text[i]))
             {
-                new Sound(SFX.Dialogo).SetOutput(Output.SFX).SetPitch(currentChar.tono * UnityEngine.Random.Range(0.9f, 1.1f)).Play();
+                if (currentChar != null) new Sound(SFX.Dialogo).SetOutput(Output.SFX).SetPitch(currentChar.tono * UnityEngine.Random.Range(0.9f, 1.1f)).Play();
+                else new Sound(SFX.DialogoPiedra).SetOutput(Output.SFX).SetPitch(UnityEngine.Random.Range(0.9f, 1.1f)).Play();
             }
 
             yield return new WaitForSeconds(textSpeed);

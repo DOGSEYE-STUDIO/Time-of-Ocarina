@@ -59,12 +59,18 @@ MonoBehaviour:
     forceToMono: 1
   - tag: Buy
     clips:
-    - {fileID: 8300000, guid: 3202e32342f284a42a3dd45f0ac9bd01, type: 3}
+    - {fileID: 8300000, guid: d05f8e13a61fd604d9587314a6a5c477, type: 3}
+    - {fileID: 8300000, guid: 5349ed21274eaf24485f02efe209d7c6, type: 3}
+    - {fileID: 8300000, guid: 4d8d903be2bcef14a84117760e300c70, type: 3}
+    - {fileID: 8300000, guid: f76aa420345f4634fbc0ffc455c21a48, type: 3}
     compressionPreset: 1
     forceToMono: 1
   - tag: Error
     clips:
-    - {fileID: 8300000, guid: 0dfe9f9829141478689194368436b534, type: 3}
+    - {fileID: 8300000, guid: f6bad1022f0e3e74f84d5df09fc73364, type: 3}
+    - {fileID: 8300000, guid: 5f0ad4b822a26964cb3b632f15cd3def, type: 3}
+    - {fileID: 8300000, guid: db16037b9a686254ebbba87880d07bdc, type: 3}
+    - {fileID: 8300000, guid: 251de6e04071e73499dc889169a06bb9, type: 3}
     compressionPreset: 1
     forceToMono: 1
   - tag: Talk
@@ -79,7 +85,10 @@ MonoBehaviour:
     forceToMono: 1
   - tag: ShopPick
     clips:
-    - {fileID: 8300000, guid: 4110772b9efb94e5b919923d775a1ca7, type: 3}
+    - {fileID: 8300000, guid: 952387ab1de88314796d88c914489c27, type: 3}
+    - {fileID: 8300000, guid: 3faea8a7a51619e4089d4baa44202eee, type: 3}
+    - {fileID: 8300000, guid: 6ed2c94b317fd564e8bd858e2cb09a0e, type: 3}
+    - {fileID: 8300000, guid: d41fcf199511dd045b46606c5eaa6a34, type: 3}
     compressionPreset: 1
     forceToMono: 1
   - tag: MarimbaA
@@ -303,5 +312,19 @@ MonoBehaviour:
     - {fileID: 8300000, guid: e3fd4721ada458c4a80b097f9d13aa5a, type: 3}
     - {fileID: 8300000, guid: 30a3bedc5766cc149adb0fc80b854f1d, type: 3}
     - {fileID: 8300000, guid: f3e09e4b4b8c1284cb49723fe95f2f85, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: DialogoPiedra
+    clips:
+    - {fileID: 8300000, guid: 2459d34ad19892d488c0ceef5fbdeff8, type: 3}
+    - {fileID: 8300000, guid: 1b2150549bb6c9b43af0f3d8de81bca7, type: 3}
+    - {fileID: 8300000, guid: ea1eeb98f907edc40baf5e3b4d311f85, type: 3}
+    - {fileID: 8300000, guid: 811264235ec7cde4c968fe22fdc75e2c, type: 3}
+    - {fileID: 8300000, guid: cc6d414e0fb166545867ac8f3e0b8f06, type: 3}
+    - {fileID: 8300000, guid: 4db3f6460a7c1004cbd47dde4085b109, type: 3}
+    - {fileID: 8300000, guid: 5dab29918a7d0234fb13eba15bb1f335, type: 3}
+    - {fileID: 8300000, guid: c22fa31366d182f418f19bdcead43862, type: 3}
+    - {fileID: 8300000, guid: b0e2b8c3f667edb4bbda57a0b7222451, type: 3}
+    - {fileID: 8300000, guid: 85ac215f5670c6e42b1ae3138730c238, type: 3}
     compressionPreset: 1
     forceToMono: 1

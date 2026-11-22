@@ -50,6 +50,7 @@ namespace MelenitasDev.SoundsGood
 		public static readonly SFX Aparecer = new SFX("Aparecer");
 		public static readonly SFX Desaparecer = new SFX("Desaparecer");
 		public static readonly SFX Dialogo = new SFX("Dialogo");
+		public static readonly SFX DialogoPiedra = new SFX("DialogoPiedra");
 	}
 }
 #endif

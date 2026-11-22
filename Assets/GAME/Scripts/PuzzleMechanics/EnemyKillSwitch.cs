@@ -32,7 +32,8 @@ public class EnemyKillSwitch : ASwitch
 
         if (deadEnemies >= enemies.Length)
         {
-            Toggle();
+            if (IsOn) UpdateState();
+            else Toggle();
         }
     }
 

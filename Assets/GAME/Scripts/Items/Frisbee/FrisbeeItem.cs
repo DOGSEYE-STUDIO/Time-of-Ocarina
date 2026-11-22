@@ -5,10 +5,17 @@ using UnityEngine;
 public class FrisbeeItem : SpecialItem
 {
     [SerializeField] private GameObject frisbeePrefab;
+    [SerializeField] private GameObject frisbeeMejoradoPrefab;
     [SerializeField] private Transform spawnPoint;
 
     private bool isButtonHeld;
+    [SerializeField] private bool mejorado;
     private GameObject activeFrisbee;
+
+    public void Mejorar()
+    {
+        mejorado = true;
+    }
 
     public override void Use(Vector2 facingDirection)
     {
@@ -18,7 +25,7 @@ public class FrisbeeItem : SpecialItem
 
         new Sound(SFX.FrisbeeLanzar).SetOutput(Output.SFX).SetRandomPitch().Play();
 
-        activeFrisbee = Instantiate( frisbeePrefab, spawnPoint.position, Quaternion.identity);
+        activeFrisbee = Instantiate(mejorado ? frisbeeMejoradoPrefab : frisbeePrefab, spawnPoint.position, Quaternion.identity);
 
         FrisbeeProyectile projectile = activeFrisbee.GetComponent<FrisbeeProyectile>();
 

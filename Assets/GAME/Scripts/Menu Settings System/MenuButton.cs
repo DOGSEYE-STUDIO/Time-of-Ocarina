@@ -77,5 +77,13 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, ISubmitHandler, I
 
         transform.DOKill(true);
         transform.DOPunchScale(Vector3.one * -0.08f, 0.2f, 8, 0f).SetUpdate(true).SetLink(gameObject);
+
+        Image imagen = GetComponent<Image>();
+        if (imagen != null)
+        {
+            imagen.DOKill(true);
+            Color oscuro = new Color(imagen.color.r * 0.6f, imagen.color.g * 0.6f, imagen.color.b * 0.6f, imagen.color.a);
+            imagen.DOColor(oscuro, 0.08f).SetLoops(2, LoopType.Yoyo).SetUpdate(true).SetLink(gameObject);
+        }
     }
 }

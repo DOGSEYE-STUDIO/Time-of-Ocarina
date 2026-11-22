@@ -152,6 +152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8328140056174233226}
+  - {fileID: 4671755207483466586}
   m_Father: {fileID: 1056122668588003251}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &645449365866566334
@@ -1332,7 +1333,6 @@ Transform:
   - {fileID: 8948994068352073393}
   - {fileID: 2669624805504372219}
   - {fileID: 4604782447960374319}
-  - {fileID: 4671755207483466586}
   m_Father: {fileID: 1056122668588003251}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3762017663263825852
@@ -10660,7 +10660,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7545921245718902301}
+    m_TransformParent: {fileID: 8763909572177830493}
     m_Modifications:
     - target: {fileID: 2303946062596619841, guid: d9d085d974236df4dbe918389820b001, type: 3}
       propertyPath: dialogue

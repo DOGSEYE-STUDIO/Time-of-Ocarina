@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrisbeeItem
   frisbeePrefab: {fileID: 2012480338750978384, guid: b8cc5a364ad70094dae251cdecfa4e68, type: 3}
+  frisbeeMejoradoPrefab: {fileID: 2012480338750978384, guid: 1471d4655e9592b4ba998c648c023c5d, type: 3}
   spawnPoint: {fileID: 6557790004181602357}
 --- !u!82 &1636421865126667644
 AudioSource:
@@ -1062,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b817bbc080b34e44b5930f3b72b4baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpecial
-  EquippedItem: {fileID: 4546971146039744595}
+  EquippedItem: {fileID: 0}
 --- !u!114 &3481526028564962117
 MonoBehaviour:
   m_ObjectHideFlags: 0

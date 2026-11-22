@@ -8,6 +8,8 @@ public class FrisbeeProyectile : MonoBehaviour
 {
     public event Action OnReturned;
 
+    [SerializeField] private bool mejorado;
+
     private float speed = 15f;
     private float outboundDistance = 5f;
     private float pauseDuration = 0.5f;
@@ -51,6 +53,12 @@ public class FrisbeeProyectile : MonoBehaviour
         outboundSequence.Append(transform.DOMove(targetPosition, outboundDuration) .SetEase(Ease.Linear) );
         outboundSequence.OnComplete(() =>
         {
+            if (!mejorado)
+            {
+                isReturning = true;
+                return;
+            }
+
             pauseStartedAt = Time.time;
             isWaitingToReturn = true;
         });
