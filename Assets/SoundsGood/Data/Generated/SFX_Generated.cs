@@ -39,6 +39,8 @@ namespace MelenitasDev.SoundsGood
 		public static readonly SFX Caida = new SFX("Caida");
 		public static readonly SFX Portazo = new SFX("Portazo");
 		public static readonly SFX Acierto = new SFX("Acierto");
+		public static readonly SFX HotbarAbrir = new SFX("HotbarAbrir");
+		public static readonly SFX HotbarCerrar = new SFX("HotbarCerrar");
 	}
 }
 #endif

@@ -225,3 +225,13 @@ MonoBehaviour:
     - {fileID: 8300000, guid: fff94294453f44040a04517dfdddd5d8, type: 3}
     compressionPreset: 1
     forceToMono: 0
+  - tag: HotbarAbrir
+    clips:
+    - {fileID: 8300000, guid: a0cf0421f5e70ad45912d00594d305b4, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: HotbarCerrar
+    clips:
+    - {fileID: 8300000, guid: 4be35fbd08c2edc4eb141be1bc1b2978, type: 3}
+    compressionPreset: 1
+    forceToMono: 0

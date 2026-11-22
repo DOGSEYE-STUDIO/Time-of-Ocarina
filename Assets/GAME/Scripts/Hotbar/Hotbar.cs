@@ -1,4 +1,5 @@
 using System;
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,6 +33,7 @@ public class Hotbar : MonoBehaviour
         {
             IsOpen = !IsOpen;
             if (!IsOpen) Selected = 0;
+            new Sound(IsOpen ? SFX.HotbarAbrir : SFX.HotbarCerrar).SetOutput(Output.SFX).Play();
             Avisar();
         }
 
