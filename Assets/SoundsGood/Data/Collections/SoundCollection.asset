@@ -235,3 +235,20 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4be35fbd08c2edc4eb141be1bc1b2978, type: 3}
     compressionPreset: 1
     forceToMono: 0
+  - tag: SaltoRana
+    clips:
+    - {fileID: 8300000, guid: f6dd835f2af922d4d9984ee3dcfa1188, type: 3}
+    - {fileID: 8300000, guid: d42d36cbb8a0c594ab2e4a0f8ec4b290, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Alerta
+    clips:
+    - {fileID: 8300000, guid: c2ea123b54f74d74c8f9e8802a9e8eca, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Choque
+    clips:
+    - {fileID: 8300000, guid: 5c73d41be2a639846971d16b31e88320, type: 3}
+    - {fileID: 8300000, guid: 2e2266eff6fca964f8a81bb6210ce1b2, type: 3}
+    compressionPreset: 1
+    forceToMono: 0

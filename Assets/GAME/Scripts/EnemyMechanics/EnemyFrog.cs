@@ -3,6 +3,7 @@ using BehaviourAPI.Core.Actions;
 using BehaviourAPI.Core.Perceptions;
 using BehaviourAPI.StateMachines;
 using BehaviourAPI.UnityToolkit;
+using DG.Tweening;
 using MelenitasDev.SoundsGood;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class EnemyFrog : EnemyBase
     [SerializeField] private Sprite[] _framesSalto;
     [SerializeField] private Sprite[] _framesMuerte;
     [SerializeField] private float _duracionFrameMuerte = 0.08f;
+    [SerializeField] private GameObject _poof;
 
     private FSM _fsmRana;
     private FSM _fsmActivo;
@@ -100,6 +102,7 @@ public class EnemyFrog : EnemyBase
     {
         _rb.linearVelocity = Vector2.zero;
         _visual.sprite = _framesSalto[0];
+        Escalar(Vector3.one, 0f);
     }
 
     private void ApuntarEntrar()
@@ -132,11 +135,15 @@ public class EnemyFrog : EnemyBase
         }
 
         _visual.sprite = _framesSalto[1];
+        _visual.transform.DOKill();
+        _visual.transform.DOScale(new Vector3(1.2f, 0.8f, 1f), _tiempoApuntando * 0.8f).SetEase(Ease.OutQuad);
     }
 
     private void SaltarEntrar()
     {
         _tiempoSaltando = 0f;
+        new Sound(SFX.SaltoRana).SetOutput(Output.SFX).SetRandomPitch().Play();
+        Escalar(new Vector3(0.8f, 1.25f, 1f), 0.2f);
     }
 
     private Status SaltarActualizar()
@@ -158,10 +165,13 @@ public class EnemyFrog : EnemyBase
         new Sound(SFX.AterrizajeRana).SetOutput(Output.SFX).SetRandomPitch().Play();
         _rb.linearVelocity = Vector2.zero;
         _visual.sprite = _framesSalto[0];
+        Escalar(new Vector3(1.25f, 0.8f, 1f), 0.15f);
+        Polvo(0.5f);
     }
 
     private void AturdidoEntrar()
     {
+        Escalar(Vector3.one, 0f);
         _rb.linearVelocity = Vector2.zero;
         _visual.color = _colorAturdida;
         _aturdida = true;
@@ -187,6 +197,7 @@ public class EnemyFrog : EnemyBase
 
         if (frame >= _framesMuerte.Length)
         {
+            Polvo(1f);
             base.Die();
             return Status.Success;
         }
@@ -194,5 +205,19 @@ public class EnemyFrog : EnemyBase
         _visual.sprite = _framesMuerte[frame];
         _tiempoMuriendo += Time.deltaTime;
         return Status.Running;
+    }
+
+    private void Escalar(Vector3 desde, float tiempo)
+    {
+        _visual.transform.DOKill();
+        _visual.transform.localScale = desde;
+        if (tiempo > 0f) _visual.transform.DOScale(1f, tiempo).SetEase(Ease.OutQuad);
+    }
+
+    private void Polvo(float tamaño)
+    {
+        if (_poof == null) return;
+        GameObject polvo = Instantiate(_poof, transform.position, Quaternion.identity);
+        polvo.transform.localScale = Vector3.one * tamaño;
     }
 }

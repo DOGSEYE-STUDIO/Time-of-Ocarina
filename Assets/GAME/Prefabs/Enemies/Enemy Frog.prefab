@@ -152,6 +152,7 @@ MonoBehaviour:
   - {fileID: 2972546949804219116, guid: bca117bf317ad5e4394a2bbc10c7a541, type: 3}
   - {fileID: -4192503864080734555, guid: bca117bf317ad5e4394a2bbc10c7a541, type: 3}
   _duracionFrameMuerte: 0.08
+  _poof: {fileID: 3922907185297753138, guid: f65dade26d88ca3469b9d3d5465ab46f, type: 3}
 --- !u!114 &893469267357023316
 MonoBehaviour:
   m_ObjectHideFlags: 0
