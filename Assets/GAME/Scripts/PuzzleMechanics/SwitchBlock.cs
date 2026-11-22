@@ -1,4 +1,5 @@
-
+using DG.Tweening;
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class SwitchBlock : MonoBehaviour
@@ -22,11 +23,27 @@ public class SwitchBlock : MonoBehaviour
 
         UpdateBlock(targetSwitch.IsOn);
         targetSwitch.OnStateChanged += UpdateBlock;
+        _listo = true;
     }
+
+    private static int _frameSonido;
+    private bool _listo;
 
     private void UpdateBlock(bool isOn)
     {
         bool shouldBeActive = blockColor == BlockColor.Red ? !isOn : isOn;
+
+        if (_listo)
+        {
+            transform.DOKill(true);
+            transform.DOPunchScale(new Vector3(0.15f, -0.15f, 0f), 0.25f, 6, 0.5f);
+
+            if (_frameSonido != Time.frameCount)
+            {
+                _frameSonido = Time.frameCount;
+                new Sound(SFX.Bloque).SetOutput(Output.SFX).Play();
+            }
+        }
 
         if (animator != null)
         {

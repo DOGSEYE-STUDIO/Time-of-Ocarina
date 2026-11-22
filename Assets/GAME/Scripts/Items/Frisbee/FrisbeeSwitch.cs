@@ -11,7 +11,10 @@ public class FrisbeeSwitch : AFrisbeeInteractable
 
     public override void OnFrisbeeHit()
     {
-        if (switchController != null)
+        if (switchController != null && switchController.CanToggle)
+        {
             switchController.Toggle();
+            switchController.Sacudir();
+        }
     }
 }

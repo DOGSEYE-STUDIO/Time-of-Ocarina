@@ -1,4 +1,5 @@
 using DG.Tweening;
+using MelenitasDev.SoundsGood;
 using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -42,6 +43,8 @@ public class PushableObject : APlayerInteractable
             {
                 rb.position = target;
                 isMoving = false;
+                new Sound(SFX.Empujar).SetOutput(Output.SFX).Play();
+                Temblor.Camara(transform.position, 0.05f);
 
                 onComplete?.Invoke();
             });

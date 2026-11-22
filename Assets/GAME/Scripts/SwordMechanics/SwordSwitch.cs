@@ -11,7 +11,10 @@ public class SwordSwitch : ASwordInteractable
 
     public override void OnSwordHit()
     {
-        if (switchController != null)
+        if (switchController != null && switchController.CanToggle)
+        {
             switchController.Toggle();
+            switchController.Sacudir();
+        }
     }
 }

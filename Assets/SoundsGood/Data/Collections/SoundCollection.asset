@@ -178,3 +178,50 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2bffe29a20c48494ba0e832b4fdd7857, type: 3}
     compressionPreset: 1
     forceToMono: 1
+  - tag: Interruptor
+    clips:
+    - {fileID: 8300000, guid: 35a2216a80899644c938b2ec1b08cdeb, type: 3}
+    - {fileID: 8300000, guid: 66dc5f51d0490ee489c4041a4fb29bea, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Bloque
+    clips:
+    - {fileID: 8300000, guid: 2b58b1ae79306174c93154f2a9d52955, type: 3}
+    - {fileID: 8300000, guid: 8e78a96c959abd9439f2894ffa339a12, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: PlacaPisar
+    clips:
+    - {fileID: 8300000, guid: 1c338fda0b729d44bba044c73957e8e7, type: 3}
+    - {fileID: 8300000, guid: e334a7e7c195a004db234f7622f52ad6, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: PlacaSoltar
+    clips:
+    - {fileID: 8300000, guid: d1a46e11bab123c4cabb627aa3b34c4a, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Empujar
+    clips:
+    - {fileID: 8300000, guid: b7be424d509276b40947727395b53c65, type: 3}
+    - {fileID: 8300000, guid: 97f9c7f95c6150946b4517990d0be45a, type: 3}
+    - {fileID: 8300000, guid: 2e8c0ef893974e44dbf58fbb8ca5e1d8, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Caida
+    clips:
+    - {fileID: 8300000, guid: 6b1b9cf2b332fa2428a06558619072fc, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Portazo
+    clips:
+    - {fileID: 8300000, guid: edc5b1b365d73594ca7cb5228a256586, type: 3}
+    - {fileID: 8300000, guid: a7f2b50ab2c75bb4fa892f1faeb6c205, type: 3}
+    - {fileID: 8300000, guid: 7ebb57ffc2eefd54cb5f3e95bdaa9b64, type: 3}
+    compressionPreset: 1
+    forceToMono: 0
+  - tag: Acierto
+    clips:
+    - {fileID: 8300000, guid: fff94294453f44040a04517dfdddd5d8, type: 3}
+    compressionPreset: 1
+    forceToMono: 0

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class SwitchSpawn : MonoBehaviour
@@ -27,6 +28,7 @@ public class SwitchSpawn : MonoBehaviour
 
     private void SpawnObjects(bool isOn)
     {
+        if (isOn && objectsToSpawn.Length > 0) new Sound(SFX.Acierto).SetOutput(Output.SFX).Play();
         foreach (var obj in objectsToDespawn) obj.SetActive(!isOn);
         seq?.Kill();
         seq = DOTween.Sequence();

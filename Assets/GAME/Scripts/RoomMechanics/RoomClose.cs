@@ -1,3 +1,4 @@
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class RoomClose : MonoBehaviour
@@ -10,6 +11,8 @@ public class RoomClose : MonoBehaviour
             return;
 
         targetSwitch.Toggle();
+        new Sound(SFX.Portazo).SetOutput(Output.SFX).Play();
+        Temblor.Camara(transform.position, 0.2f);
 
         GetComponent<Collider2D>().enabled = false;
     }

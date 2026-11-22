@@ -31,6 +31,14 @@ namespace MelenitasDev.SoundsGood
 		public static readonly SFX AterrizajeRana = new SFX("AterrizajeRana");
 		public static readonly SFX Cerradura = new SFX("Cerradura");
 		public static readonly SFX Destello = new SFX("Destello");
+		public static readonly SFX Interruptor = new SFX("Interruptor");
+		public static readonly SFX Bloque = new SFX("Bloque");
+		public static readonly SFX PlacaPisar = new SFX("PlacaPisar");
+		public static readonly SFX PlacaSoltar = new SFX("PlacaSoltar");
+		public static readonly SFX Empujar = new SFX("Empujar");
+		public static readonly SFX Caida = new SFX("Caida");
+		public static readonly SFX Portazo = new SFX("Portazo");
+		public static readonly SFX Acierto = new SFX("Acierto");
 	}
 }
 #endif

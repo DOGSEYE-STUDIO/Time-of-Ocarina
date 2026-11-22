@@ -1,3 +1,4 @@
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class PressurePlate : ASwitch
@@ -13,6 +14,7 @@ public class PressurePlate : ASwitch
             IsOn = true;
             UpdateState();
             UpdateSprite();
+            new Sound(SFX.PlacaPisar).SetOutput(Output.SFX).Play();
         }
     }
 
@@ -22,6 +24,7 @@ public class PressurePlate : ASwitch
 
         if (other.gameObject.CompareTag("Player") || pushable != null)
         {
+            if (IsOn) new Sound(SFX.PlacaSoltar).SetOutput(Output.SFX).Play();
             IsOn = false;
             UpdateState();
             UpdateSprite();

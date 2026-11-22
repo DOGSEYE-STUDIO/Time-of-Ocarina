@@ -1,4 +1,6 @@
 using System;
+using DG.Tweening;
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public abstract class ASwitch : MonoBehaviour
@@ -29,6 +31,14 @@ public abstract class ASwitch : MonoBehaviour
         IsOn = !IsOn;
         UpdateSprite();
         UpdateState();
+    }
+
+    public void Sacudir()
+    {
+        new Sound(SFX.Interruptor).SetOutput(Output.SFX).Play();
+        transform.DOKill(true);
+        transform.DOPunchScale(new Vector3(0.2f, -0.2f, 0f), 0.2f, 6, 0.5f);
+        Temblor.Camara(transform.position, 0.03f);
     }
 
     protected void FinishToggle()

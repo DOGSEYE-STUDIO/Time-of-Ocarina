@@ -325,9 +325,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.07812501
+    x: 0.078125
     y: 0
-    width: 0.84375006
+    width: 0.84375
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -3067,6 +3067,7 @@ GameObject:
   - component: {fileID: 1143007448}
   - component: {fileID: 1143007447}
   - component: {fileID: 1143007446}
+  - component: {fileID: 1143007450}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -3163,6 +3164,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1143007450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143007445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseListener
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1001 &1165133354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3267,7 +3292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
       propertyPath: m_Size.y
-      value: 19.20169
+      value: 5.3606634
       objectReference: {fileID: 0}
     - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
       propertyPath: m_Offset.x
@@ -3275,7 +3300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5749158715814603303, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
       propertyPath: m_Offset.y
-      value: 7.1615677
+      value: 0.24105501
       objectReference: {fileID: 0}
     - target: {fileID: 8874335494426641498, guid: 2e5b11c7f1c09e64dacf2d5fabff4964, type: 3}
       propertyPath: m_LocalPosition.x
