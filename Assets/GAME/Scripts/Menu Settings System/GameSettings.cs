@@ -132,6 +132,7 @@ public class GameSettings : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        SoundsGoodManager.StopAllMusic(0f);
         EnablePostProcessing();
     }
 
