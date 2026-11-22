@@ -505,10 +505,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0.025
-    width: 0.33333334
-    height: 0.3950617
+    x: 0.07812501
+    y: 0
+    width: 0.84375006
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 34
@@ -538,7 +538,7 @@ Transform:
   m_GameObject: {fileID: 375826194}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.295, y: 24.2625, z: -10}
+  m_LocalPosition: {x: -19.8925, y: 24.0125, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4225,7 +4225,7 @@ Transform:
   m_GameObject: {fileID: 1143007445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.295, y: 24.2625, z: -10}
+  m_LocalPosition: {x: -19.8925, y: 24.0125, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5098,11 +5098,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8086380635566217233, guid: 0df5f9d6360d337498b6a28718c2c8ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.295
+      value: -19.8925
       objectReference: {fileID: 0}
     - target: {fileID: 8086380635566217233, guid: 0df5f9d6360d337498b6a28718c2c8ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.2625
+      value: 24.0125
       objectReference: {fileID: 0}
     - target: {fileID: 8086380635566217233, guid: 0df5f9d6360d337498b6a28718c2c8ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31287,9 +31287,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2052162652059047357, guid: e39a24abf4d6ea241b008d90adc6e017, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4726852448925633628, guid: e39a24abf4d6ea241b008d90adc6e017, type: 3}
       propertyPath: m_Name
       value: DungeonInteractables
+      objectReference: {fileID: 0}
+    - target: {fileID: 7161312926857628727, guid: e39a24abf4d6ea241b008d90adc6e017, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
