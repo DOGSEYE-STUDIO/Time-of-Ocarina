@@ -1,5 +1,6 @@
 using DG.Tweening;
 using DG.Tweening.Core.Easing;
+using MelenitasDev.SoundsGood;
 using System;
 using System.Collections;
 using TMPro;
@@ -240,9 +241,9 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.maxVisibleCharacters++;
 
-            if (currentChar != null && i % 2 == 0 && currentChar.sound != null)
+            if (currentChar != null && i % 2 == 0 && char.IsLetterOrDigit(dialogueText.text[i]))
             {
-                // Sonido
+                new Sound(SFX.Dialogo).SetOutput(Output.SFX).SetPitch(currentChar.tono * UnityEngine.Random.Range(0.9f, 1.1f)).Play();
             }
 
             yield return new WaitForSeconds(textSpeed);

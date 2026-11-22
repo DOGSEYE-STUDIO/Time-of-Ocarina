@@ -36,6 +36,8 @@ public class Door : APlayerInteractable
         boxCollider.enabled = !isOn;
         onDoorChange?.Invoke(isOn);
 
+        if (isOn && Time.timeSinceLevelLoad > 0.5f) new Sound(SFX.PuertaAbrir).SetOutput(Output.SFX).Play();
+
         if (isOn) sprite.DOLocalMoveY(spriteStart + 1, 0.3f);
         else sprite.DOLocalMoveY(spriteStart, 0.3f);
     }

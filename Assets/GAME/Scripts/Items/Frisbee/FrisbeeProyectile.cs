@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
+using MelenitasDev.SoundsGood;
 
 public class FrisbeeProyectile : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class FrisbeeProyectile : MonoBehaviour
 
     private float pauseStartedAt;
 
+    private Sound _sonidoVuelo;
+
     public void Launch(Vector2 direction, Transform playerTransform)
     {
         player = playerTransform;
@@ -34,6 +37,9 @@ public class FrisbeeProyectile : MonoBehaviour
         isWaitingToReturn = false;
         isReturning = false;
         hasReturned = false;
+
+        _sonidoVuelo = new Sound(SFX.FrisbeeVuelo).SetOutput(Output.SFX).SetLoop(true);
+        _sonidoVuelo.Play(0.3f);
 
         float outboundDuration = outboundDistance / speed;
 
@@ -116,6 +122,7 @@ public class FrisbeeProyectile : MonoBehaviour
     private void OnDestroy()
     {
         outboundSequence?.Kill();
+        _sonidoVuelo?.Stop(0.1f);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

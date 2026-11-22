@@ -32,7 +32,7 @@ public class Chest : APlayerInteractable
         }, false);
 
         _opened = true;
-        new Sound(SFX.Cerradura).SetOutput(Output.SFX).Play();
+        new Sound(SFX.ChestOpen).SetOutput(Output.SFX).Play();
         _renderer.transform.DOPunchScale(new Vector3(0.2f, -0.2f, 0f), 0.3f, 6, 0.5f);
         if (_openSprite != null) _renderer.sprite = _openSprite;
     }

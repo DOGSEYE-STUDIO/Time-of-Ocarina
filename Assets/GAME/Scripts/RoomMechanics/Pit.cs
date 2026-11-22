@@ -27,6 +27,7 @@ public class Pit : MonoBehaviour
     {
         other.transform.position = respawn.respawnPosition;
         PlayerController.Instance.ResumePlayer();
+        other.GetComponent<PlayerHealth>().TakeDamage(1, other.transform.position);
 
         SpriteRenderer sprite = other.GetComponentInChildren<SpriteRenderer>();
         sprite.DOKill(true);

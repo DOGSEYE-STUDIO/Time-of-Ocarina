@@ -1,4 +1,5 @@
 
+using MelenitasDev.SoundsGood;
 using UnityEngine;
 
 public class FrisbeeItem : SpecialItem
@@ -15,8 +16,7 @@ public class FrisbeeItem : SpecialItem
         if (frisbeePrefab == null || spawnPoint == null) return;
         if (PlayerController.Instance == null) return;
 
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
+        new Sound(SFX.FrisbeeLanzar).SetOutput(Output.SFX).SetRandomPitch().Play();
 
         activeFrisbee = Instantiate( frisbeePrefab, spawnPoint.position, Quaternion.identity);
 

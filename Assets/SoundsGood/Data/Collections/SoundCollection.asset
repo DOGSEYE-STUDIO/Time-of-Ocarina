@@ -41,12 +41,15 @@ MonoBehaviour:
     forceToMono: 1
   - tag: ChestOpen
     clips:
-    - {fileID: 8300000, guid: 16e89c535fc76465eb13606cb2c2a039, type: 3}
+    - {fileID: 8300000, guid: 1ec84527e81029346a4fea09fa54b328, type: 3}
     compressionPreset: 1
     forceToMono: 1
   - tag: VaseBreak
     clips:
-    - {fileID: 8300000, guid: 876f70b03d1d7443287c0369542a7c0f, type: 3}
+    - {fileID: 8300000, guid: dea49024bc38bb44eb83234c548590f6, type: 3}
+    - {fileID: 8300000, guid: c0463f01be944c64bab35c38999976f1, type: 3}
+    - {fileID: 8300000, guid: 6f105c982d579444b88bb2aca3d1ce0a, type: 3}
+    - {fileID: 8300000, guid: 91c141898a0e1a1408d261b12812fc74, type: 3}
     compressionPreset: 1
     forceToMono: 1
   - tag: HeartPickup
@@ -116,24 +119,23 @@ MonoBehaviour:
     forceToMono: 0
   - tag: MenuMove
     clips:
-    - {fileID: 8300000, guid: 308d21a707489bd49b4646dd26474576, type: 3}
-    - {fileID: 8300000, guid: 5f29426e4fbd4a24394ca5b8928cedf7, type: 3}
-    - {fileID: 8300000, guid: fc4e579fb8dedfa4eb7f56788dd529a8, type: 3}
-    - {fileID: 8300000, guid: 62e4d39bf6a1cd94a906b7edb2cb059c, type: 3}
-    - {fileID: 8300000, guid: 463e7b2519959c24293fb76c0ddae462, type: 3}
+    - {fileID: 8300000, guid: c61d4b0a6865dcd4cbb7e24eeda4f3a7, type: 3}
+    - {fileID: 8300000, guid: 68823d1d0d979cc4ea94a55e5ecaed8c, type: 3}
+    - {fileID: 8300000, guid: 01996b906d1af7f4ba7a04a4c8f99a52, type: 3}
+    - {fileID: 8300000, guid: 900023edbb8ab9a44beb6e68a4122c99, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: MenuConfirm
     clips:
-    - {fileID: 8300000, guid: 212526c649851f441a85c4780c1f19ae, type: 3}
-    - {fileID: 8300000, guid: 026f371aa4b2ca24a98a7b16d0c8bb64, type: 3}
-    - {fileID: 8300000, guid: 4bfdebf2c93aa6949a898943ac67078e, type: 3}
-    - {fileID: 8300000, guid: ff4b93122aa121544aaa9b385fe2a276, type: 3}
+    - {fileID: 8300000, guid: 49aaeb9f2d16259478da9c57c1235b3c, type: 3}
+    - {fileID: 8300000, guid: 0bf910ddfeb4508429db029c812425c0, type: 3}
+    - {fileID: 8300000, guid: a7c727e2e25fb4b42ab0c191db79c79f, type: 3}
+    - {fileID: 8300000, guid: 57eca8ea820961745984d5940cea6e87, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: MenuStart
     clips:
-    - {fileID: 8300000, guid: 2c75c2ec4230a0e4cb32a5d1958c9e01, type: 3}
+    - {fileID: 8300000, guid: 682c7972c0691d6408f3016ed16a6c36, type: 3}
     compressionPreset: 1
     forceToMono: 0
   - tag: Pasos
@@ -252,3 +254,54 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2e2266eff6fca964f8a81bb6210ce1b2, type: 3}
     compressionPreset: 1
     forceToMono: 0
+  - tag: FrisbeeLanzar
+    clips:
+    - {fileID: 8300000, guid: 64fb6b34403fccf43abc621a3bc5e7ab, type: 3}
+    - {fileID: 8300000, guid: 4200332e0d17ecb4b885b8b134180986, type: 3}
+    - {fileID: 8300000, guid: 710c11a89797c9147b2be99884c1beff, type: 3}
+    - {fileID: 8300000, guid: f70df8c6040db8e4c8667da129104275, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: FrisbeeVuelo
+    clips:
+    - {fileID: 8300000, guid: d7e7e77d2ae882545be50b838e673035, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: PuertaAbrir
+    clips:
+    - {fileID: 8300000, guid: 6ed6a017cf860db48b41d082f3368a53, type: 3}
+    - {fileID: 8300000, guid: c93010b58d3e0914eb501c0269ca28be, type: 3}
+    - {fileID: 8300000, guid: d2551d8d86dd1ac44afc67f1e8f4984a, type: 3}
+    - {fileID: 8300000, guid: 0ef32a8e3224d8b4dabe436808787557, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: Aparecer
+    clips:
+    - {fileID: 8300000, guid: c1b678d8ad33e70469845a016cf0c7e6, type: 3}
+    - {fileID: 8300000, guid: b109b62396aea1a4cb58181d4b47d3ac, type: 3}
+    - {fileID: 8300000, guid: 2d68b843aaa75394dbf4ec607f63cc44, type: 3}
+    - {fileID: 8300000, guid: 878ece5980a6f6a4da6546f96a783850, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: Desaparecer
+    clips:
+    - {fileID: 8300000, guid: be58872033990f748b080b0888aa6af8, type: 3}
+    - {fileID: 8300000, guid: 293267102743e9f49942b70a286e4e4d, type: 3}
+    - {fileID: 8300000, guid: debdbf3bead372644bcc39eeb319ef97, type: 3}
+    - {fileID: 8300000, guid: 0e3b95d6ab32846498ef7b0b37770bd7, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: Dialogo
+    clips:
+    - {fileID: 8300000, guid: 80bb8a92348b0cc42b753e0b4d9636d0, type: 3}
+    - {fileID: 8300000, guid: b15d84cf1920abc46a63d511ec18a8fa, type: 3}
+    - {fileID: 8300000, guid: 804d8847e4f65134bb8fceb230c47f4b, type: 3}
+    - {fileID: 8300000, guid: 8e91ad7e3ac12a641958828abb99d4f5, type: 3}
+    - {fileID: 8300000, guid: 1a8d8b7af67f82041a7c65dfadfc4e3b, type: 3}
+    - {fileID: 8300000, guid: a21010c229a286a439fae2eeb21cc8e1, type: 3}
+    - {fileID: 8300000, guid: a6a5a29e2e863ae4cbfcf982af3b3ea1, type: 3}
+    - {fileID: 8300000, guid: e3fd4721ada458c4a80b097f9d13aa5a, type: 3}
+    - {fileID: 8300000, guid: 30a3bedc5766cc149adb0fc80b854f1d, type: 3}
+    - {fileID: 8300000, guid: f3e09e4b4b8c1284cb49723fe95f2f85, type: 3}
+    compressionPreset: 1
+    forceToMono: 1

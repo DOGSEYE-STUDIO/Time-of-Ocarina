@@ -30,6 +30,8 @@ public class SwitchSpawn : MonoBehaviour
     {
         if (isOn && targetSwitch is EnemyKillSwitch sala && !sala.Completado) return;
         if (isOn && objectsToSpawn.Length > 0) new Sound(SFX.Acierto).SetOutput(Output.SFX).Play();
+        if (objectsToSpawn.Length > 0) new Sound(isOn ? SFX.Aparecer : SFX.Desaparecer).SetOutput(Output.SFX).SetRandomPitch().Play();
+        if (objectsToDespawn.Length > 0) new Sound(isOn ? SFX.Desaparecer : SFX.Aparecer).SetOutput(Output.SFX).SetRandomPitch().Play();
         foreach (var obj in objectsToDespawn) obj.SetActive(!isOn);
         seq?.Kill();
         seq = DOTween.Sequence();

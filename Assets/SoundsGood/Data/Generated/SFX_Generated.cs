@@ -44,6 +44,12 @@ namespace MelenitasDev.SoundsGood
 		public static readonly SFX SaltoRana = new SFX("SaltoRana");
 		public static readonly SFX Alerta = new SFX("Alerta");
 		public static readonly SFX Choque = new SFX("Choque");
+		public static readonly SFX FrisbeeLanzar = new SFX("FrisbeeLanzar");
+		public static readonly SFX FrisbeeVuelo = new SFX("FrisbeeVuelo");
+		public static readonly SFX PuertaAbrir = new SFX("PuertaAbrir");
+		public static readonly SFX Aparecer = new SFX("Aparecer");
+		public static readonly SFX Desaparecer = new SFX("Desaparecer");
+		public static readonly SFX Dialogo = new SFX("Dialogo");
 	}
 }
 #endif
