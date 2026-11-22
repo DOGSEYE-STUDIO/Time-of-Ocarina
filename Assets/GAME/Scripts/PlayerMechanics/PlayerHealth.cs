@@ -59,6 +59,13 @@ public class PlayerHealth : MonoBehaviour
         if (_hitFeedback != null) _hitFeedback.PlayFeedbacks();
     }
 
+    public void Revivir()
+    {
+        CurrentHealth = _maxHealth;
+        _knockbackTimer = 0f;
+        _invulnerableUntil = Time.time + _invulnerableTime;
+    }
+
     public void Heal(int amount)
     {
         CurrentHealth = Mathf.Min(CurrentHealth + amount, _maxHealth);

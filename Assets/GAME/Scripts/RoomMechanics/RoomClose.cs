@@ -16,4 +16,13 @@ public class RoomClose : MonoBehaviour
 
         GetComponent<Collider2D>().enabled = false;
     }
+
+    public void Reabrir()
+    {
+        Collider2D trigger = GetComponent<Collider2D>();
+        if (trigger.enabled || targetSwitch.IsOn) return;
+
+        targetSwitch.Toggle();
+        trigger.enabled = true;
+    }
 }

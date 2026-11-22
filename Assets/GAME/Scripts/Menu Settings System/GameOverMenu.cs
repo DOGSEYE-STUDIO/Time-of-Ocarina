@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -24,6 +25,9 @@ public class GameOverMenu : MonoBehaviour
     private Image _fondo;
     private RectTransform _contenido;
     private Transform _titulo;
+    private Vector3 _inicioJugador;
+    private List<EnemyBase> _enemigos = new List<EnemyBase>();
+    private List<EnemyBase> _plantillas = new List<EnemyBase>();
 
     public static GameOverMenu Instance { get; private set; }
     public bool IsGameOver { get; private set; }
@@ -61,8 +65,21 @@ public class GameOverMenu : MonoBehaviour
         _vineta.raycastTarget = false;
         _vineta.gameObject.SetActive(false);
 
+        foreach (EnemyBase enemigo in FindObjectsByType<EnemyBase>(FindObjectsSortMode.None))
+        {
+            enemigo.gameObject.SetActive(false);
+            _plantillas.Add(Instantiate(enemigo, enemigo.transform.position, enemigo.transform.rotation));
+            _enemigos.Add(enemigo);
+            enemigo.gameObject.SetActive(true);
+        }
+
         _retryButton.onClick.AddListener(Retry);
         _menuButton.onClick.AddListener(GoToMenu);
+    }
+
+    private void Start()
+    {
+        _inicioJugador = PlayerController.Instance.transform.position;
     }
 
     private void Update()
@@ -76,6 +93,8 @@ public class GameOverMenu : MonoBehaviour
         PlayerController.Instance.StopPlayer();
         Time.timeScale = 0.3f;
 
+        _vineta.type = Image.Type.Simple;
+        _vineta.pixelsPerUnitMultiplier = 1f;
         _vineta.gameObject.SetActive(true);
         DOVirtual.Int(0, _framesVineta.Length - 1, _tiempoCamaraLenta, frame => _vineta.sprite = _framesVineta[frame]).SetUpdate(true).SetLink(gameObject);
 
@@ -141,8 +160,64 @@ public class GameOverMenu : MonoBehaviour
 
     private void Retry()
     {
+        _panel.SetActive(false);
+        _titulo.DOKill();
+        EventSystem.current.SetSelectedGameObject(null);
+
+        _vineta.type = Image.Type.Tiled;
+        _vineta.pixelsPerUnitMultiplier = 0.125f;
+        _vineta.sprite = _framesFundido[_framesFundido.Length - 1];
+
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        IsGameOver = false;
+
+        Transform jugador = PlayerController.Instance.transform;
+        Rigidbody2D rb = jugador.GetComponent<Rigidbody2D>();
+        rb.DOKill();
+        rb.linearVelocity = Vector2.zero;
+        rb.position = _inicioJugador;
+        jugador.position = _inicioJugador;
+        jugador.GetComponent<PlayerHealth>().Revivir();
+        PlayerInventory.Instance.RemoveCoins(PlayerInventory.Instance.Coins);
+
+        ReaparecerEnemigos();
+        foreach (RoomClose sala in FindObjectsByType<RoomClose>(FindObjectsSortMode.None)) sala.Reabrir();
+
+        DOVirtual.Int(_framesFundido.Length - 1, 0, _duracionFundido, frame => _vineta.sprite = _framesFundido[frame])
+            .SetDelay(0.5f)
+            .OnStart(PlayerController.Instance.ResumePlayer)
+            .OnComplete(() => _vineta.gameObject.SetActive(false))
+            .SetLink(gameObject);
+    }
+
+    private void ReaparecerEnemigos()
+    {
+        EnemyKillSwitch[] interruptores = FindObjectsByType<EnemyKillSwitch>(FindObjectsSortMode.None);
+
+        for (int i = 0; i < _enemigos.Count; i++)
+        {
+            EnemyBase plantilla = _plantillas[i];
+
+            if (_enemigos[i] != null)
+            {
+                _enemigos[i].GetComponent<Rigidbody2D>().position = plantilla.transform.position;
+                _enemigos[i].transform.position = plantilla.transform.position;
+                continue;
+            }
+
+            EnemyKillSwitch suyo = null;
+            foreach (EnemyKillSwitch interruptor in interruptores)
+            {
+                if (interruptor.Controla(_enemigos[i])) suyo = interruptor;
+            }
+
+            if (suyo != null && suyo.Completado) continue;
+
+            EnemyBase nuevo = Instantiate(plantilla, plantilla.transform.position, plantilla.transform.rotation);
+            nuevo.gameObject.SetActive(true);
+            if (suyo != null) suyo.Sustituir(_enemigos[i], nuevo);
+            _enemigos[i] = nuevo;
+        }
     }
 
     private void GoToMenu()

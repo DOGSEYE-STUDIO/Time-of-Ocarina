@@ -135,8 +135,7 @@ public class EnemyFrog : EnemyBase
         }
 
         _visual.sprite = _framesSalto[1];
-        _visual.transform.DOKill();
-        _visual.transform.DOScale(new Vector3(1.2f, 0.8f, 1f), _tiempoApuntando * 0.8f).SetEase(Ease.OutQuad);
+        Escalar(Vector3.one, 0f);
     }
 
     private void SaltarEntrar()
@@ -166,7 +165,7 @@ public class EnemyFrog : EnemyBase
         _rb.linearVelocity = Vector2.zero;
         _visual.sprite = _framesSalto[0];
         Escalar(new Vector3(1.25f, 0.8f, 1f), 0.15f);
-        Polvo(0.5f);
+        Polvo(transform.position - (Vector3)_direccionSalto * 0.5f + Vector3.down * 0.65f, 0.5f);
     }
 
     private void AturdidoEntrar()
@@ -197,7 +196,7 @@ public class EnemyFrog : EnemyBase
 
         if (frame >= _framesMuerte.Length)
         {
-            Polvo(1f);
+            Polvo(transform.position, 1f);
             base.Die();
             return Status.Success;
         }
@@ -214,10 +213,10 @@ public class EnemyFrog : EnemyBase
         if (tiempo > 0f) _visual.transform.DOScale(1f, tiempo).SetEase(Ease.OutQuad);
     }
 
-    private void Polvo(float tamaño)
+    private void Polvo(Vector3 posicion, float tamaño)
     {
         if (_poof == null) return;
-        GameObject polvo = Instantiate(_poof, transform.position, Quaternion.identity);
+        GameObject polvo = Instantiate(_poof, posicion, Quaternion.identity);
         polvo.transform.localScale = Vector3.one * tamaño;
     }
 }
