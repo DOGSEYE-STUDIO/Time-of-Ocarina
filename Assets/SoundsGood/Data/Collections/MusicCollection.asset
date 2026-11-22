@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8fb88ad88530994d99ab8985aa6bf88, type: 3}
   m_Name: MusicCollection
   m_EditorClassIdentifier: 
-  musicTracks: []
+  musicTracks:
+  - tag: CodaDungeon
+    clips:
+    - {fileID: 8300000, guid: ecdeac1c3de299f4098e76869908daf7, type: 3}
+    compressionPreset: 0
+    forceToMono: 0
