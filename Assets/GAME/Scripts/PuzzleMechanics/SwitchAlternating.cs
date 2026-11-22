@@ -18,6 +18,7 @@ public class SwitchAlternating : ASwitch
         animator.SetBool("azul", isOn);
         animatorTop.SetBool("azul", isOn);
 
+        CanToggle = false;
         StartCoroutine(WaitForAnimation());
     }
 

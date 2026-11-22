@@ -22,6 +22,7 @@ public class Hotbar : MonoBehaviour
     private void Update()
     {
         if (Time.timeScale == 0f) return;
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueOpen()) return;
 
         Keyboard keyboard = Keyboard.current;
         Mouse mouse = Mouse.current;

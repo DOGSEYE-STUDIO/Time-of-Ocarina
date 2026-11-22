@@ -26,8 +26,9 @@ public class Pit : MonoBehaviour
     private void Respawn(Collider2D other)
     {
         other.transform.position = respawn.respawnPosition;
+        other.attachedRigidbody.position = respawn.respawnPosition;
         PlayerController.Instance.ResumePlayer();
-        other.GetComponent<PlayerHealth>().TakeDamage(1, other.transform.position);
+        other.GetComponent<PlayerHealth>().TakeDamage(1, other.attachedRigidbody.position);
 
         SpriteRenderer sprite = other.GetComponentInChildren<SpriteRenderer>();
         sprite.DOKill(true);

@@ -44,7 +44,7 @@ public class Door : APlayerInteractable
 
     public override void OnPlayerInteract()
     {
-        if (isLocked && PlayerInventory.Instance.HasKey())
+        if (isLocked && !isBossDoor && PlayerInventory.Instance.HasKey())
         {
             new Sound(SFX.Cerradura).SetOutput(Output.SFX).Play();
             Instantiate(poof, sprite.position, sprite.rotation);
@@ -64,6 +64,7 @@ public class Door : APlayerInteractable
             new Sound(SFX.Cerradura).SetOutput(Output.SFX).Play();
             Destellar();
             UpdateDoor(true);
+            if (VictoryMenu.Instance != null) DOVirtual.DelayedCall(1f, VictoryMenu.Instance.Show).SetLink(gameObject);
             return;
         }
     }

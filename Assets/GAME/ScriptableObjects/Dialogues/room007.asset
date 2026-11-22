@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: room007
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - text: hola verga hola
+  - text: Esto es un cofre
     character: {fileID: 0}
   nextDialogue: {fileID: 0}

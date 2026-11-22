@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a19b0d4b4ad67941b1db2e46451efe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
+  _nombre: una moneda
   _amount: 1
   _destello: {fileID: 5157926303637747282, guid: 1c510bae77a02ce4482f5f2edc65a57a, type: 3}
 --- !u!58 &6976488687697675691

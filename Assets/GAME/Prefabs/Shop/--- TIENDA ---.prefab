@@ -887,6 +887,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopKeeper
   _shop: {fileID: 3278634936249953639}
+  _dialogoSaludo: {fileID: 11400000, guid: 3aec9836f47a5434cb2329bb96bfcc8a, type: 2}
+  _dialogoGracias: {fileID: 11400000, guid: cbebd19cc10275a44aeec284d0ea2938, type: 2}
+  _dialogoSinDinero: {fileID: 11400000, guid: d3d4d580b27922e43954462d7ba4d61a, type: 2}
+  _dialogoSinHueco: {fileID: 11400000, guid: 0a2436f9d2c455441a0a6b330f99f41b, type: 2}
 --- !u!61 &3699307205133491321
 BoxCollider2D:
   m_ObjectHideFlags: 0

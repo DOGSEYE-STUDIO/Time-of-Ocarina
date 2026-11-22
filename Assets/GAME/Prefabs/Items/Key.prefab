@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a75eebcc785a614aaced8d636991483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key
+  _nombre: una llave
   isBossKey: 0
 --- !u!61 &5160039717425469342
 BoxCollider2D:

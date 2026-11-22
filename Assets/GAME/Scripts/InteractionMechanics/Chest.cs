@@ -29,8 +29,14 @@ public class Chest : APlayerInteractable
             APickable item = Instantiate(_itemPrefab, _spawnPoint.position, Quaternion.identity);
             item.GetComponent<Collider2D>().enabled = false;
             if (_brillo != null) Instantiate(_brillo, item.transform);
-            _dialogueData.lines[0].onNext += () => GiveItem(item);
-            DialogueManager.Instance.StartDialogue(_dialogueData);
+            DialogueData dialogo = Instantiate(_dialogueData);
+            foreach (DialogueManager.DialogueLine linea in dialogo.lines)
+            {
+                linea.text = linea.text.Replace("{ITEM}", item.Nombre);
+            }
+
+            dialogo.lines[0].onNext += () => GiveItem(item);
+            DialogueManager.Instance.StartDialogue(dialogo);
         }, false);
 
         _opened = true;

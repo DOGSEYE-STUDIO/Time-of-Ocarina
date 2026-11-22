@@ -130,6 +130,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueData dialogueData)
     {
+        if (dialogueData == null || dialogueData.lines == null || dialogueData.lines.Length == 0) return;
+
         PlayerController.Instance.StopPlayer();
 
         Camera mainCamera = Camera.main;

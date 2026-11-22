@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7765be9ce7889f641aee28efbd43a3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeartPickup
+  _nombre: "un coraz\xF3n"
   _amount: 2
   _destello: {fileID: 5157926303637747282, guid: 1c510bae77a02ce4482f5f2edc65a57a, type: 3}
 --- !u!114 &8458406977385154991
