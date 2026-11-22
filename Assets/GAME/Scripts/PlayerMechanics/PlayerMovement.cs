@@ -191,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
                 hit.transform.IsChildOf(ignoredObject))
                 continue;
 
-            if (hit.GetComponent<PressurePlate>() != null)
+            if (hit.GetComponent<PressurePlate>() != null || hit.gameObject.CompareTag("CameraTrigger"))
                 continue;
 
             return false;

@@ -69,7 +69,7 @@ public class PushableObject : APlayerInteractable
 
             if (hit.transform == PlayerController.Instance.transform || hit.transform.IsChildOf(PlayerController.Instance.transform)) continue;
 
-            if (hit.gameObject.GetComponent<PressurePlate>() != null) continue;
+            if (hit.gameObject.GetComponent<PressurePlate>() != null || hit.gameObject.CompareTag("CameraTrigger")) continue;
 
             return false;
         }
