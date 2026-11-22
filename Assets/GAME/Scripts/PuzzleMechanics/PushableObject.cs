@@ -1,6 +1,7 @@
-using UnityEngine;
 using DG.Tweening;
 using System;
+using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PushableObject : APlayerInteractable
 {
@@ -14,12 +15,12 @@ public class PushableObject : APlayerInteractable
 
     private int pixelsPerUnit = 16;
 
+    public override string ActionText { get { return "Empujar"; } }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-
-    public override string ActionText { get { return ""; } }
 
     public override void OnPlayerInteract() {}
 
