@@ -39,7 +39,10 @@ public abstract class ASwitch : MonoBehaviour
     protected void UpdateSprite()
     {
         if (spriteRenderer == null)
+        {
+            FinishToggle();
             return;
+        }
 
         spriteRenderer.sprite = IsOn ? onSprite : offSprite;
 
