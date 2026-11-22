@@ -188,7 +188,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.84375}
+  m_Offset: {x: 0, y: 0.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -198,7 +198,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.75, y: 1.6875}
+  m_Size: {x: 2.75, y: 1.975}
   m_EdgeRadius: 0
 --- !u!114 &6648160813304258044
 MonoBehaviour:
@@ -216,7 +216,10 @@ MonoBehaviour:
   isBossDoor: 1
   poof: {fileID: 3922907185297753138, guid: f65dade26d88ca3469b9d3d5465ab46f, type: 3}
   sprite: {fileID: 3549675690612275130}
+  _destello: {fileID: 0}
   targetSwitch: {fileID: 0}
+  invertir: 0
+  _dialogoCerrada: {fileID: 11400000, guid: 1d37c44f63fc0c24fb7d794f804eea90, type: 2}
 --- !u!1 &6083303524609405895
 GameObject:
   m_ObjectHideFlags: 0

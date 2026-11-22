@@ -653,7 +653,7 @@ Transform:
   m_GameObject: {fileID: 375826194}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.18, y: 24.88, z: -10}
+  m_LocalPosition: {x: 38.59, y: 41.14, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5220,7 +5220,7 @@ Transform:
   m_GameObject: {fileID: 1143007445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.18, y: 24.88, z: -10}
+  m_LocalPosition: {x: 38.59, y: 41.14, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6417,11 +6417,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8086380635566217233, guid: 0df5f9d6360d337498b6a28718c2c8ab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.18
+      value: 38.59
       objectReference: {fileID: 0}
     - target: {fileID: 8086380635566217233, guid: 0df5f9d6360d337498b6a28718c2c8ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.88
+      value: 41.14
       objectReference: {fileID: 0}
     - target: {fileID: 8086380635566217233, guid: 0df5f9d6360d337498b6a28718c2c8ab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70943,6 +70943,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8280603942362521467, guid: e0910bbc0837fe549a7634eda4fdd37b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8793091731030648694, guid: e0910bbc0837fe549a7634eda4fdd37b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -71052,6 +71056,14 @@ PrefabInstance:
       propertyPath: _itemPrefab
       value: 
       objectReference: {fileID: 1841904195516935388, guid: 44314605d948c8b4c9b904986facd947, type: 3}
+    - target: {fileID: 8456930127516081574, guid: e39a24abf4d6ea241b008d90adc6e017, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897176445244802172, guid: e39a24abf4d6ea241b008d90adc6e017, type: 3}
+      propertyPath: _dialogoCerrada
+      value: 
+      objectReference: {fileID: 11400000, guid: 1843163419ca3ee469b573c461fad324, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6698120803792629998, guid: e39a24abf4d6ea241b008d90adc6e017, type: 3}

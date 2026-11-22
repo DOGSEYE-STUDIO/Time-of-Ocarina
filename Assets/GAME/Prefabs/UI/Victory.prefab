@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Has conseguido el mapa legendario
+  m_text: "Has abierto la puerta del jefe.\nLa batalla final llegar\xE1 pr\xF3ximamente."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b03fd666cf055dd4ab704a6059a9e332, type: 2}
   m_sharedMaterial: {fileID: -1703460974317049479, guid: b03fd666cf055dd4ab704a6059a9e332, type: 2}

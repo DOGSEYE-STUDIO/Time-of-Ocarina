@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23dce3dc4e2470d4eab1c76b9abd63bb, type: 3}
   m_Name: SoundsGoodRuntimeData
   m_EditorClassIdentifier: SoundsGood.Domain::MelenitasDev.SoundsGood.Domain.SoundsGoodRuntimeData
-  soundDataCollection: {fileID: 0}
-  musicDataCollection: {fileID: 0}
-  outputDataCollection: {fileID: 0}
-  effectDataCollection: {fileID: 0}
-  occlusionMaterialCollection: {fileID: 0}
-  masterAudioMixer: {fileID: 0}
-  sfxEnum: {fileID: 0}
-  tracksEnum: {fileID: 0}
-  outputsEnum: {fileID: 0}
-  effectsEnum: {fileID: 0}
-  occlusionMaterialsEnum: {fileID: 0}
+  soundDataCollection: {fileID: 11400000, guid: 8e79d229e109de24da5ebd1a26ed74f7, type: 2}
+  musicDataCollection: {fileID: 11400000, guid: e72549c6bf649c84190eaf3d03e6bddf, type: 2}
+  outputDataCollection: {fileID: 11400000, guid: a11641f916cf5ca4bbf137fe48ee8bbb, type: 2}
+  effectDataCollection: {fileID: 11400000, guid: 8f8811b58e656f846b1ffa1b05bed315, type: 2}
+  occlusionMaterialCollection: {fileID: 11400000, guid: 5353903fd7744244bb7b7342c706d21c, type: 2}
+  masterAudioMixer: {fileID: 24100000, guid: 51ce72122b09d324cb319c0a9eb03be1, type: 2}
+  sfxEnum: {fileID: 11500000, guid: adf6b56e7a0d79040a3bc6d5e40199e9, type: 3}
+  tracksEnum: {fileID: 11500000, guid: cf523e7dbbe7c9341b8ff3949fa469e3, type: 3}
+  outputsEnum: {fileID: 11500000, guid: 9d24e6bed296f41448b68ccaf08891b6, type: 3}
+  effectsEnum: {fileID: 11500000, guid: eb426145a73df2a46982f85f92167a8d, type: 3}
+  occlusionMaterialsEnum: {fileID: 11500000, guid: 61159af3da46d2448a585b26c9ba9557, type: 3}

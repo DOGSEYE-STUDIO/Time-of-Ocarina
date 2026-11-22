@@ -18,6 +18,7 @@ public class Door : APlayerInteractable
 
     [SerializeField] private ASwitch targetSwitch;
     [SerializeField] private bool invertir;
+    [SerializeField] private DialogueData _dialogoCerrada;
 
     public event Action<bool> onDoorChange;
 
@@ -53,6 +54,7 @@ public class Door : APlayerInteractable
     {
         if (isLocked && !isBossDoor && PlayerInventory.Instance.HasKey())
         {
+            isLocked = false;
             new Sound(SFX.Cerradura).SetOutput(Output.SFX).Play();
             Instantiate(poof, sprite.position, sprite.rotation);
             Sequence seq = DOTween.Sequence();
@@ -68,12 +70,15 @@ public class Door : APlayerInteractable
 
         if (isBossDoor && isLocked && PlayerInventory.Instance.HasBossKey)
         {
+            isLocked = false;
             new Sound(SFX.Cerradura).SetOutput(Output.SFX).Play();
             Destellar();
             UpdateDoor(true);
             if (VictoryMenu.Instance != null) DOVirtual.DelayedCall(1f, VictoryMenu.Instance.Show).SetLink(gameObject);
             return;
         }
+
+        if (isLocked) DialogueManager.Instance.StartDialogue(_dialogoCerrada);
     }
 
     private void Destellar()
