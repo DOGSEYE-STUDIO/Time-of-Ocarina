@@ -327,6 +327,7 @@ MonoBehaviour:
   isBossDoor: 0
   poof: {fileID: 3922907185297753138, guid: f65dade26d88ca3469b9d3d5465ab46f, type: 3}
   sprite: {fileID: 4104380703176307147}
+  _destello: {fileID: 1638743278300893742, guid: fe3e3268f61583a4198297efbfe509b2, type: 3}
   targetSwitch: {fileID: 0}
 --- !u!1 &6083303524609405895
 GameObject:

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using MelenitasDev.SoundsGood;
 using System;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class Door : APlayerInteractable
 
     [SerializeField] private GameObject poof;
     [SerializeField] private Transform sprite;
+    [SerializeField] private GameObject _destello;
 
     private float spriteStart;
 
@@ -42,11 +44,13 @@ public class Door : APlayerInteractable
     {
         if (isLocked && PlayerInventory.Instance.HasKey())
         {
+            new Sound(SFX.Cerradura).SetOutput(Output.SFX).Play();
             Instantiate(poof, sprite.position, sprite.rotation);
             Sequence seq = DOTween.Sequence();
             seq.AppendInterval(0.1f);
             seq.AppendCallback(() =>
             {
+                Destellar();
                 UpdateDoor(true);
                 PlayerInventory.Instance.RemoveKey();
             });
@@ -55,8 +59,16 @@ public class Door : APlayerInteractable
 
         if (isBossDoor && isLocked && PlayerInventory.Instance.HasBossKey)
         {
+            new Sound(SFX.Cerradura).SetOutput(Output.SFX).Play();
+            Destellar();
             UpdateDoor(true);
             return;
         }
+    }
+
+    private void Destellar()
+    {
+        new Sound(SFX.Destello).SetOutput(Output.SFX).Play();
+        if (_destello != null) Instantiate(_destello, sprite.position, Quaternion.identity);
     }
 }

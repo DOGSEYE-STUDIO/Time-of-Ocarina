@@ -29,6 +29,8 @@ namespace MelenitasDev.SoundsGood
 		public static readonly SFX AturdirTambor = new SFX("AturdirTambor");
 		public static readonly SFX MuerteEnemigo = new SFX("MuerteEnemigo");
 		public static readonly SFX AterrizajeRana = new SFX("AterrizajeRana");
+		public static readonly SFX Cerradura = new SFX("Cerradura");
+		public static readonly SFX Destello = new SFX("Destello");
 	}
 }
 #endif

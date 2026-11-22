@@ -42,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
+            new Sound(SFX.hit).SetOutput(Output.SFX).Play();
             GameOverMenu.Instance.Show();
             return;
         }

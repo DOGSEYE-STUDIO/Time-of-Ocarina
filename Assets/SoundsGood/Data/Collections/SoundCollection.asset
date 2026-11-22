@@ -166,3 +166,15 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3be9a38bd5fcf68489db003b83f62b9b, type: 3}
     compressionPreset: 1
     forceToMono: 0
+  - tag: Cerradura
+    clips:
+    - {fileID: 8300000, guid: ea9e4d796983fde4e82a37ceab7926b2, type: 3}
+    compressionPreset: 1
+    forceToMono: 1
+  - tag: Destello
+    clips:
+    - {fileID: 8300000, guid: e760c9b5d4609af4696f6912f0834da7, type: 3}
+    - {fileID: 8300000, guid: db087e5ab9ba61440a2cc56eda4a3ab0, type: 3}
+    - {fileID: 8300000, guid: 2bffe29a20c48494ba0e832b4fdd7857, type: 3}
+    compressionPreset: 1
+    forceToMono: 1

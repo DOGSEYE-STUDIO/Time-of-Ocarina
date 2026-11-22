@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   _amount: 1
+  _destello: {fileID: 5157926303637747282, guid: 1c510bae77a02ce4482f5f2edc65a57a, type: 3}
 --- !u!58 &6976488687697675691
 CircleCollider2D:
   m_ObjectHideFlags: 0

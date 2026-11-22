@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeartPickup
   _amount: 2
+  _destello: {fileID: 5157926303637747282, guid: 1c510bae77a02ce4482f5f2edc65a57a, type: 3}
 --- !u!114 &8458406977385154991
 MonoBehaviour:
   m_ObjectHideFlags: 0

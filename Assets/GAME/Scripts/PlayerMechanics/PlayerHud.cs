@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class PlayerHud : MonoBehaviour
     private Hotbar _hotbar;
     private bool[] _wasFull;
     private float[] _deadTime;
+    private int _monedasAntes;
 
     private void Start()
     {
@@ -34,6 +36,8 @@ public class PlayerHud : MonoBehaviour
             _wasFull[i] = i < _health.CurrentHealth;
             _deadTime[i] = -1f;
         }
+
+        _monedasAntes = PlayerInventory.Instance.Coins;
     }
 
     private void Update()
@@ -44,6 +48,7 @@ public class PlayerHud : MonoBehaviour
 
             if (full)
             {
+                if (!_wasFull[i]) Rebotar(_hearts[i].transform);
                 _deadTime[i] = -1f;
                 _hearts[i].sprite = _idleHeartFrames[(int)(Time.time * _heartFps) % _idleHeartFrames.Length];
             }
@@ -67,6 +72,12 @@ public class PlayerHud : MonoBehaviour
             _wasFull[i] = full;
         }
 
+        if (PlayerInventory.Instance.Coins != _monedasAntes)
+        {
+            _monedasAntes = PlayerInventory.Instance.Coins;
+            Rebotar(_coinsText.transform);
+        }
+
         _coinsText.text =PlayerInventory.Instance.Coins.ToString();
         _keysText.text = PlayerInventory.Instance.Keys.ToString();
         _bossKeyIcon.SetActive(PlayerInventory.Instance.HasBossKey);
@@ -83,5 +94,11 @@ public class PlayerHud : MonoBehaviour
             _actionText.text = interactable.ActionText;
             _actionIcon.sprite = _interactIcon;
         }
+    }
+
+    private void Rebotar(Transform objeto)
+    {
+        objeto.DOKill(true);
+        objeto.DOPunchScale(Vector3.one * 0.3f, 0.25f, 8, 0f);
     }
 }
