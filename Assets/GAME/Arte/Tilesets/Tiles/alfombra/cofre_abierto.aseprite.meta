@@ -129,11 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: cofre_abierto
     originalName: 
-<<<<<<< Updated upstream
     pivot: {x: 0.6956522, y: 0.36363637}
-=======
-    pivot: {x: 0.72727275, y: 0}
->>>>>>> Stashed changes
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -141,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 22
+      width: 23
       height: 22
-    spriteID: 8ea03dec4987899479d9e45b21482976
+    spriteID: 5d083e0ccde4af34ea0ea75c76952483
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -173,51 +169,15 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 22
+        width: 23
         height: 22
-      spriteId: 8ea03dec4987899479d9e45b21482976
+      spriteId: 5d083e0ccde4af34ea0ea75c76952483
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
     parentIndex: -1
   tileSets: []
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: WebGL
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
