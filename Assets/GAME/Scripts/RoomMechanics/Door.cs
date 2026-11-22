@@ -17,6 +17,7 @@ public class Door : APlayerInteractable
     private float spriteStart;
 
     [SerializeField] private ASwitch targetSwitch;
+    [SerializeField] private bool invertir;
 
     public event Action<bool> onDoorChange;
 
@@ -26,13 +27,19 @@ public class Door : APlayerInteractable
     {
         boxCollider = GetComponent<BoxCollider2D>();
 
-        if (!isLocked) targetSwitch.OnStateChanged += UpdateDoor;
-
         spriteStart = sprite.localPosition.y;
+
+        if (!isLocked)
+        {
+            targetSwitch.OnStateChanged += UpdateDoor;
+            UpdateDoor(targetSwitch.IsOn);
+        }
     }
 
     private void UpdateDoor(bool isOn)
     {
+        if (invertir) isOn = !isOn;
+
         boxCollider.enabled = !isOn;
         onDoorChange?.Invoke(isOn);
 
