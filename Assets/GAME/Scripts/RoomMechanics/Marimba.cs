@@ -7,6 +7,7 @@ public class Marimba : MonoBehaviour
     private enum Note { A, B, C, D, E, F, G }
 
     [SerializeField] private Transform sprite;
+    [SerializeField] private bool isVertical;
     private float originalY;
 
     [SerializeField] private Note note;
@@ -50,7 +51,7 @@ public class Marimba : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        sprite.DOMoveY(originalY - 1f/16f, 0);
+        if (!isVertical) sprite.DOMoveY(originalY - 1f/16f, 0);
 
         marimbaSound.Play();
     }
@@ -60,6 +61,6 @@ public class Marimba : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        sprite.DOMoveY(originalY, 0);
+        if (!isVertical) sprite.DOMoveY(originalY, 0);
     }
 }
