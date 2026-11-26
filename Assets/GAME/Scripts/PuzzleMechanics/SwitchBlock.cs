@@ -74,7 +74,7 @@ public class SwitchBlock : MonoBehaviour
             animator.SetBool("cerrado", shouldBeActive);
             animatorTop.SetBool("cerrado", shouldBeActive);
             animatorTop.GetComponent<SpriteRenderer>().enabled = shouldBeActive;
-            GetComponentInChildren<SpriteMask>().enabled = shouldBeActive;
+            
         }
 
         if (blockCollider != null)

@@ -506,6 +506,7 @@ MonoBehaviour:
   frisbeePrefab: {fileID: 2012480338750978384, guid: b8cc5a364ad70094dae251cdecfa4e68, type: 3}
   frisbeeMejoradoPrefab: {fileID: 2012480338750978384, guid: 1471d4655e9592b4ba998c648c023c5d, type: 3}
   spawnPoint: {fileID: 6557790004181602357}
+  mejorado: 0
 --- !u!82 &1636421865126667644
 AudioSource:
   m_ObjectHideFlags: 0
@@ -743,8 +744,8 @@ Transform:
   m_GameObject: {fileID: 4238340245034325014}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.0625, z: 0}
+  m_LocalScale: {x: 0.375, y: 1.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6494889557235341560}
@@ -925,7 +926,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.15625}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -935,7 +936,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9, y: 0.9}
+  m_Size: {x: 0.875, y: 0.6875}
   m_EdgeRadius: 0
 --- !u!50 &5775808867694515349
 Rigidbody2D:
@@ -1279,7 +1280,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0625}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1289,7 +1290,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.375, y: 1.125}
   m_EdgeRadius: 0
 --- !u!114 &7931860305973223149
 MonoBehaviour:
@@ -1304,7 +1305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordHitbox
   forwardOffset: 0.8
-  hitboxOffset: 0.8
+  hitboxOffset: 1
   DebugMode: 0
   debugSprite: {fileID: 504220504795245913}
 --- !u!1 &6826885269140865368
